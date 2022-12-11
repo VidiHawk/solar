@@ -7,8 +7,28 @@ import ShowFilter from "../../common/listing/ShowFilter";
 import SidebarListing2 from "../../common/listing/SidebarListing2";
 import PopupSignInUp from "../../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
+import { useEffect, useState } from "react";
+import Map from "./Map";
+import Script from "next/script";
 
 const index = () => {
+  // const [filteredPlaces, setFilteredPlaces] = useState([]);
+  const [coordinates, setCoordinates] = useState({ lat: 54.526, lng: 15.2551 });
+  const [bounds, setBounds] = useState(null);
+  // const [isLoading, setIsLoading] = useState(false);
+  const MY_API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+
+  useEffect(() => {
+    // get the users current location on initial session
+
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        console.log({ latitude, longitude });
+        setCoordinates({ lat: latitude, lng: longitude });
+      }
+    );
+  }, []);
+
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -19,6 +39,12 @@ const index = () => {
 
       {/* <!-- Modal --> */}
       <PopupSignInUp />
+
+      <Script>
+        <script
+          src={`https://maps.googleapis.com/maps/api/js?v=weekly&key=${MY_API_KEY}&map_id=58887c3f87185bbb`}
+        ></script>
+      </Script>
 
       {/* <!-- Listing Grid View --> */}
       <section
@@ -67,11 +93,13 @@ const index = () => {
 
               <div className="home_two_map style2 half_map_area">
                 <div className="gmap_canvas pe-none  map-canvas half_style">
-                  <iframe
+                  <Map
                     title="map"
-                    className="gmap_iframe"
-                    src="https://www.google.com/maps/d/embed?mid=1tJl0-uRax4AKBfbh1eLPLX5WzOk&hl=en&ehbc=2E312F"
-                  ></iframe>
+                    className="gmap"
+                    setCoordinates={setCoordinates}
+                    coordinates={coordinates}
+                    setBounds={setBounds}
+                  />
                 </div>
               </div>
             </div>
