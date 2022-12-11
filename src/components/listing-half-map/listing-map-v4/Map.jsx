@@ -14,16 +14,15 @@ const Map = ({ coordinates, setCoordinates, setBounds }) => {
       defaultCenter={{ lat: 54.526, lng: 15.2551 }}
       center={coordinates}
       defaultZoom={10}
-      // margin={[50, 50, 50, 50]}
       options={{ mapId: "58887c3f87185bbb" }}
       onChange={(e) => {
         setCoordinates({ lat: e.center.lat, lng: e.center.lng });
-        setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
+        // setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
       }}
-      onChildClick={(child) => {
-        setCardData(places[child]);
-        setIsCard(true);
-      }}
+      // onChildClick={(child) => {
+      //   setCardData(places[child]);
+      //   setIsCard(true);
+      // }}
     ></GoogleMapReact>
   );
 };

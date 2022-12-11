@@ -98,7 +98,7 @@ const index = () => {
                     className="gmap"
                     setCoordinates={setCoordinates}
                     coordinates={coordinates}
-                    setBounds={setBounds}
+                    // setBounds={setBounds}
                   />
                 </div>
               </div>
