@@ -343,7 +343,7 @@ const HeaderMenuContent = ({ float = "" }) => {
               : undefined
           }
         >
-          <span className="title">Property</span>{" "}
+          <span className="title">Generator</span>{" "}
           <span className="arrow"></span>
         </a>
         <ul className="sub-menu ">

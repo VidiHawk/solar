@@ -170,7 +170,7 @@ const FeaturedItem = () => {
               <Link href={`/listing-details-v1/${item.id}`}>
                 <a className="fp_price">
                   ${item.price}
-                  <small>/mo</small>
+                  <small>million</small>
                 </a>
               </Link>
             </div>
