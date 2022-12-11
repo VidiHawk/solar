@@ -45,7 +45,6 @@ const index = () => {
           src={`https://maps.googleapis.com/maps/api/js?v=weekly&key=${MY_API_KEY}&map_id=58887c3f87185bbb`}
         ></script>
       </Script>
-
       {/* <!-- Listing Grid View --> */}
       <section
         id="feature-property"
@@ -92,7 +91,7 @@ const index = () => {
               {/* filter switch */}
 
               <div className="home_two_map style2 half_map_area">
-                <div className="gmap_canvas pe-none  map-canvas half_style">
+                <div className="gmap_canvas map-canvas half_style">
                   <Map
                     title="map"
                     className="gmap"
