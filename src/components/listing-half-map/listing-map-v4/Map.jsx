@@ -3,10 +3,12 @@
 
 import React, { useState } from "react";
 import GoogleMapReact from "google-map-react";
+import { OverlayView } from "react-google-maps";
 
 const Map = ({ coordinates, setCoordinates, setBounds }) => {
   const [isCard, setIsCard] = useState(false);
   const [cardData, setCardData] = useState(null);
+
   return (
     <GoogleMapReact
       bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_API_KEY }}
@@ -17,13 +19,10 @@ const Map = ({ coordinates, setCoordinates, setBounds }) => {
       options={{ mapId: "58887c3f87185bbb" }}
       onChange={(e) => {
         setCoordinates({ lat: e.center.lat, lng: e.center.lng });
-        // setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
       }}
-      // onChildClick={(child) => {
-      //   setCardData(places[child]);
-      //   setIsCard(true);
-      // }}
-    ></GoogleMapReact>
+    >
+      {/* <Marker position={{ lat: 18.52043, lng: 73.856743 }} /> */}
+    </GoogleMapReact>
   );
 };
 

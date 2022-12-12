@@ -2,7 +2,7 @@ module.exports = [
   {
     id: 1,
     img: "/assets/images/property/fp1.jpg",
-    price: "13000",
+    price: "9.6",
     type: "Solar",
     title: "Refurbished solar generator",
     location: `1421 San Pedro
@@ -48,7 +48,7 @@ St, Los Angeles, CA 900015`,
   {
     id: 2,
     img: "/assets/images/property/fp2.jpg",
-    price: "14000",
+    price: "4.1",
     type: "Hydro",
     title: "Recently connected power plant",
     location: `1421 San Pedro
@@ -94,7 +94,7 @@ St, Los Angeles, CA 900015`,
   {
     id: 3,
     img: "/assets/images/property/fp3.jpg",
-    price: "13000",
+    price: "6.8",
     type: "Hydro",
     title: "New generator",
     location: `1421 San Pedro
@@ -140,7 +140,7 @@ St, Los Angeles, CA 900015`,
   {
     id: 4,
     img: "/assets/images/property/fp15.jpg",
-    price: "11000",
+    price: "4.5",
     type: "Wind",
     title: "1st class power plant",
     location: `1421 San Pedro
@@ -186,7 +186,7 @@ St, Los Angeles, CA 900015`,
   {
     id: 5,
     img: "/assets/images/property/fp16.jpg",
-    price: "17000",
+    price: "2.9",
     type: "Land",
     title: "Shovel ready",
     location: `1421 San Pedro
@@ -231,7 +231,7 @@ St, Los Angeles, CA 900015`,
   {
     id: 6,
     img: "/assets/images/property/fp17.jpg",
-    price: "16000",
+    price: "5.2",
     type: "New generator",
     title: "High yield power plant",
     location: `1421 San Pedro
@@ -276,7 +276,7 @@ St, Los Angeles, CA 900015`,
   {
     id: 7,
     img: "/assets/images/property/fp18.jpg",
-    price: "15000",
+    price: "3.6",
     type: "Solar",
     title: "Just connected to the grid",
     location: `1421 San Pedro
@@ -321,7 +321,7 @@ St, Los Angeles, CA 900015`,
   {
     id: 8,
     img: "/assets/images/property/fp19.jpg",
-    price: "12000",
+    price: "1.8",
     type: "Solar",
     title: "High yield power plant",
     location: `1421 San Pedro

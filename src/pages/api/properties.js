@@ -323,7 +323,7 @@ export default function handler(req, res) {
       {
         id: 8,
         img: "/assets/images/property/fp19.jpg",
-        price: "12000",
+        price: "77777",
         type: "Condo",
         title: "Gorgeous Villa Bay View",
         location: `1421 San Pedro
