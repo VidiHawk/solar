@@ -7,20 +7,52 @@ import ShowFilter from "../../common/listing/ShowFilter";
 import SidebarListing2 from "../../common/listing/SidebarListing2";
 import PopupSignInUp from "../../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
-import { useEffect, useState } from "react";
-import Map from "./Map";
+import React, { useEffect, useState } from "react";
+// import Map from "./Map";
 import Script from "next/script";
+import GoogleMapReact from "google-map-react";
+import useSupercluster from "use-supercluster";
+import useSwr from "swr"; // can get ridden off later
+
+const fetcher = (...args) => fetch(...args).then((response) => response.json());
+
+const Marker = ({ children }) => children;
 
 const index = () => {
-  // const [filteredPlaces, setFilteredPlaces] = useState([]);
-  const [coordinates, setCoordinates] = useState({ lat: 54.526, lng: 15.2551 });
+  const [coordinates, setCoordinates] = useState({ lat: 53.342, lng: -6.235 });
+  const [zoom, setZoom] = useState(10);
   const [bounds, setBounds] = useState(null);
-  // const [isLoading, setIsLoading] = useState(false);
   const MY_API_KEY = process.env.NEXT_PUBLIC_API_KEY;
+
+  //**** */
+  // const mapRef = useRef();
+  const url =
+    "https://data.police.uk/api/crimes-street/all-crime?poly=52.268,0.543:52.794,0.238:52.130,0.478&date=2020-01";
+  const { data, error } = useSwr(url, { fetcher });
+  const crimes = data && !error ? data.slice(0, 2000) : [];
+  const points = crimes.map((crime) => ({
+    type: "Feature",
+    properties: { cluster: false, crimeId: crime.id, category: crime.category },
+    geometry: {
+      type: "Point",
+      coordinates: [
+        parseFloat(crime.location.longitude),
+        parseFloat(crime.location.latitude),
+      ],
+    },
+  }));
+
+  const { clusters, supercluster } = useSupercluster({
+    points,
+    bounds,
+    zoom,
+    options: { radius: 75, maxZoom: 20 },
+  });
+
+  //**** */
 
   useEffect(() => {
     // get the users current location on initial session
-
     navigator.geolocation.getCurrentPosition(
       ({ coords: { latitude, longitude } }) => {
         console.log({ latitude, longitude });
@@ -92,13 +124,95 @@ const index = () => {
 
               <div className="home_two_map style2 half_map_area">
                 <div className="gmap_canvas map-canvas half_style">
-                  <Map
+                  {/* <Map
                     title="map"
                     className="gmap"
                     setCoordinates={setCoordinates}
                     coordinates={coordinates}
-                    // setBounds={setBounds}
-                  />
+                    setBounds={setBounds}
+                    mapRef={mapRef}
+                    zoom={zoom}
+                    bounds={bounds}
+                  /> */}
+                  <GoogleMapReact
+                    bootstrapURLKeys={{ key: MY_API_KEY }}
+                    defaultCenter={{ lat: 53.342, lng: -6.235 }}
+                    center={coordinates}
+                    defaultZoom={10}
+                    options={{ mapId: "58887c3f87185bbb" }}
+                    yesIWantToUseGoogleMapApiInternals
+                    // onGoogleApiLoaded={({ map }) => {
+                    //   mapRef.current = map;
+                    // }}
+                    // onChange={(e) => {
+                    //   setCoordinates({ lat: e.center.lat, lng: e.center.lng });
+                    // }}
+                    onChange={({ zoom, bounds }) => {
+                      setZoom(zoom);
+                      setBounds([
+                        bounds.nw.lng,
+                        bounds.se.lat,
+                        bounds.se.lng,
+                        bounds.nw.lat,
+                      ]);
+                    }}
+                  >
+                    {clusters.map((cluster) => {
+                      const [longitude, latitude] =
+                        cluster.geometry.coordinates;
+                      const { cluster: isCluster, point_count: pointCount } =
+                        cluster.properties;
+
+                      if (isCluster) {
+                        return (
+                          <Marker
+                            key={`cluster-${cluster.id}`}
+                            lat={latitude}
+                            lng={longitude}
+                          >
+                            <div
+                              className="cluster-marker"
+                              style={{
+                                width: `${
+                                  10 + (pointCount / points.length) * 20
+                                }px`,
+                                height: `${
+                                  10 + (pointCount / points.length) * 20
+                                }px`,
+                              }}
+                              onClick={() => {
+                                const expansionZoom = Math.min(
+                                  supercluster.getClusterExpansionZoom(
+                                    cluster.id
+                                  ),
+                                  20
+                                );
+                                mapRef.current.setZoom(expansionZoom);
+                                mapRef.current.panTo({
+                                  lat: latitude,
+                                  lng: longitude,
+                                });
+                              }}
+                            >
+                              {pointCount}
+                            </div>
+                          </Marker>
+                        );
+                      }
+
+                      return (
+                        <Marker
+                          key={`crime-${cluster.properties.crimeId}`}
+                          lat={latitude}
+                          lng={longitude}
+                        >
+                          <button className="crime-marker">
+                            <img src="/custody.svg" alt="crime doesn't pay" />
+                          </button>
+                        </Marker>
+                      );
+                    })}
+                  </GoogleMapReact>
                 </div>
               </div>
             </div>

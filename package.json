@@ -28,6 +28,9 @@
     "react-slick": "^0.29.0",
     "sass": "^1.54.9",
     "slick-carousel": "^1.8.1",
+    "supercluster": "^7.1.5",
+    "swr": "^2.0.0",
+    "use-supercluster": "^0.4.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
