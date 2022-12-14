@@ -15,12 +15,13 @@ import Script from "next/script";
 import GoogleMapReact from "google-map-react";
 import useSupercluster from "use-supercluster";
 import useSwr from "swr"; // excellent API fetching library
-import testData from "./testData.json";
+// import generatorData from "./global_power_plant_database.json";
+import generatorData from "./testData.json";
 
 const Marker = ({ children }) => children;
 
 const index = () => {
-  const [coordinates, setCoordinates] = useState({ lat: 52.382, lng: 0.51 }); // Dublin lat: 53.342, lng: -6.235
+  const [coordinates, setCoordinates] = useState({ lat: 53.342, lng: -6.235 });
   const [zoom, setZoom] = useState(10);
   const [bounds, setBounds] = useState(null);
   const MY_API_KEY = process.env.NEXT_PUBLIC_API_KEY;
@@ -33,7 +34,7 @@ const index = () => {
   // const generators = data && !error ? data.slice(0, 2000) : [];
   // console.log("data: ", generators);
 
-  const points = testData.map((generator) => ({
+  const points = generatorData.map((generator) => ({
     type: "Feature",
     properties: {
       cluster: false,
@@ -58,15 +59,15 @@ const index = () => {
 
   //**** */
 
-  useEffect(() => {
-    // get the users current location on initial session
-    navigator.geolocation.getCurrentPosition(
-      ({ coords: { latitude, longitude } }) => {
-        console.log({ latitude, longitude });
-        setCoordinates({ lat: latitude, lng: longitude });
-      }
-    );
-  }, []);
+  // useEffect(() => {
+  //   // get the users current location on initial session
+  //   navigator.geolocation.getCurrentPosition(
+  //     ({ coords: { latitude, longitude } }) => {
+  //       console.log({ latitude, longitude });
+  //       setCoordinates({ lat: latitude, lng: longitude });
+  //     }
+  //   );
+  // }, []);
 
   return (
     <>
@@ -204,7 +205,10 @@ const index = () => {
                           lng={longitude}
                         >
                           <button className="generator-marker">
-                            <img src="/custody.svg" alt="crime doesn't pay" />
+                            <img
+                              src="/assets/images/energy-icon.svg"
+                              alt="generator location"
+                            />
                           </button>
                         </Marker>
                       );

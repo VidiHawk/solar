@@ -1,6 +1,7 @@
 
 # database for development purposes
-/public/global_power_plant_database.json
+src/components/listing-half-map/listing-map-v4/global_power_plant_database.json
+
 
 # dependencies
 /node_modules

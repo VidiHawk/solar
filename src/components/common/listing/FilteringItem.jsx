@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -52,21 +53,16 @@ const FilteringItem = () => {
 
   // advanced state
   const [getAdvanced, setAdvanced] = useState([
-    { id: uuidv4(), name: "Air Conditioning" },
-    { id: uuidv4(), name: "Barbeque" },
-    { id: uuidv4(), name: "Gym" },
-    { id: uuidv4(), name: "Microwave" },
-    { id: uuidv4(), name: "TV Cable" },
-    { id: uuidv4(), name: "Lawn" },
-    { id: uuidv4(), name: "Refrigerator" },
-    { id: uuidv4(), name: "Swimming Pool" },
-    { id: uuidv4(), name: "WiFi" },
-    { id: uuidv4(), name: "Sauna" },
-    { id: uuidv4(), name: "Dryer" },
-    { id: uuidv4(), name: "Washer" },
-    { id: uuidv4(), name: "Laundry" },
-    { id: uuidv4(), name: "Outdoor Shower" },
-    { id: uuidv4(), name: "Window Coverings" },
+    { id: uuidv4(), name: "Private PPA" },
+    { id: uuidv4(), name: "Public PPA" },
+    { id: uuidv4(), name: "PPA terminated" },
+    { id: uuidv4(), name: "PPA terminating within 5 years" },
+    { id: uuidv4(), name: "Substation owned" },
+    { id: uuidv4(), name: "Close to public substation" },
+    { id: uuidv4(), name: "SMA inverters" },
+    { id: uuidv4(), name: "Components out of warranty" },
+    { id: uuidv4(), name: "Close to populated areas" },
+    { id: uuidv4(), name: "Far from populated areas" },
   ]);
 
   const dispath = useDispatch();
@@ -216,12 +212,10 @@ const FilteringItem = () => {
               value={getStatus}
             >
               <option value="">Status</option>
-              <option value="apartment">Apartment</option>
-              <option value="bungalow">Bungalow</option>
-              <option value="condo">Condo</option>
-              <option value="house">House</option>
-              <option value="land">Land</option>
-              <option value="single family">Single Family</option>
+              <option value="for-sale">for sale</option>
+              <option value="sold">sold</option>
+              <option value="under-development">under development</option>
+              <option value="under-construction">under construction</option>
             </select>
           </div>
         </div>
@@ -236,13 +230,13 @@ const FilteringItem = () => {
               className="selectpicker w100 show-tick form-select"
               value={getPropertiesType}
             >
-              <option value="">Property Type</option>
-              <option value="apartment">Apartment</option>
-              <option value="bungalow">Bungalow</option>
-              <option value="condo">Condo</option>
-              <option value="house">House</option>
-              <option value="land">Land</option>
-              <option value="single family">Single Family</option>
+              <option value="">Generator Type</option>
+              <option value="solar">solar</option>
+              <option value="wind">wind</option>
+              <option value="hydro">hydro</option>
+              <option value="gas">gas</option>
+              <option value="nuclear">nuclear</option>
+              <option value="coal">coal</option>
             </select>
           </div>
         </div>
@@ -280,20 +274,20 @@ const FilteringItem = () => {
               className="selectpicker w100 show-tick form-select"
               value={getBathroom}
             >
-              <option value="">Bathrooms</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
+              <option value="">Capacity</option>
+              <option value="1">0 to 3 MWp</option>
+              <option value="2">3 to 10 MWp</option>
+              <option value="3">10 to 30 MWp</option>
+              <option value="4">30 to 100 MWp</option>
+              <option value="5">100 to 1000 MWp</option>
+              <option value="6">1 to 10 GWp</option>
             </select>
           </div>
         </div>
       </li>
       {/* End li */}
 
-      <li>
+      {/* <li>
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
@@ -311,10 +305,10 @@ const FilteringItem = () => {
             </select>
           </div>
         </div>
-      </li>
+      </li> */}
       {/* End li */}
 
-      <li>
+      {/* <li>
         <div className="search_option_two">
           <div className="candidate_revew_select">
             <select
@@ -329,7 +323,7 @@ const FilteringItem = () => {
             </select>
           </div>
         </div>
-      </li>
+      </li> */}
       {/* End li */}
 
       <li>
@@ -349,6 +343,8 @@ const FilteringItem = () => {
               <option value="2018">2018</option>
               <option value="2019">2019</option>
               <option value="2020">2020</option>
+              <option value="2021">2021</option>
+              <option value="2022">2022</option>
             </select>
           </div>
         </div>
