@@ -1,4 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# database for development purposes
+/public/global_power_plant_database.json
 
 # dependencies
 /node_modules

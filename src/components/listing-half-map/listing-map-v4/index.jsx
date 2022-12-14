@@ -1,3 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/no-sync-scripts */
+/* eslint-disable react-hooks/rules-of-hooks */
 import Pagination from "../../common/blog/Pagination";
 import Header from "../../common/header/DefaultHeader";
 import MobileMenu from "../../common/header/MobileMenu";
@@ -7,7 +10,7 @@ import ShowFilter from "../../common/listing/ShowFilter";
 import SidebarListing2 from "../../common/listing/SidebarListing2";
 import PopupSignInUp from "../../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // import Map from "./Map";
 import Script from "next/script";
 import GoogleMapReact from "google-map-react";
@@ -19,13 +22,13 @@ const fetcher = (...args) => fetch(...args).then((response) => response.json());
 const Marker = ({ children }) => children;
 
 const index = () => {
-  const [coordinates, setCoordinates] = useState({ lat: 53.342, lng: -6.235 });
+  const [coordinates, setCoordinates] = useState({ lat: 52.382, lng: 0.51 }); // Dublin lat: 53.342, lng: -6.235
   const [zoom, setZoom] = useState(10);
   const [bounds, setBounds] = useState(null);
   const MY_API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
   //**** */
-  // const mapRef = useRef();
+  const mapRef = useRef();
   const url =
     "https://data.police.uk/api/crimes-street/all-crime?poly=52.268,0.543:52.794,0.238:52.130,0.478&date=2020-01";
   const { data, error } = useSwr(url, { fetcher });
@@ -72,7 +75,7 @@ const index = () => {
       {/* <!-- Modal --> */}
       <PopupSignInUp />
 
-      <Script>
+      <Script id="google-map-api">
         <script
           src={`https://maps.googleapis.com/maps/api/js?v=weekly&key=${MY_API_KEY}&map_id=58887c3f87185bbb`}
         ></script>
@@ -124,26 +127,16 @@ const index = () => {
 
               <div className="home_two_map style2 half_map_area">
                 <div className="gmap_canvas map-canvas half_style">
-                  {/* <Map
-                    title="map"
-                    className="gmap"
-                    setCoordinates={setCoordinates}
-                    coordinates={coordinates}
-                    setBounds={setBounds}
-                    mapRef={mapRef}
-                    zoom={zoom}
-                    bounds={bounds}
-                  /> */}
                   <GoogleMapReact
                     bootstrapURLKeys={{ key: MY_API_KEY }}
-                    defaultCenter={{ lat: 53.342, lng: -6.235 }}
+                    // defaultCenter={{ lat: 53.342, lng: -6.235 }}
                     center={coordinates}
                     defaultZoom={10}
                     options={{ mapId: "58887c3f87185bbb" }}
                     yesIWantToUseGoogleMapApiInternals
-                    // onGoogleApiLoaded={({ map }) => {
-                    //   mapRef.current = map;
-                    // }}
+                    onGoogleApiLoaded={({ map }) => {
+                      mapRef.current = map;
+                    }}
                     // onChange={(e) => {
                     //   setCoordinates({ lat: e.center.lat, lng: e.center.lng });
                     // }}
