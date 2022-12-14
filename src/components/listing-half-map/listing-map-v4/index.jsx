@@ -11,13 +11,11 @@ import SidebarListing2 from "../../common/listing/SidebarListing2";
 import PopupSignInUp from "../../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
 import React, { useEffect, useState, useRef } from "react";
-// import Map from "./Map";
 import Script from "next/script";
 import GoogleMapReact from "google-map-react";
 import useSupercluster from "use-supercluster";
-import useSwr from "swr"; // can get ridden off later
-
-const fetcher = (...args) => fetch(...args).then((response) => response.json());
+import useSwr from "swr"; // excellent API fetching library
+import testData from "./testData.json";
 
 const Marker = ({ children }) => children;
 
@@ -29,18 +27,24 @@ const index = () => {
 
   //**** */
   const mapRef = useRef();
-  const url =
-    "https://data.police.uk/api/crimes-street/all-crime?poly=52.268,0.543:52.794,0.238:52.130,0.478&date=2020-01";
-  const { data, error } = useSwr(url, { fetcher });
-  const crimes = data && !error ? data.slice(0, 2000) : [];
-  const points = crimes.map((crime) => ({
+  // const url =
+  //   "https://data.police.uk/api/crimes-street/all-crime?poly=52.268,0.543:52.794,0.238:52.130,0.478&date=2020-01";
+  // const { data, error } = useSwr(url, { fetcher });
+  // const generators = data && !error ? data.slice(0, 2000) : [];
+  // console.log("data: ", generators);
+
+  const points = testData.map((generator) => ({
     type: "Feature",
-    properties: { cluster: false, crimeId: crime.id, category: crime.category },
+    properties: {
+      cluster: false,
+      generatorID: generator.gppd_idnr,
+      category: generator.primary_fuel,
+    },
     geometry: {
       type: "Point",
       coordinates: [
-        parseFloat(crime.location.longitude),
-        parseFloat(crime.location.latitude),
+        parseFloat(generator.longitude),
+        parseFloat(generator.latitude),
       ],
     },
   }));
@@ -195,11 +199,11 @@ const index = () => {
 
                       return (
                         <Marker
-                          key={`crime-${cluster.properties.crimeId}`}
+                          key={`generator-${cluster.properties.generatorID}`}
                           lat={latitude}
                           lng={longitude}
                         >
-                          <button className="crime-marker">
+                          <button className="generator-marker">
                             <img src="/custody.svg" alt="crime doesn't pay" />
                           </button>
                         </Marker>
