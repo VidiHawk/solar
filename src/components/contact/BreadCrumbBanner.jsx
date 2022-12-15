@@ -1,5 +1,7 @@
 import BreadCrumb from "../common/BreadCrumb";
 
+// the background PICTURE is embeded in the CSS className="inner_page_breadcrumb"
+
 const BreadCrumbBanner = () => {
   return (
     <section className="inner_page_breadcrumb">

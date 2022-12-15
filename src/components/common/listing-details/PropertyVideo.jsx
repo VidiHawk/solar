@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import ModalVideo from "react-modal-video";
 
@@ -70,8 +71,8 @@ const PropertyVideo = () => {
             <div className="thumb">
               <img
                 className="pro_img img-fluid w100"
-                src="/assets/images/background/7.jpg"
-                alt="7.jpg"
+                src="/assets/videos/video1-1920x960.mp4"
+                alt="industrial roof top solar system"
               />
               <div className="overlay_icon">
                 <div
