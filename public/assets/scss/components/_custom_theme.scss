@@ -314,7 +314,7 @@ $sidebar-color: #333;
 }
 
 .list_s .flaticon-user:before {
-    padding-right: 5px;
+    padding-right: 5px; 
 }
 
 // map
@@ -322,6 +322,8 @@ $sidebar-color: #333;
     height: 600px;
     background: #eee;
     position: relative;
+    text-align: center;
+
     @media (min-width: 1280px) and (max-width: 1700px) {
         height: 554px;
     }

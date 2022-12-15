@@ -8782,7 +8782,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 
 /*== Inner Pages Breadcrumb 1920x500 ==*/
 .inner_page_breadcrumb {
-  background-image: url(../images/background/map-1.jpg);
+  background-image: url(../images/background/map.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   height: 370px;
@@ -15325,6 +15325,8 @@ legend span {
   color: #484848;
   line-height: 1.2;
 }
+
+
 
 /*== Maximage_slider ==*/
 .maximage-home .mc-image {

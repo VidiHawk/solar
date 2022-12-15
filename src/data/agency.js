@@ -16,7 +16,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
   },
   {
     id: 3,
@@ -54,7 +54,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
   },
   {
     id: 4,
@@ -73,7 +73,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
   },
   {
     id: 5,
@@ -92,7 +92,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
   },
   {
     id: 6,
@@ -111,6 +111,6 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
   },
 ];
