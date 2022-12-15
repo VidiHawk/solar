@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import CallToAction from "../common/CallToAction";
 import CopyrightFooter from "../common/footer/CopyrightFooter";
 import Footer from "../common/footer/Footer";
@@ -31,11 +32,11 @@ const index = () => {
               <div className="form_grid">
                 <h4 className="mb5">Send Us An Email</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  gravida quis libero eleifend ornare. Maecenas mattis enim at
-                  arcu feugiat, sit amet blandit nisl iaculis. Donec lacus odio,
-                  malesuada eu libero sit amet, congue aliquam leo. In hac
-                  habitasse platea dictumst.
+                  Let&#39;s talk! We welcome discussions with power plant
+                  owners, brokers, and project developers. If you have any
+                  business ideas you&#39;d like to discuss, or if you are
+                  looking to join a dynamic tech team, just fill out the form
+                  below and we will get back to you as soon as possible.
                 </p>
                 <Form />
               </div>
@@ -58,7 +59,7 @@ const index = () => {
                   <iframe
                     title="map"
                     className="gmap_iframe"
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d193309.02147838814!2d-74.53513266718751!3d40.79602810000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1663993365939!5m2!1sen!2sbd"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d193309.02147838814!2d-6.234663022513953!3d53.342477978331026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1663993365939!5m2!1sen!2sbd"
                   ></iframe>
                   {/* End iframe */}
 

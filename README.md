@@ -4,6 +4,10 @@ Built with React and NextJS.
 
 Install using node v16.16.0 or yarn v1.22.19
 
+## Branch
+
+*barebone
+
 ## Available Scripts
 
 ### From local host
