@@ -2,46 +2,46 @@ module.exports = [
   {
     id: 1,
     img: "/assets/images/service/1.jpg",
-    title: "Redfin Ranks the Most Competitive Neighborhoods of 2020",
+    title: "Canadian Solar Ranks Most Competitive Solar Panel Producer in 2023",
   },
   {
     id: 2,
     img: "/assets/images/service/2.jpg",
-    title: "Why We Should All Support Clear Cooperation",
+    title: "Why We Should All Support Clean Energy",
   },
   {
     id: 3,
     img: "/assets/images/service/3.jpg",
-    title: "Redfin Ranks the Most Competitive Neighborhoods of 2020",
+    title: "Envision Set to Transform the Wind Market",
   },
   {
     id: 4,
     img: "/assets/images/service/4.jpg",
-    title: "12 Walkable Cities Where You Can Live Affordably",
+    title: "2GWp of New Project Developed by Enerclean in 2022",
   },
   {
     id: 5,
     img: "/assets/images/service/5.jpg",
-    title: "Redfin Unveils the Best Canadian Cities for Biking",
+    title: "2GWp of New Project Developed by Enerclean in 2022",
   },
   {
     id: 6,
     img: "/assets/images/service/6.jpg",
-    title: "You Can Buy The Piano Teacher’s Home from Groundhog Day",
+    title: "2GWp of New Project Developed by Enerclean in 2022",
   },
   {
     id: 7,
     img: "/assets/images/service/7.jpg",
-    title: "Housing Markets That Changed the Most This Decade",
+    title: "2GWp of New Project Developed by Enerclean in 2022",
   },
   {
     id: 8,
     img: "/assets/images/service/8.jpg",
-    title: "Redfin Ranks the Most Competitive Neighborhoods of 2020",
+    title: "2GWp of New Project Developed by Enerclean in 2022",
   },
   {
     id: 9,
     img: "/assets/images/service/9.jpg",
-    title: "12 Walkable Cities Where You Can Live Affordably",
+    title: "2GWp of New Project Developed by Enerclean in 2022",
   },
 ];

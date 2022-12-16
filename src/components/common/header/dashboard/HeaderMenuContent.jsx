@@ -212,7 +212,7 @@ const HeaderMenuContent = ({ float = "" }) => {
   const pages = [
     { id: 1, name: "About Us", routerPath: "/about-us" },
     { id: 2, name: "Gallery", routerPath: "/gallery" },
-    { id: 3, name: "Faq", routerPath: "/faq" },
+
     { id: 4, name: "LogIn", routerPath: "/login" },
 
     { id: 6, name: "Membership", routerPath: "/membership" },

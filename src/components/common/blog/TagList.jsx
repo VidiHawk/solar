@@ -1,10 +1,12 @@
 const TagList = () => {
   const tagContent = [
-    { id: 1, name: "Apartment" },
-    { id: 2, name: "Real Estate" },
-    { id: 3, name: "Estate" },
-    { id: 4, name: "Luxury" },
-    { id: 5, name: "Real" },
+    { id: 1, name: "Wind" },
+    { id: 2, name: "Solar" },
+    { id: 3, name: "Hydroelectric" },
+    { id: 4, name: "Biofuel" },
+    { id: 5, name: "Hydrogen" },
+    { id: 6, name: "Biomass" },
+    { id: 7, name: "Gas" },
   ];
   return (
     <ul className="tag_list">

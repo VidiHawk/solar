@@ -86,10 +86,7 @@ const pages = [
     name: "About Us",
     routerPath: "/about-us",
   },
-  {
-    name: "Faq",
-    routerPath: "/faq",
-  },
+
   {
     name: "LogIn",
     routerPath: "/login",

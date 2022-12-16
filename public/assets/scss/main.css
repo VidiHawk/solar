@@ -8790,6 +8790,10 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   background-image: url(../images/background/welcome.webp);
 }
 
+.pure_power_background {
+  background-image: url(../images/background/purepower.jpg);
+}
+
 .login_welcome_image:before {
   background-color: rgb(29, 41, 62);
   bottom: 0;

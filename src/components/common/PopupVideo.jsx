@@ -9,7 +9,7 @@ const PopupVideo = () => {
         channel="youtube"
         autoplay
         isOpen={isOpen}
-        videoId="y9j-BL5ocW8"
+        videoId="-45Ptl3Cabs"
         onClose={() => setOpen(false)}
       />
       <div

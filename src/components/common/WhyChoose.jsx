@@ -9,8 +9,8 @@ const WhyChoose = ({ style = "" }) => {
     },
     {
       id: 2,
-      icon: "flaticon-home-1",
-      title: "Wide Renge Of Properties",
+      icon: "flaticon-magnifying-glass",
+      title: "The Best Data in the Market",
       descriptions: `Aliquam dictum elit vitae mauris facilisis at dictum urna
       dignissim donec vel lectus vel felis.`,
     },

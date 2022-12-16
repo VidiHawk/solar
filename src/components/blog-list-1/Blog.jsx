@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import blogContent from "../../data/blogs";
 
 const Blog = () => {
   return (
     <>
-      {blogContent.slice(6, 9).map((item) => (
+      {blogContent.slice(0, 3).map((item) => (
         <div className="for_blog feat_property" key={item.id}>
           <div className="thumb">
             <Link href={`/blog-details/${item.id}`}>

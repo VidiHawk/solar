@@ -5,7 +5,7 @@ import BlogV1 from "../components/blog-list-1";
 const index = () => {
   return (
     <>
-      <Seo pageTitle="Blog List 1" />
+      <Seo pageTitle="Blog Posts" />
       <BlogV1 />
     </>
   );
