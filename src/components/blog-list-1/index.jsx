@@ -1,11 +1,12 @@
+import BlogSidebar from "../common/blog/BlogSidebar";
+import Pagination from "../common/blog/Pagination";
 import CopyrightFooter from "../common/footer/CopyrightFooter";
 import Footer from "../common/footer/Footer";
 import Header from "../common/header/DefaultHeader";
 import MobileMenu from "../common/header/MobileMenu";
-import ListingGallery from "../common/listing-details/ListingGallery";
 import PopupSignInUp from "../common/PopupSignInUp";
-import DetailsContent from "./DetailsContent";
-import Sidebar from "./Sidebar";
+import BreadCrumbBlog from "./BreadCrumbBlog";
+import Blog from "./Blog";
 
 const index = () => {
   return (
@@ -19,29 +20,38 @@ const index = () => {
       {/* <!-- Modal --> */}
       <PopupSignInUp />
 
-      {/* <!-- Listing Single Property --> */}
-      <section className="listing-title-area mt85 md-mt0">
-        <div className="container">
-          <ListingGallery />
-        </div>
-      </section>
-
-      {/* <!-- Agent Single Grid View --> */}
-      <section className="our-agent-single bgc-f7 pb30-991">
+      {/* <!-- Main Blog Post Content --> */}
+      <section className="blog_post_container bgc-f7">
         <div className="container">
           <div className="row">
-            <div className="col-md-12 col-lg-8">
-              <DetailsContent />
+            <div className="col-xl-6">
+              <BreadCrumbBlog />
             </div>
-            {/* End details content .col-lg-8 */}
+          </div>
+          {/* End .row */}
+
+          <div className="row">
+            <div className="col-lg-8">
+              <div className="main_blog_post_content">
+                <Blog />
+                {/* End blog item */}
+
+                <div className="mbp_pagination mt20">
+                  <Pagination />
+                </div>
+                {/* End .mbp_pagination */}
+              </div>
+            </div>
+            {/* End .col */}
 
             <div className="col-lg-4 col-xl-4">
-              <Sidebar />
+              <BlogSidebar />
             </div>
-            {/* End sidebar content .col-lg-4 */}
+            {/* End Sidebar column */}
           </div>
           {/* End .row */}
         </div>
+        {/* End .container */}
       </section>
 
       {/* <!-- Our Footer --> */}

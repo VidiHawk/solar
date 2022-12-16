@@ -8781,8 +8781,27 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 
 /*== Inner Pages Breadcrumb 1920x500 ==*/
-.inner_page_breadcrumb {
+
+.contact_map_image {
   background-image: url(../images/background/map.jpg);
+}
+
+.login_welcome_image {
+  background-image: url(../images/background/welcome.webp);
+}
+
+.login_welcome_image:before {
+  background-color: rgb(29, 41, 62);
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0.6;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.inner_page_breadcrumb {
   background-repeat: no-repeat;
   background-position: center center;
   height: 370px;
@@ -8794,17 +8813,6 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
     height: 350px;
   }
 }
-
-/* .inner_page_breadcrumb:before {
-  background-color: rgb(29, 41, 62);
-  bottom: 0;
-  content: "";
-  left: 0;
-  opacity: 0.6;
-  position: absolute;
-  right: 0;
-  top: 0;
-} */
 
 .inner_page_breadcrumb .breadcrumb_content {
   margin-top: 85px;

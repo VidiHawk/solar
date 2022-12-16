@@ -16,7 +16,7 @@ import WhatsNearby from "../common/listing-details/WhatsNearby";
 const DetailsContent = () => {
   return (
     <>
-      <div className="listing_single_description">
+      <div className="listing_single_description" id="tab-1">
         <div className="lsd_list">
           <PropertyItem />
         </div>
@@ -47,7 +47,7 @@ const DetailsContent = () => {
       </div>
       {/* End .additional_details */}
 
-      <div className="property_attachment_area">
+      <div className="property_attachment_area" id="tab-2">
         <h4 className="mb30">Property Attachments</h4>
         <div className="iba_container style2">
           <Attachments />
@@ -67,7 +67,7 @@ const DetailsContent = () => {
       </div>
       {/* End .feature_area */}
 
-      <div className="application_statics mt30">
+      <div className="application_statics mt30" id="tab-3">
         <h4 className="mb30">
           Location{" "}
           <small className="float-end">
@@ -80,7 +80,7 @@ const DetailsContent = () => {
       </div>
       {/* End .location_area */}
 
-      <div className="application_statics mt30">
+      <div className="application_statics mt30" id="tab-4">
         <h4 className="mb30">Floor plans</h4>
         <div className="faq_according style2">
           <FloorPlans />
@@ -88,7 +88,7 @@ const DetailsContent = () => {
       </div>
       {/* End .floor_plane */}
 
-      <div className="shop_single_tab_content style2 mt30">
+      <div className="shop_single_tab_content style2 mt30" id="tab-5">
         <PropertyVideo />
       </div>
       {/* End property-video  */}
@@ -98,7 +98,7 @@ const DetailsContent = () => {
       </div>
       {/* End walkscore_area */}
 
-      <div className="whats_nearby mt30">
+      <div className="whats_nearby mt30" id="tab-6">
         <h4 className="mb10">What&apos;s Nearby</h4>
         <WhatsNearby />
       </div>

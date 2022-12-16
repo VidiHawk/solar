@@ -6,11 +6,11 @@ const CopyrightFooter = () => {
     {
       id: 2,
       name: "Terms of Use",
-      routeLink: "/listing-half-map/listing-map-v4/index.jsx",
+      routeLink: "/terms.jsx",
     },
-    { id: 3, name: "Data Privacy", routeLink: "/listing-grid-v4" },
+    { id: 3, name: "Data Privacy", routeLink: "/terms" },
     { id: 4, name: "About Us", routeLink: "/about-us" },
-    { id: 5, name: "Blog", routeLink: "/blog-list-3" },
+    { id: 5, name: "Blog", routeLink: "/blog-list-1" },
     { id: 6, name: "Contact", routeLink: "/contact" },
   ];
 

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import "react-pro-sidebar/dist/css/styles.css";
 import {
   ProSidebar,
@@ -13,173 +14,16 @@ import { useRouter } from "next/router";
 
 const home = [
   {
-    name: "Home 1",
-    routerPath: "/",
-  },
-  {
-    name: "Home 2",
-    routerPath: "/home-2",
-  },
-  {
-    name: "Home 3",
-    routerPath: "/home-3",
-  },
-  {
-    name: "Home 4",
-    routerPath: "/home-4",
-  },
-  {
-    name: "Home 5",
-    routerPath: "/home-5",
-  },
-  {
-    name: "Home 6",
-    routerPath: "/home-6",
-  },
-  {
-    name: "Home 7",
-    routerPath: "/home-7",
-  },
-  {
-    name: "Home 8",
-    routerPath: "/home-8",
-  },
-  {
-    name: "Home 9",
+    name: "Home",
     routerPath: "/home-9",
   },
   {
-    name: "Home 10",
-    routerPath: "/home-10",
-  },
-];
-
-const listing = [
-  {
-    id: 1,
-    title: "Listing Grid",
-    items: [
-      {
-        name: "Grid v1",
-        routerPath: "/listing-grid-v1",
-      },
-      {
-        name: "Grid v2",
-        routerPath: "/listing-grid-v2",
-      },
-      {
-        name: "Grid v3",
-        routerPath: "/listing-grid-v3",
-      },
-      {
-        name: "Grid v4",
-        routerPath: "/listing-grid-v4",
-      },
-      {
-        name: "Grid v5",
-        routerPath: "/listing-grid-v5",
-      },
-      {
-        name: "Grid v6",
-        routerPath: "/listing-grid-v6",
-      },
-    ],
+    name: "Map",
+    routerPath: "/",
   },
   {
-    id: 2,
-    title: "Listing List",
-    items: [
-      {
-        name: "List V1",
-        routerPath: "/listing-list-v1",
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "Listing Style",
-    items: [
-      {
-        name: "Parallax Style",
-        routerPath: "/parallax-style",
-      },
-      {
-        name: "Slider Style",
-        routerPath: "/slider-style",
-      },
-      {
-        name: "Map Header",
-        routerPath: "/map-header",
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "Listing Half",
-    items: [
-      {
-        name: "Map V1",
-        routerPath: "/listing-map-v1",
-      },
-      {
-        name: "Map V2",
-        routerPath: "/listing-map-v2",
-      },
-      {
-        name: "Map V3",
-        routerPath: "/listing-map-v3",
-      },
-      {
-        name: "Map V4",
-        routerPath: "/listing-map-v4",
-      },
-    ],
-  },
-  {
-    id: 5,
-    title: "Agent View",
-    items: [
-      {
-        name: "Agent V1",
-        routerPath: "/agent-v1",
-      },
-      {
-        name: "Agent V2",
-        routerPath: "/agent-v2",
-      },
-      {
-        name: "Agent Details",
-        routerPath: "/agent-details",
-      },
-    ],
-  },
-  {
-    id: 6,
-    title: "Agencies View",
-    items: [
-      {
-        name: "Agencies V1",
-        routerPath: "/agency-v1",
-      },
-      {
-        name: "Agencies V2",
-        routerPath: "/agency-v2",
-      },
-      {
-        name: "Agencies Details",
-        routerPath: "/agency-details",
-      },
-    ],
-  },
-  {
-    id: 7,
-    title: "Create Listing",
-    items: [
-      {
-        name: "Create Listing",
-        routerPath: "/create-listing",
-      },
-    ],
+    name: "Listing Single",
+    routerPath: "/listing-details-v4",
   },
 ];
 
@@ -193,7 +37,7 @@ const property = [
         routerPath: "/my-dashboard",
       },
       {
-        name: "My Properties",
+        name: "My Power Plants",
         routerPath: "/my-properties",
       },
       {
@@ -226,34 +70,10 @@ const property = [
       },
     ],
   },
-  {
-    id: 2,
-    title: "Listing Single",
-    items: [
-      {
-        name: "Single V1",
-        routerPath: "/listing-details-v1",
-      },
-      {
-        name: "Single V2",
-        routerPath: "/listing-details-v2",
-      },
-      {
-        name: "Single V3",
-        routerPath: "/listing-details-v3",
-      },
-      {
-        name: "Single V4",
-        routerPath: "/listing-details-v4",
-      },
-    ],
-  },
 ];
 
 const blog = [
-  { id: 1, name: "Blog List 1", routerPath: "/blog-list-1" },
-  { id: 2, name: "Blog List 2", routerPath: "/blog-list-2" },
-  { id: 3, name: "Blog List 3", routerPath: "/blog-list-3" },
+  { id: 1, name: "Blog List", routerPath: "/blog-list-1" },
   {
     id: 4,
     name: "Blog Details",
@@ -267,10 +87,6 @@ const pages = [
     routerPath: "/about-us",
   },
   {
-    name: "Gallery",
-    routerPath: "/gallery",
-  },
-  {
     name: "Faq",
     routerPath: "/faq",
   },
@@ -278,20 +94,11 @@ const pages = [
     name: "LogIn",
     routerPath: "/login",
   },
-  { name: "Compare", routerPath: "/compare" },
   { name: "Membership", routerPath: "/membership" },
 
   {
     name: "Register",
     routerPath: "/register",
-  },
-  {
-    name: "Service",
-    routerPath: "/service",
-  },
-  {
-    name: "404 Page",
-    routerPath: "/404",
   },
   {
     name: "Terms & Conditions",
@@ -357,7 +164,7 @@ const MobileMenuContent = () => {
             ))}
           </SubMenu>
           {/* End Home Home */}
-
+          {/* 
           <SubMenu
             title="Listing"
             className={
@@ -397,7 +204,7 @@ const MobileMenuContent = () => {
                 ))}
               </SubMenu>
             ))}
-          </SubMenu>
+          </SubMenu> */}
           {/* End Pages Listing */}
 
           <SubMenu

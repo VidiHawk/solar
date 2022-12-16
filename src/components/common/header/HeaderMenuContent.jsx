@@ -4,79 +4,62 @@ import { useRouter } from "next/router";
 const HeaderMenuContent = ({ float = "" }) => {
   const route = useRouter();
 
-  const home = [{ id: 9, name: "Home", routerPath: "/home-9" }];
+  const home = [
+    { id: 9, name: "Home", routerPath: "/home-9" },
+    { id: 1, name: "Map", routerPath: "/" },
+    { id: 4, name: "Listing Single", routerPath: "/listing-details-v4" },
+  ];
 
-  const property = [
+  const admin = [
     {
       id: 1,
-      title: "User Admin",
-      items: [
-        {
-          name: "Dashboard",
-          routerPath: "/my-dashboard",
-        },
-        {
-          name: "My Properties",
-          routerPath: "/my-properties",
-        },
-        {
-          name: "My Message",
-          routerPath: "/my-message",
-        },
-        {
-          name: "My Review",
-          routerPath: "/my-review",
-        },
-        {
-          name: "My Favourites",
-          routerPath: "/my-favourites",
-        },
-        {
-          name: "My Profile",
-          routerPath: "/my-profile",
-        },
-        {
-          name: "My Package",
-          routerPath: "/my-package",
-        },
-        {
-          name: "My Saved Search",
-          routerPath: "/my-saved-search",
-        },
-        {
-          name: "Add Property",
-          routerPath: "/create-listing",
-        },
-      ],
+      name: "Dashboard",
+      routerPath: "/my-dashboard",
     },
     {
       id: 2,
-      title: "Listing Single",
-      items: [
-        {
-          name: "Single V1",
-          routerPath: "/listing-details-v1",
-        },
-        {
-          name: "Single V2",
-          routerPath: "/listing-details-v2",
-        },
-        {
-          name: "Single V3",
-          routerPath: "/listing-details-v3",
-        },
-        {
-          name: "Single V4",
-          routerPath: "/listing-details-v4",
-        },
-      ],
+      name: "My Power Plants",
+      routerPath: "/my-properties",
+    },
+    {
+      id: 3,
+      name: "My Message",
+      routerPath: "/my-message",
+    },
+    {
+      id: 4,
+      name: "My Review",
+      routerPath: "/my-review",
+    },
+    {
+      id: 5,
+      name: "My Favourites",
+      routerPath: "/my-favourites",
+    },
+    {
+      id: 6,
+      name: "My Profile",
+      routerPath: "/my-profile",
+    },
+    {
+      id: 7,
+      name: "My Package",
+      routerPath: "/my-package",
+    },
+    {
+      id: 8,
+      name: "My Saved Search",
+      routerPath: "/my-saved-search",
+    },
+    {
+      id: 9,
+      name: "Add Power Plant",
+      routerPath: "/create-listing",
     },
   ];
 
   const blog = [
-    { id: 1, name: "Blog List 1", routerPath: "/blog-list-1" },
-    { id: 2, name: "Blog List 2", routerPath: "/blog-list-2" },
-    { id: 3, name: "Blog List 3", routerPath: "/blog-list-3" },
+    { id: 1, name: "Blog List", routerPath: "/blog-list-1" },
     {
       id: 4,
       name: "Blog Details",
@@ -89,12 +72,10 @@ const HeaderMenuContent = ({ float = "" }) => {
     { id: 2, name: "Gallery", routerPath: "/gallery" },
     { id: 3, name: "Faq", routerPath: "/faq" },
     { id: 4, name: "LogIn", routerPath: "/login" },
-    { id: 5, name: "Compare", routerPath: "/compare" },
     { id: 6, name: "Membership", routerPath: "/membership" },
 
     { id: 7, name: "Register", routerPath: "/register" },
-    { id: 8, name: "Service", routerPath: "/service" },
-    { id: 9, name: "404 Page", routerPath: "/404" },
+
     { id: 10, name: "Terms & Conditions", routerPath: "/terms" },
   ];
 
@@ -113,7 +94,7 @@ const HeaderMenuContent = ({ float = "" }) => {
               : undefined
           }
         >
-          <span className="title">Map</span>
+          <span className="title">Find Power Plant</span>
           <span className="arrow"></span>
         </a>
         {/* <!-- Level Two--> */}
@@ -140,56 +121,28 @@ const HeaderMenuContent = ({ float = "" }) => {
         <a
           href="#"
           className={
-            property.some((parent) => {
-              return parent.items.some(
-                (page) =>
-                  page.routerPath === route.pathname ||
-                  page.routerPath + "/[id]" === route.pathname
-              );
-            })
+            admin.some((page) => page.routerPath === route.pathname)
               ? "ui-active"
               : undefined
           }
         >
-          <span className="title">Generator</span>{" "}
+          <span className="title">User Admin</span>
           <span className="arrow"></span>
         </a>
+        {/* <!-- Level Two--> */}
+
         <ul className="sub-menu ">
-          {property.map((item) => (
-            <li className="dropitem arrow" key={item.id}>
-              <a
-                href="#"
-                className={
-                  item.items.some(
-                    (page) =>
-                      page.routerPath === route.pathname ||
-                      page.routerPath + "/[id]" === route.pathname
-                  )
-                    ? "ui-active"
-                    : undefined
-                }
-              >
-                {item.title}
-              </a>
-              {/* <!-- Level Three--> */}
-              <ul className="sub-menu ">
-                {item.items.map((val, i) => (
-                  <li key={i}>
-                    <Link href={val.routerPath}>
-                      <a
-                        className={
-                          route.pathname === val.routerPath ||
-                          val.routerPath + "/[id]" === route.pathname
-                            ? "ui-active"
-                            : undefined
-                        }
-                      >
-                        {val.name}
-                      </a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          {admin.map((item) => (
+            <li key={item.id}>
+              <Link href={item.routerPath}>
+                <a
+                  className={
+                    route.pathname === item.routerPath ? "ui-active" : undefined
+                  }
+                >
+                  {item.name}
+                </a>
+              </Link>
             </li>
           ))}
         </ul>
