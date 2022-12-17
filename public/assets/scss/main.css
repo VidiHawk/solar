@@ -2580,7 +2580,8 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
 
 /*== Home Css ==*/
 .home_content {
-  padding: 380px 0 400px;
+  /* need to update .home_content.home7 as well  */
+  padding: 200px 0 350px;
 }
 
 .home_content .home-text p {
@@ -2610,7 +2611,7 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last {
 }
 
 .home_content.home7 {
-  padding: 350px 0 90px;
+  padding: 200px 0 90px;
   position: relative;
 }
 @media (min-width: 1280px) and (max-width: 1700px) {
@@ -3924,7 +3925,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 .home-four,
 .home-five,
 .home-seven,
-.media-background {
+.mediabackground {
   padding: 0;
 }
 
@@ -3968,18 +3969,18 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
     height: auto;
   }
 }
-.media-background {
-  background-image: url(../images/generators/turbine1920x960.jpg);
+.mediabackground {
+  background-image: url(../images/generators/float.webp);
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
-  height: 960px;
+  height: 650px;
   z-index: 0 !important;
 }
 
 
 /* VIDEO
-/* .media-background {
+/* .mediabackground {
   height: 960px;
   -webkit-background-size: cover;
   background-size: cover;
@@ -3988,11 +3989,11 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
   z-index: 0 !important;  
 } */
 
-.media-background:before {
-  background-image: -moz-linear-gradient(120deg, rgb(57, 57, 57) 0%, rgb(35, 0, 90) 100%);
-  background-image: -webkit-linear-gradient(120deg, rgb(57, 57, 57) 0%, rgb(35, 0, 90) 100%);
-  background-image: -ms-linear-gradient(120deg, rgb(57, 57, 57) 0%, rgb(35, 0, 90) 100%);
-  background-image: linear-gradient(120deg, rgb(57, 57, 57) 0%, rgb(35, 0, 90) 100%);
+.mediabackground:before {
+  background-image: -moz-linear-gradient(120deg, rgb(57, 57, 57) 0%, rgb(21, 21, 21) 100%);
+  background-image: -webkit-linear-gradient(120deg, rgb(57, 57, 57) 0%, rgb(21, 21, 21) 100%);
+  background-image: -ms-linear-gradient(120deg, rgb(57, 57, 57) 0%, rgb(21, 21, 21) 100%);
+  background-image: linear-gradient(120deg, rgb(57, 57, 57) 0%, rgb(21, 21, 21) 100%);
   bottom: 0;
   content: "";
   left: 0;
@@ -4003,7 +4004,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 
 
-/* .media-background:before {
+/* .mediabackground:before {
   background-image: -moz-linear-gradient(120deg, rgb(100, 17, 147) 0%, rgb(35, 0, 90) 100%);
   background-image: -webkit-linear-gradient(120deg, rgb(100, 17, 147) 0%, rgb(35, 0, 90) 100%);
   background-image: -ms-linear-gradient(120deg, rgb(100, 17, 147) 0%, rgb(35, 0, 90) 100%);
@@ -8791,7 +8792,7 @@ form.home5_advanced_search_form .form-group input.form-control::-ms-input-placeh
 }
 
 .pure_power_background {
-  background-image: url(../images/background/purepower.jpg);
+  background-image: url(../images/background/ppw.jpg);
 }
 
 .login_welcome_image:before {

@@ -7,7 +7,7 @@ const Footer = () => {
     <>
       <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 pr0 pl0">
         <div className="footer_about_widget">
-          <h4>About PurePower</h4>
+          <h4>About Pure Power</h4>
           <p>
             We’re reimagining how you buy, sell and service power plants. It’s
             now easier than ever to make money in the energy market. So let’s do

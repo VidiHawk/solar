@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Slider from "react-slick";
 import properties from "../../data/properties";
@@ -60,7 +61,7 @@ const FeaturedProperties = () => {
             <Link href={`/listing-details-v1/${item.id}`}>
               <a className="fp_price">
                 ${item.price}
-                <small>/mo</small>
+                <small>million</small>
               </a>
             </Link>
           </div>

@@ -31,8 +31,8 @@ const index = () => {
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center mb40">
-                <h2>Featured Properties</h2>
-                <p>Handpicked properties by our team.</p>
+                <h2>Featured Projects</h2>
+                <p>Hottest deals on the market.</p>
               </div>
             </div>
             <div className="col-lg-12">
@@ -50,8 +50,8 @@ const index = () => {
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
-                <h2>Find Properties in These Cities</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2>Find Projects in these Countries</h2>
+                <p>Over 30,000 power plants listed in over 130 countries.</p>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@ const index = () => {
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2>Testimonials</h2>
-                <p>Here could be a nice sub title</p>
+                <p>What people say about us.</p>
               </div>
             </div>
           </div>
@@ -96,7 +96,9 @@ const index = () => {
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2>Articles & Tips</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>
+                  Discover the latest news about power plant asset transactions.
+                </p>
               </div>
             </div>
           </div>

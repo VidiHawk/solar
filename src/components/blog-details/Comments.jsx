@@ -1,34 +1,31 @@
+/* eslint-disable @next/next/no-img-element */
 import Ratings from "./Ratings";
 
 const Comments = () => {
   const commmetContent = [
     {
       id: 1,
-      img: "1",
-      name: " Diana Cooper",
+      img: "3",
+      name: "Andrea Martin",
       ratings: (
         <>
           <Ratings />
         </>
       ),
       data: "",
-      text: `Beautiful home, very picturesque and close to everything in jtree! A
-      little warm for a hot weekend, but would love to come back during
-      the cooler seasons!`,
+      text: `We have done business with this broker twice. Overall a good experience but slow to process transactions.`,
     },
     {
       id: 2,
-      img: "2",
-      name: "Ali Tufan",
+      img: "4",
+      name: "Pablo Ramirez",
       ratings: (
         <>
           <Ratings />
         </>
       ),
       data: "",
-      text: `Beautiful home, very picturesque and close to everything in jtree! A
-      little warm for a hot weekend, but would love to come back during
-      the cooler seasons!`,
+      text: `Will do business with this broker again`,
     },
   ];
   return (
@@ -36,7 +33,7 @@ const Comments = () => {
       {commmetContent.map((item) => (
         <div className="mbp_first media" key={item.id}>
           <img
-            src={`/assets/images/testimonial/${item.img}.png`}
+            src={`/assets/images/testimonial/${item.img}.jpg`}
             className="mr-3"
             alt={item.img}
           />

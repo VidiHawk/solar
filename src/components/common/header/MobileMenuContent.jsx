@@ -116,7 +116,7 @@ const MobileMenuContent = () => {
                 src="/assets/images/header-logo2.png"
                 alt="header-logo.png"
               />
-              <span className="brand-text">PurePower</span>
+              <span className="brand-text">Pure Power</span>
             </a>
           </Link>
           {/* End .logo */}

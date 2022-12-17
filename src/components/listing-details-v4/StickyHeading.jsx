@@ -14,12 +14,12 @@ const StickyHeading = () => {
         </li>
         <li className="list-inline-item nav-item">
           <a className="sticky-nav-tab" href="#tab-3">
-            Locations
+            Location
           </a>
         </li>
         <li className="list-inline-item nav-item">
           <a className="sticky-nav-tab" href="#tab-4">
-            Plans
+            Technical Documents
           </a>
         </li>
         <li className="list-inline-item nav-item">

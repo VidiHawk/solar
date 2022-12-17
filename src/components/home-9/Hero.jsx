@@ -6,7 +6,7 @@ import SearchBox from "./SearchBox";
 
 const Hero = () => {
   return (
-    <section className="media-background">
+    <section className="mediabackground">
       {/* <video autoplay muted loop id="home-video">
         <source src="/assets/videos/video2-1920x960.mp4" type="video/mp4" />
         <source src="/assets/videos/video1-1920x960.mp4" type="video/mp4" />
@@ -21,8 +21,12 @@ const Hero = () => {
           <div className="col-lg-8 offset-lg-2">
             <div className="home_content home7">
               <div className="home-text text-center">
-                <h2 className="fz55">Discover your place to live</h2>
-                <p className="fz18 color-white">Get started in few clicks.</p>
+                <h2 className="fz40">
+                  Find the Right Renewable Energy Project
+                </h2>
+                <p className="fz18 color-white">
+                  Find it. Negotiate it. Own it.
+                </p>
               </div>
               {/* End .home-text */}
 

@@ -77,11 +77,11 @@ a {
     @media (min-width: 1500px) {
         height: 100vh;
     }
-    .home_content {
-        @media (min-width: 1500px) and (max-width: 1800px) {
-            padding: 220px 0 400px;
-        }
-    }
+    // .home_content {
+    //     @media (min-width: 1500px) and (max-width: 1800px) {
+    //         padding: 220px 0 400px;
+    //     }
+    // }
 }
 @keyframes slide-down {
     0% {

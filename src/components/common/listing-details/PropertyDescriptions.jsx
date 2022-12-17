@@ -7,41 +7,41 @@ const PropertyDescriptions = () => {
   return (
     <>
       <p className="mb25">
-        Evans Tower very high demand corner junior one bedroom plus a large
-        balcony boasting full open NYC views. You need to see the views to
-        believe them. Mint condition with new hardwood floors. Lots of closets
-        plus washer and dryer.
+        9MW operational solar park on 35ha of rented land in Extremadura region.
+        The asset is 100% controlled by debt-free SPV Garibaldi Energia SL. Long
+        term landlease contract in place that guarantees an inflation-protected
+        income until 2042.
       </p>
       <p className={click ? "gpara second_para white_goverlay mt10 mb10" : ""}>
-        Fully furnished. Elegantly appointed condominium unit situated on
-        premier location. PS6. The wide entry hall leads to a large living room
-        with dining area. This expansive 2 bedroom and 2 renovated marble
-        bathroom apartment has great windows. Despite the interior views, the
-        apartments Southern and Eastern exposures allow for lovely natural light
-        to fill every room. The master suite is surrounded by handcrafted
-        milkwork and features incredible walk-in closet and storage space.
+        The target of the sale is the 100% interest in Garibaldi Energia SL.
+        Garibaldi Energia SL is a Spanish SPV holding a piece of 35ha of land in
+        Extremadura region that is rented to a 9MW operational solar park. We
+        are selling the SPV debt free and with a long term landlease contract
+        that guarantees an inflation-protected income until 2042. This solar
+        investment delivers a very robust cash flow profile over more than 20
+        years due to the seniority of landlease payments.
       </p>
       <div className="collapse" id="collapseExample">
         <div className="card card-body">
           <p className="mt10 mb10">
-            Fully furnished. Elegantly appointed condominium unit situated on
-            premier location. PS6. The wide entry hall leads to a large living
-            room with dining area. This expansive 2 bedroom and 2 renovated
-            marble bathroom apartment has great windows. Despite the interior
-            views, the apartments Southern and Eastern exposures allow for
-            lovely natural light to fill every room. The master suite is
-            surrounded by handcrafted milkwork and features incredible walk-in
-            closet and storage space.
+            The structure of the land lease comes with a step up. It starts with
+            $80,000 annually and then goes up to over $500.000 per year in 2032.
+            We have modelled this asset on SPREAD taking into account the
+            projected land lease payments and a terminal value at the end. The
+            valuaton of Garibaldi is $5 million. The investor who buys Garibaldi
+            will get a highly secured 4% unlevered IRR with the real possibility
+            to increase that return by adding some low cost leverage (below 2%
+            cost).
           </p>
           <p className="mt10 mb10">
-            Fully furnished. Elegantly appointed condominium unit situated on
-            premier location. PS6. The wide entry hall leads to a large living
-            room with dining area. This expansive 2 bedroom and 2 renovated
-            marble bathroom apartment has great windows. Despite the interior
-            views, the apartments Southern and Eastern exposures allow for
-            lovely natural light to fill every room. The master suite is
-            surrounded by handcrafted milkwork and features incredible walk-in
-            closet and storage space.
+            So, in summary, these are the main terms:
+            <li>Land & lease contract SPV</li>
+            <li>Lease payments related to a Solar Plant with FIT in Spain</li>
+            <li>
+              Inflation-protected income Fully derisked 4% unlevered IRR Upside
+              of
+            </li>
+            <li>200-300bps by adding low cost leverage</li>
           </p>
         </div>
       </div>

@@ -38,15 +38,15 @@ const index = () => {
             <div className="row listing_single_row style2">
               <div className="col-md-7 col-lg-7 col-xl-8">
                 <div className="single_property_title multicolor_style mt30-767">
-                  <h2>6.4MWp Solar Farm</h2>
-                  <p>Dinton, Salisbury SP3 5HA, United Kingdom</p>
+                  <h2>Land with 9 MWp Solar Plant</h2>
+                  <p>Extremadura region, Spain</p>
                 </div>
               </div>
               <div className="col-md-5 col-lg-5 col-xl-4">
                 <div className="multicolor_style text-end tal-767">
                   <div className="price">
                     <h2 className="text-white">
-                      $11.2<small className="text-white"> million</small>
+                      $5<small className="text-white"> million</small>
                     </h2>
                   </div>
                 </div>

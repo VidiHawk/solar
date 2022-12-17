@@ -10,7 +10,7 @@ const PropertyVideo = () => {
         channel="youtube"
         autoplay
         isOpen={isOpen}
-        videoId="oqNZOOWF8qM"
+        videoId="DAhycXVICf8"
         onClose={() => setOpen(false)}
       />
       <ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -21,10 +21,10 @@ const PropertyVideo = () => {
             href="#description"
             role="tab"
           >
-            Property video
+            Video
           </a>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <a
             className="nav-link"
             data-bs-toggle="tab"
@@ -33,7 +33,7 @@ const PropertyVideo = () => {
           >
             Virtual Tour
           </a>
-        </li>
+        </li> */}
       </ul>
       {/* End .nav-tabs */}
 
@@ -45,10 +45,11 @@ const PropertyVideo = () => {
         >
           <div className="property_video">
             <div className="thumb">
+              {/* Best format 1920x940 */}
               <img
                 className="pro_img img-fluid w100"
-                src="/assets/images/background/7.jpg"
-                alt="7.jpg"
+                src="/assets/images/property/fp18.jpg"
+                alt="fp18.jpg"
               />
               <div className="overlay_icon">
                 <div

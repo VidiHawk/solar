@@ -30,49 +30,45 @@ const DetailsContent = () => {
       <div className="additional_details">
         <div className="row">
           <div className="col-lg-12">
-            <h4 className="mb15">Property Details</h4>
+            <h4 className="mb15">Details</h4>
           </div>
           <PropertyDetails />
         </div>
       </div>
       {/* End .additional_details */}
 
-      <div className="additional_details">
+      {/* <div className="additional_details">
         <div className="row">
           <div className="col-lg-12">
             <h4 className="mb15">Additional details</h4>
           </div>
           <AdditionalDetails />
         </div>
-      </div>
+      </div> */}
       {/* End .additional_details */}
 
       <div className="property_attachment_area" id="tab-2">
-        <h4 className="mb30">Property Attachments</h4>
+        <h4 className="mb30">Attachments</h4>
         <div className="iba_container style2">
           <Attachments />
         </div>
       </div>
       {/* End .property_attachment_area */}
 
-      <div className="application_statics mt30">
+      {/* <div className="application_statics mt30">
         <div className="row">
           <div className="col-lg-12">
             <h4 className="mb10">Features</h4>
           </div>
-          {/* End .col */}
-
-          <PropertyFeatures />
+                  <PropertyFeatures />
         </div>
-      </div>
+      </div> */}
       {/* End .feature_area */}
 
       <div className="application_statics mt30" id="tab-3">
         <h4 className="mb30">
           Location{" "}
-          <small className="float-end">
-            1421 San Pedro St, Los Angeles, CA 90015
-          </small>
+          <small className="float-end">Extremadura region, Spain</small>
         </h4>
         <div className="property_video p0">
           <PropertyLocation />
@@ -81,7 +77,7 @@ const DetailsContent = () => {
       {/* End .location_area */}
 
       <div className="application_statics mt30" id="tab-4">
-        <h4 className="mb30">Floor plans</h4>
+        <h4 className="mb30">Technical Documentation</h4>
         <div className="faq_according style2">
           <FloorPlans />
         </div>
@@ -93,21 +89,21 @@ const DetailsContent = () => {
       </div>
       {/* End property-video  */}
 
-      <div className="walkscore_area mt30">
+      {/* <div className="walkscore_area mt30">
         <WalkScore />
-      </div>
+      </div> */}
       {/* End walkscore_area */}
 
-      <div className="whats_nearby mt30" id="tab-6">
+      {/* <div className="whats_nearby mt30" id="tab-6">
         <h4 className="mb10">What&apos;s Nearby</h4>
         <WhatsNearby />
-      </div>
+      </div> */}
       {/* End what's nearby area */}
 
       <div className="product_single_content">
         <div className="mbp_pagination_comments mt30">
           <div className="total_review">
-            <h4>896 Reviews</h4>
+            <h4>Seller Rating</h4>
             <ul className="review_star_list mb0 pl10">
               <Ratings />
             </ul>

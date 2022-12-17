@@ -5,7 +5,7 @@ import ListV1 from "../../components/listing-list/list-v1";
 const index = () => {
   return (
     <>
-      <Seo pageTitle="Simple Listing – List V1" />
+      <Seo pageTitle="Project List" />
       <ListV1 />
     </>
   );
