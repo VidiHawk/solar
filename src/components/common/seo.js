@@ -3,7 +3,7 @@ import Head from "next/head";
 const Seo = ({ pageTitle, font }) => (
   <>
     <Head>
-      <title>{pageTitle && `${pageTitle} || Pure Power`}</title>
+      <title>{pageTitle && `${pageTitle} || Tera Power`}</title>
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta
         name="keywords"
@@ -11,7 +11,7 @@ const Seo = ({ pageTitle, font }) => (
       />
       <meta
         name="description"
-        content="Pure Power - the Power Plant Marketplace"
+        content="Tera Power - the Power Plant Marketplace"
       />
       <meta name="ibthemes" content="ATFN" />
       <meta

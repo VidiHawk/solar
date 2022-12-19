@@ -2,8 +2,8 @@ const Pricing = () => {
   const pricingContent = [
     {
       id: 1,
-      price: "56",
-      title: "Standard Plan",
+      price: "0",
+      title: "Starter Plan",
       features: [
         "50 Power Plant Listings",
         "60 Days Availability",
@@ -14,7 +14,7 @@ const Pricing = () => {
     {
       id: 2,
       price: "190",
-      title: "Extended Plan",
+      title: "Broker Plan",
       features: [
         "50 Power Plant Listings",
         "60 Days Availability",
@@ -25,7 +25,7 @@ const Pricing = () => {
     {
       id: 3,
       price: "291",
-      title: "Premium Plan",
+      title: "Corporate Plan",
       features: [
         "50 Power Plant Listings",
         "60 Days Availability",

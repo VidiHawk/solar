@@ -3,15 +3,15 @@ import Link from "next/link";
 const CopyrightFooter = () => {
   const menuItems = [
     { id: 1, name: "Home", routeLink: "/" },
+    { id: 2, name: "Login", routeLink: "/login" },
+    { id: 3, name: "Register", routeLink: "/register" },
     {
-      id: 2,
+      id: 4,
       name: "Terms of Use",
-      routeLink: "/terms.jsx",
+      routeLink: "/terms",
     },
-    { id: 3, name: "Data Privacy", routeLink: "/terms" },
-    { id: 4, name: "About Us", routeLink: "/about-us" },
-    { id: 5, name: "Blog", routeLink: "/blog-list-1" },
-    { id: 6, name: "Contact", routeLink: "/contact" },
+    { id: 5, name: "Data Privacy", routeLink: "/terms" },
+    { id: 6, name: "Listing", routeLink: "/listing-details-V4" },
   ];
 
   return (

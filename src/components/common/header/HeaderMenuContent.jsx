@@ -4,11 +4,10 @@ import { useRouter } from "next/router";
 const HeaderMenuContent = ({ float = "" }) => {
   const route = useRouter();
 
-  const home = [
-    { id: 9, name: "Home", routerPath: "/home-9" },
-    { id: 1, name: "Map", routerPath: "/" },
-    { id: 4, name: "Listing Single", routerPath: "/listing-details-v4" },
-  ];
+  // const home = [
+  //   { id: 9, name: "Home", routerPath: "/home-9" },
+  //   { id: 1, name: "Map", routerPath: "/" },
+  // ];
 
   const admin = [
     {
@@ -58,26 +57,25 @@ const HeaderMenuContent = ({ float = "" }) => {
     },
   ];
 
-  const blog = [
-    { id: 1, name: "Blog List", routerPath: "/blog-list-1" },
-    {
-      id: 4,
-      name: "Blog Details",
-      routerPath: "/blog-details",
-    },
-  ];
+  // const blog = [
+  //   { id: 1, name: "Blog List", routerPath: "/blog-list-1" },
+  //   {
+  //     id: 4,
+  //     name: "Blog Details",
+  //     routerPath: "/blog-details",
+  //   },
+  // ];
 
-  const pages = [
-    { id: 1, name: "About Us", routerPath: "/about-us" },
-    { id: 2, name: "Gallery", routerPath: "/gallery" },
+  // const pages = [
+  //   { id: 1, name: "About Us", routerPath: "/about-us" },
+  //   { id: 2, name: "Gallery", routerPath: "/gallery" },
+  //   { id: 3, name: "Listing Single", routerPath: "/listing-details-v4" },
 
-    { id: 4, name: "LogIn", routerPath: "/login" },
-    { id: 6, name: "Membership", routerPath: "/membership" },
+  //   { id: 4, name: "LogIn", routerPath: "/login" },
+  //   { id: 6, name: "Membership", routerPath: "/membership" },
 
-    { id: 7, name: "Register", routerPath: "/register" },
-
-    { id: 10, name: "Terms & Conditions", routerPath: "/terms" },
-  ];
+  //   { id: 7, name: "Register", routerPath: "/register" },
+  // ];
 
   return (
     <ul
@@ -85,7 +83,14 @@ const HeaderMenuContent = ({ float = "" }) => {
       className="ace-responsive-menu text-end d-lg-block d-none"
       data-menu-style="horizontal"
     >
-      <li className="dropitem">
+      <li className="last">
+        <Link href="/listing-map-v4">
+          <a className={route.pathname === "/" ? "ui-active" : undefined}>
+            Map
+          </a>
+        </Link>
+      </li>
+      {/* <li className="dropitem">
         <a
           href="#"
           className={
@@ -94,12 +99,12 @@ const HeaderMenuContent = ({ float = "" }) => {
               : undefined
           }
         >
-          <span className="title">Find Power Plant</span>
+          <span className="title">Map</span>
           <span className="arrow"></span>
         </a>
         {/* <!-- Level Two--> */}
 
-        <ul className="sub-menu ">
+      {/* <ul className="sub-menu ">
           {home.map((item) => (
             <li key={item.id}>
               <Link href={item.routerPath}>
@@ -114,42 +119,10 @@ const HeaderMenuContent = ({ float = "" }) => {
             </li>
           ))}
         </ul>
-      </li>
+      </li> */}
       {/* End .dropitem */}
 
-      <li className="dropitem">
-        <a
-          href="#"
-          className={
-            admin.some((page) => page.routerPath === route.pathname)
-              ? "ui-active"
-              : undefined
-          }
-        >
-          <span className="title">User Admin</span>
-          <span className="arrow"></span>
-        </a>
-        {/* <!-- Level Two--> */}
-
-        <ul className="sub-menu ">
-          {admin.map((item) => (
-            <li key={item.id}>
-              <Link href={item.routerPath}>
-                <a
-                  className={
-                    route.pathname === item.routerPath ? "ui-active" : undefined
-                  }
-                >
-                  {item.name}
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </li>
-      {/* End .dropitem */}
-
-      <li className="dropitem">
+      {/* <li className="dropitem">
         <a
           href="#"
           className={
@@ -176,10 +149,10 @@ const HeaderMenuContent = ({ float = "" }) => {
             </li>
           ))}
         </ul>
-      </li>
+      </li> */}
       {/* End .dropitem */}
 
-      <li className="dropitem">
+      {/* <li className="dropitem">
         <a
           href="#"
           className={
@@ -213,6 +186,29 @@ const HeaderMenuContent = ({ float = "" }) => {
             </li>
           ))}
         </ul>
+      </li> */}
+
+      <li className="last">
+        <Link href="/membership">
+          <a
+            className={
+              route.pathname === "/membership" ? "ui-active" : undefined
+            }
+          >
+            Pricing
+          </a>
+        </Link>
+      </li>
+      {/* End .dropitem */}
+
+      <li className="last">
+        <Link href="/about-us">
+          <a
+            className={route.pathname === "/about-us" ? "ui-active" : undefined}
+          >
+            About Us
+          </a>
+        </Link>
       </li>
       {/* End .dropitem */}
 
@@ -236,6 +232,38 @@ const HeaderMenuContent = ({ float = "" }) => {
         >
           <span className="dn-lg">Login/Register</span>
         </a>
+      </li>
+      {/* End .dropitem */}
+
+      <li className="dropitem">
+        <a
+          href="#"
+          className={
+            admin.some((page) => page.routerPath === route.pathname)
+              ? "ui-active"
+              : undefined
+          }
+        >
+          <span className="title">User Admin</span>
+          <span className="arrow"></span>
+        </a>
+        {/* <!-- Level Two--> */}
+
+        <ul className="sub-menu ">
+          {admin.map((item) => (
+            <li key={item.id}>
+              <Link href={item.routerPath}>
+                <a
+                  className={
+                    route.pathname === item.routerPath ? "ui-active" : undefined
+                  }
+                >
+                  {item.name}
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </li>
       {/* End .dropitem */}
 

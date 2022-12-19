@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import HeaderMenuContent from "./HeaderMenuContent";
 
@@ -28,17 +28,23 @@ const Header = () => {
         {/* <!-- Menu Toggle btn--> */}
         <Link href="/">
           <a className="navbar_brand float-start dn-smd">
-            <img
+            {/* <img
               className="logo1 img-fluid"
-              src="/assets/images/header-logo2.png"
-              alt="header-logo2.png"
+              src="/assets/images/logo.svg"
+              alt="tera-power.png"
+            /> */}
+            <Image
+              src="/assets/images/logo.svg"
+              width="200 px"
+              height="70 px"
+              alt="tera-power.png"
             />
-            <img
+            {/* <img
               className="logo2 img-fluid"
               src="/assets/images/header-logo2.png"
               alt="header-logo2.png"
-            />
-            <span>Pure Power</span>
+            /> */}
+            {/* <span>Power</span> */}
           </a>
         </Link>
         {/* site logo brand */}

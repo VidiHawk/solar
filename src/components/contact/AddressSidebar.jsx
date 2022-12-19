@@ -12,7 +12,7 @@ const AddressSidebar = () => {
         <h5>Address</h5>
         <p>
           1 The Anchorage, Charlotte Quay, <br />
-          Grand Canal Dock, Dublin 2 Ireland
+          Grand Canal Dock, Dublin 2, Ireland
         </p>
       </div>
       <div className="content_list">
@@ -21,11 +21,11 @@ const AddressSidebar = () => {
       </div>
       <div className="content_list">
         <h5>Mail</h5>
-        <p>info@purepower.io</p>
+        <p>info@terapower.io</p>
       </div>
       <div className="content_list">
         <h5>Skype</h5>
-        <p>purepower</p>
+        <p>terapower</p>
       </div>
       <h5>Follow Us</h5>
       <ul className="contact_form_social_area">

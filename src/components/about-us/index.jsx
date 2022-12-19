@@ -33,7 +33,8 @@ const index = () => {
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2 className="mt0">
-                  Our Mission Is To Empower The Energy Market With Data
+                  Our mission is to empower energy professionals with the best
+                  actionable data
                 </h2>
               </div>
             </div>
@@ -63,7 +64,7 @@ const index = () => {
       </section>
 
       {/* <!-- Our Team --> */}
-      <section className="our-team bgc-f7">
+      {/* <section className="our-team bgc-f7">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
@@ -81,7 +82,7 @@ const index = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <!-- Our Testimonials --> */}
       {/* <section className="our-testimonials">

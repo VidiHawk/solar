@@ -4,6 +4,7 @@ import {
   isParentPageActive,
   isSinglePageActive,
 } from "../../../../utils/daynamicNavigation";
+import Image from "next/image";
 
 const SidebarMenu = () => {
   const route = useRouter();
@@ -39,11 +40,17 @@ const SidebarMenu = () => {
         <li className="sidebar_header header">
           <Link href="/">
             <a>
-              <img
+              <Image
+                src="/assets/images/logo.svg"
+                width="200 px"
+                height="70 px"
+                alt="tera-power.png"
+              />
+              {/* <img
                 src="/assets/images/header-logo2.png"
                 alt="header-logo2.png"
               />
-              <span>Pure Power</span>
+              <span>Pure Power</span> */}
             </a>
           </Link>
         </li>

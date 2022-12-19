@@ -70,12 +70,13 @@ const OurMission = () => {
 
       <div className="col-lg-4 col-xl-5">
         <div className="about_thumb">
+          {/* ideal image size 453x500*/}
           <img
             className="img-fluid w100"
             src="assets/images/about/1.jpg"
             alt="1.jpg"
           />
-          <PopupVideo />
+          {/* <PopupVideo /> */}
         </div>
       </div>
     </>

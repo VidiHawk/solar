@@ -11,6 +11,7 @@ import {
 } from "react-pro-sidebar";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const home = [
   {
@@ -111,12 +112,18 @@ const MobileMenuContent = () => {
         <div className="sidebar-header">
           <Link href="/">
             <a className="sidebar-header-inner">
-              <img
+              <Image
+                src="/assets/images/logo.svg"
+                width="200 px"
+                height="70 px"
+                alt="tera-power.png"
+              />
+              {/* <img
                 className="nav_logo_img img-fluid mt20"
                 src="/assets/images/header-logo2.png"
                 alt="header-logo.png"
               />
-              <span className="brand-text">Pure Power</span>
+              <span className="brand-text">Pure Power</span> */}
             </a>
           </Link>
           {/* End .logo */}
