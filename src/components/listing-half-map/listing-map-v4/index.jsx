@@ -10,7 +10,7 @@ import ShowFilter from "../../common/listing/ShowFilter";
 import SidebarListing2 from "../../common/listing/SidebarListing2";
 import PopupSignInUp from "../../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import Script from "next/script";
 import GoogleMapReact from "google-map-react";
 import useSupercluster from "use-supercluster";
@@ -18,21 +18,30 @@ import useSwr from "swr"; // excellent API fetching library
 // import generatorData from "./global_power_plant_database.json";
 import generatorData from "./testData.json";
 
-const Marker = ({ children }) => children;
-
 const index = () => {
+  const MY_API_KEY = process.env.NEXT_PUBLIC_API_KEY;
   const [coordinates, setCoordinates] = useState({ lat: 53.342, lng: -6.235 });
   const [zoom, setZoom] = useState(10);
   const [bounds, setBounds] = useState(null);
-  const MY_API_KEY = process.env.NEXT_PUBLIC_API_KEY;
-
-  //**** */
   const mapRef = useRef();
+
+  useEffect(() => {
+    // get the users current location on initial session
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        // console.log({ latitude, longitude });
+        setCoordinates({ lat: latitude, lng: longitude });
+      }
+    );
+  }, []);
+
+  const Marker = ({ children }) => children;
+
   // const url =
   //   "https://data.police.uk/api/crimes-street/all-crime?poly=52.268,0.543:52.794,0.238:52.130,0.478&date=2020-01";
   // const { data, error } = useSwr(url, { fetcher });
-  // const generators = data && !error ? data.slice(0, 2000) : [];
-  // console.log("data: ", generators);
+  // const points = data && !error ? data.slice(0, 2000) : [];
+  // console.log("data: ", points);
 
   const points = generatorData.map((generator) => ({
     type: "Feature",
@@ -57,17 +66,37 @@ const index = () => {
     options: { radius: 75, maxZoom: 20 },
   });
 
-  //**** */
+  // const onIdle = (map) => {
+  //   setZoom(map.getZoom()!);
 
-  // useEffect(() => {
-  //   // get the users current location on initial session
-  //   navigator.geolocation.getCurrentPosition(
-  //     ({ coords: { latitude, longitude } }) => {
-  //       console.log({ latitude, longitude });
-  //       setCoordinates({ lat: latitude, lng: longitude });
-  //     }
-  //   );
-  // }, []);
+  //   const nextCenter = map.getCenter();
+
+  //   if (nextCenter) {
+  //     setCenter(nextCenter.toJSON());
+  //   }
+  // };
+
+  const [highlightedHotel, setHighlightedHotel] = useState(null);
+
+  const onMarkerClick = useCallback(
+    (points) => {
+      if (highlightedHotel === points) {
+        setHighlightedHotel(null);
+      } else {
+        setHighlightedHotel(points);
+      }
+    },
+    [highlightedHotel]
+  );
+
+  const Looper = (points) => {
+    console.log("hello");
+    for (let i = 0; i < points.length; i++) {
+      let obj = points[i];
+
+      console.log(points);
+    }
+  };
 
   return (
     <>
@@ -142,9 +171,6 @@ const index = () => {
                     onGoogleApiLoaded={({ map }) => {
                       mapRef.current = map;
                     }}
-                    // onChange={(e) => {
-                    //   setCoordinates({ lat: e.center.lat, lng: e.center.lng });
-                    // }}
                     onChange={({ zoom, bounds }) => {
                       setZoom(zoom);
                       setBounds([
@@ -154,6 +180,11 @@ const index = () => {
                         bounds.nw.lat,
                       ]);
                     }}
+                    // onIdle={onIdle}
+                    // onMarkerClick={onMarkerClick}
+                    markers={points}
+                    onMarkerClick={Looper}
+                    // highlightedMarkerId={highlightedHotel?.hotelId}
                   >
                     {clusters.map((cluster) => {
                       const [longitude, latitude] =
@@ -169,7 +200,7 @@ const index = () => {
                             lng={longitude}
                           >
                             <div
-                              className="cluster-marker"
+                              className={"cluster-marker"}
                               style={{
                                 width: `${
                                   10 + (pointCount / points.length) * 20
