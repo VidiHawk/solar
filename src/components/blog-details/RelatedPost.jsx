@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import relatedPostContent from "../../data/blogs";
 
 const RelatedPost = () => {
   return (
     <>
-      {relatedPostContent.slice(4, 6).map((item) => (
+      {relatedPostContent.slice(1, 3).map((item) => (
         <div className="col-md-6 col-lg-6" key={item.id}>
           <div className="for_blog feat_property">
             <div className="thumb">

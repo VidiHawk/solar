@@ -2,7 +2,7 @@ import BreadCrumb from "../common/BreadCrumb";
 
 const BreadCrumbBanner = () => {
   return (
-    <section className="inner_page_breadcrumb">
+    <section className="inner_page_breadcrumb pure_power_background">
       <div className="container">
         <div className="row">
           <div className="col-xl-6">

@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import featureContent from "../../../data/properties";
 
 const FeaturedListings = () => {
   return (
     <>
-      {featureContent.slice(27, 30).map((item) => (
+      {featureContent.slice(3, 6).map((item) => (
         <div className="media d-flex" key={item.id}>
           <Link href={`/listing-details-v1/${item.id}`}>
             <a>
@@ -25,7 +26,8 @@ const FeaturedListings = () => {
             <Link href={`/listing-details-v1/${item.id}`}>
               <a>
                 {" "}
-                ${item.price}/<small>/mo</small>
+                ${item.price}
+                <small>million</small>
               </a>
             </Link>
 

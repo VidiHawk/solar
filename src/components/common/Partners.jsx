@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const Partners = () => {
   const partnersImages = ["1", "2", "3", "4", "5"];
   return (

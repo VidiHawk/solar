@@ -1,10 +1,10 @@
 const Categories = () => {
   const categorieContent = [
-    { id: 1, name: "Apartment", propertyNumber: "6" },
-    { id: 2, name: "Condo", propertyNumber: "12" },
-    { id: 3, name: "Family House", propertyNumber: "8" },
-    { id: 4, name: "Modern Villa", propertyNumber: "26" },
-    { id: 5, name: "Town House", propertyNumber: "89" },
+    { id: 1, name: "Wind", propertyNumber: "6" },
+    { id: 2, name: "Solar", propertyNumber: "12" },
+    { id: 3, name: "Hydro", propertyNumber: "8" },
+    { id: 4, name: "Biofuel", propertyNumber: "26" },
+    { id: 5, name: "Gas", propertyNumber: "89" },
   ];
   return (
     <ul className="list_details">
@@ -13,7 +13,7 @@ const Categories = () => {
           <a href="#">
             <i className="fa fa-caret-right mr10"></i>
             {item.name}{" "}
-            <span className="float-end">{item.propertyNumber} properties</span>
+            <span className="float-end">{item.propertyNumber} plants</span>
           </a>
         </li>
       ))}

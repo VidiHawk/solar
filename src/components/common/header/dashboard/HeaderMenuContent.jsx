@@ -155,7 +155,7 @@ const HeaderMenuContent = ({ float = "" }) => {
           routerPath: "/my-dashboard",
         },
         {
-          name: "My Properties",
+          name: "My Power Plants",
           routerPath: "/my-properties",
         },
         {
@@ -193,18 +193,6 @@ const HeaderMenuContent = ({ float = "" }) => {
       title: "Listing Single",
       items: [
         {
-          name: "Single V1",
-          routerPath: "/listing-details-v1",
-        },
-        {
-          name: "Single V2",
-          routerPath: "/listing-details-v2",
-        },
-        {
-          name: "Single V3",
-          routerPath: "/listing-details-v3",
-        },
-        {
           name: "Single V4",
           routerPath: "/listing-details-v4",
         },
@@ -214,8 +202,6 @@ const HeaderMenuContent = ({ float = "" }) => {
 
   const blog = [
     { id: 1, name: "Blog List 1", routerPath: "/blog-list-1" },
-    { id: 2, name: "Blog List 2", routerPath: "/blog-list-2" },
-    { id: 3, name: "Blog List 3", routerPath: "/blog-list-3" },
     {
       id: 4,
       name: "Blog Details",
@@ -226,15 +212,12 @@ const HeaderMenuContent = ({ float = "" }) => {
   const pages = [
     { id: 1, name: "About Us", routerPath: "/about-us" },
     { id: 2, name: "Gallery", routerPath: "/gallery" },
-    { id: 3, name: "Faq", routerPath: "/faq" },
+
     { id: 4, name: "LogIn", routerPath: "/login" },
-    { id: 5, name: "Compare", routerPath: "/compare" },
+
     { id: 6, name: "Membership", routerPath: "/membership" },
 
     { id: 7, name: "Register", routerPath: "/register" },
-    { id: 8, name: "Service", routerPath: "/service" },
-    { id: 9, name: "404 Page", routerPath: "/404" },
-    { id: 10, name: "Terms & Conditions", routerPath: "/terms" },
   ];
 
   return (

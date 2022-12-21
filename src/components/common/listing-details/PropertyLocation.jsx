@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const PropertyLocation = () => {
   return (
     <>
@@ -7,7 +8,7 @@ const PropertyLocation = () => {
             <iframe
               title="map"
               className="gmap_iframe"
-              src="https://www.google.com/maps/d/embed?mid=1tJl0-uRax4AKBfbh1eLPLX5WzOk&hl=en&ehbc=2E312F"
+              src="https://www.google.com/maps/d/u/0/embed?mid=1KHmd4zKHCqzWHLlfXdcqOTfHYzhasdo&ehbc=2E312F"
             ></iframe>
           </div>
         </div>

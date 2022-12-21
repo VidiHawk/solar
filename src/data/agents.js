@@ -15,15 +15,15 @@ module.exports = [
       },
       { icon: "fa-dribbble", liveLink: "https://www.dribbble.com/" },
     ],
-    name: `Jennifer Barton`,
-    type: "Broker",
+    name: `Fabian de Mortier`,
+    type: "Founder",
     ratings: 4.5,
     noOfListings: "2",
     office: "134 456 3210",
-    mobile: "891 456 9874",
+    mobile: "",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
-    city: "Atlanta",
+    email: "fabian@terapower.io",
+    city: "Dublin",
   },
   {
     id: 2,
@@ -48,7 +48,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "Florida",
   },
   {
@@ -74,7 +74,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "Los Angeles",
   },
   {
@@ -100,7 +100,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "Miami",
   },
   {
@@ -126,7 +126,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "New York",
   },
   {
@@ -152,7 +152,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "Orlando",
   },
   {
@@ -178,7 +178,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "Atlanta",
   },
   {
@@ -204,7 +204,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "Florida",
   },
   {
@@ -230,7 +230,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "Los Angeles",
   },
   {
@@ -256,7 +256,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "Miami",
   },
   {
@@ -282,7 +282,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "New York",
   },
   {
@@ -308,7 +308,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "Orlando",
   },
   {
@@ -334,7 +334,7 @@ module.exports = [
     office: "134 456 3210",
     mobile: "891 456 9874",
     fax: "342 654 1258",
-    email: "pakulla@findhouse.com",
+    email: "chris@solarbrokers.net",
     city: "Orlando",
   },
 ];

@@ -1,8 +1,10 @@
 import BreadCrumb from "../common/BreadCrumb";
 
+// the background PICTURE is embeded in the CSS className="inner_page_breadcrumb"
+
 const BreadCrumbBanner = () => {
   return (
-    <section className="inner_page_breadcrumb">
+    <section className="inner_page_breadcrumb contact_map_image">
       <div className="container">
         <div className="row">
           <div className="col-xl-6">

@@ -5,7 +5,7 @@ const CallToAction = () => {
     <div className="row">
       <div className="col-lg-8">
         <div className="start_partner tac-smd">
-          <h2>Become a Real Estate Agent</h2>
+          <h2>Become a power plant broker!</h2>
           <p>We only work with the best companies around the globe</p>
         </div>
       </div>

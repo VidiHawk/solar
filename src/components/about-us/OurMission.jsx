@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import PopupVideo from "../common/PopupVideo";
 
 const OurMission = () => {
@@ -6,19 +7,19 @@ const OurMission = () => {
       id: 1,
       icon: "flaticon-user",
       number: "80,123",
-      meta: "Customers to date",
+      meta: "Power plants",
     },
     {
       id: 2,
       icon: "flaticon-home",
       number: "$74 Billion",
-      meta: "In home sales",
+      meta: "Worth of assets",
     },
     {
       id: 3,
       icon: "flaticon-transfer",
-      number: "$468 Million",
-      meta: "In Savings",
+      number: "7,000+ ",
+      meta: "Energy investors",
     },
   ];
 
@@ -69,12 +70,13 @@ const OurMission = () => {
 
       <div className="col-lg-4 col-xl-5">
         <div className="about_thumb">
+          {/* ideal image size 453x500*/}
           <img
             className="img-fluid w100"
             src="assets/images/about/1.jpg"
             alt="1.jpg"
           />
-          <PopupVideo />
+          {/* <PopupVideo /> */}
         </div>
       </div>
     </>

@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import findProperties from "../../data/findProperties";
 
 const FindProperties = () => {
   return (
     <>
-      {findProperties.slice(20, 24).map((item) => (
+      {findProperties.slice(0, 4).map((item) => (
         <div className="col-sm-6 col-lg-4 col-xl" key={item.id}>
           <Link href="/listing-grid-v2">
             <a className="properti_city_home8 text-center d-block">
@@ -14,7 +15,7 @@ const FindProperties = () => {
 
               <div className="details">
                 <h4>{item.name}</h4>
-                <p>{item.number} Properties</p>
+                <p>{item.number} Projects</p>
               </div>
             </a>
           </Link>

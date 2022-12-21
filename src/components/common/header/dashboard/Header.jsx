@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import HeaderMenuContent from "./HeaderMenuContent";
+import Image from "next/image";
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
@@ -27,7 +28,7 @@ const Header = () => {
         {/* <!-- Menu Toggle btn--> */}
         <Link href="/">
           <a className="navbar_brand float-start dn-smd">
-            <img
+            {/* <img
               className="logo1 img-fluid"
               src="/assets/images/header-logo2.png"
               alt="header-logo2.png"
@@ -37,7 +38,13 @@ const Header = () => {
               src="/assets/images/header-logo2.png"
               alt="header-logo2.png"
             />
-            <span>PurePower</span>
+            <span>Text</span> */}
+            <Image
+              src="/assets/images/logo.svg"
+              width="200 px"
+              height="70 px"
+              alt="tera-power.png"
+            />
           </a>
         </Link>
         {/* site logo brand */}

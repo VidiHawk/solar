@@ -1,5 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import HeaderMenuContent from "../common/header/HeaderMenuContent";
+import Image from "next/image";
 
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
@@ -27,7 +29,13 @@ const Header = () => {
 
         {/* <!-- Menu Toggle btn--> */}
         <a href="#" className="navbar_brand float-start dn-smd">
-          <img
+          <Image
+            src="/assets/images/logo.svg"
+            width="200 px"
+            height="70 px"
+            alt="tera-power.png"
+          />
+          {/* <img
             className="logo1 img-fluid"
             src="/assets/images/header-logo.png"
             alt="header-logo.png"
@@ -37,7 +45,7 @@ const Header = () => {
             src="/assets/images/header-logo2.png"
             alt="header-logo2.png"
           />
-          <span>FindHouse</span>
+          <span>Text</span> */}
         </a>
         {/* site logo brand */}
 

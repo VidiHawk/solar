@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MobileMenuContent from "./MobileMenuContent";
+import Image from "next/image";
 
 const MobileMenu = () => {
   return (
@@ -8,12 +9,18 @@ const MobileMenu = () => {
       <div className="mobile-menu">
         <div className="header stylehome1">
           <div className="main_logo_home2 text-center">
-            <img
+            {/* <img
               className="nav_logo_img img-fluid mt20"
               src="/assets/images/header-logo2.png"
               alt="header-logo2.png"
+            /> */}
+            <Image
+              src="/assets/images/logo.svg"
+              width="200 px"
+              height="70 px"
+              alt="tera-power.png"
             />
-            <span className="mt20">FindHouse</span>
+            {/* <span className="mt20">Text</span> */}
           </div>
           {/* main_logo_home2 */}
 

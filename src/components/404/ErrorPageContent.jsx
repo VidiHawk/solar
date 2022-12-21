@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Form from "./Form";
 
@@ -14,8 +15,7 @@ const ErrorPageContent = () => {
       </div>
       <p>We can’t seem to find the page you’re looking for</p>
 
-      <Form />
-      {/* End form */}
+      {/* <Form /> */}
 
       <Link href="/">
         <a className="btn btn_error btn-thm">Back To Home</a>

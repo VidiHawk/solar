@@ -77,11 +77,11 @@ a {
     @media (min-width: 1500px) {
         height: 100vh;
     }
-    .home_content {
-        @media (min-width: 1500px) and (max-width: 1800px) {
-            padding: 220px 0 400px;
-        }
-    }
+    // .home_content {
+    //     @media (min-width: 1500px) and (max-width: 1800px) {
+    //         padding: 220px 0 400px;
+    //     }
+    // }
 }
 @keyframes slide-down {
     0% {
@@ -314,7 +314,7 @@ $sidebar-color: #333;
 }
 
 .list_s .flaticon-user:before {
-    padding-right: 5px;
+    padding-right: 5px; 
 }
 
 // map
@@ -322,6 +322,8 @@ $sidebar-color: #333;
     height: 600px;
     background: #eee;
     position: relative;
+    text-align: center;
+
     @media (min-width: 1280px) and (max-width: 1700px) {
         height: 554px;
     }

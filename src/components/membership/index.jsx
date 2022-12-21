@@ -28,7 +28,7 @@ const index = () => {
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
-                <h2>Choose Your Perfect Plan From Us</h2>
+                <h2>Choose the Plan that Suits You</h2>
                 <p>We provide full service at every step</p>
               </div>
             </div>

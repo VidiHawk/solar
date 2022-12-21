@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import BlogSidebar from "../../components/common/blog/BlogSidebar";
 import CopyrightFooter from "../../components/common/footer/CopyrightFooter";
 import Footer from "../../components/common/footer/Footer";
@@ -39,10 +40,10 @@ const index = () => {
               <div className="main_blog_post_content">
                 <div className="mbp_thumb_post">
                   <div className="blog_sp_tag">
-                    <a href="#">Construction</a>
+                    <a href="#">Business</a>
                   </div>
                   <h3 className="blog_sp_title">
-                    Redfin Ranks the Most Competitive Neighborhoods of 2020
+                    Skills That You Can Learn In The Energy Market in 2023
                   </h3>
                   <ul className="blog_sp_post_meta">
                     <li className="list-inline-item">
@@ -54,13 +55,13 @@ const index = () => {
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a href="#">Ali Tufan</a>
+                      <a href="#">David Burke</a>
                     </li>
                     <li className="list-inline-item">
                       <span className="flaticon-calendar"></span>
                     </li>
                     <li className="list-inline-item">
-                      <a href="#">January 16, 2020</a>
+                      <a href="#">January 7, 2023</a>
                     </li>
                     <li className="list-inline-item">
                       <span className="flaticon-view"></span>
@@ -106,7 +107,7 @@ const index = () => {
                       sollicitudin et.
                     </p>
                     <h4 className="mb15">
-                      Housing Markets That Changed the Most This Decade
+                      Energy Markets That Changed the Most This Decade
                     </h4>
                     <p>
                       Nullam tempus sollicitudin cursus. Nulla elit mauris,
@@ -162,7 +163,7 @@ const index = () => {
                 </div>
                 {/* End mbp_pagination_tab */}
 
-                <div className="product_single_content mb30">
+                {/* <div className="product_single_content mb30">
                   <div className="mbp_pagination_comments">
                     <div className="total_review">
                       <h4>896 Reviews</h4>
@@ -176,15 +177,15 @@ const index = () => {
                         Write a Review
                       </a>
                     </div>
-                    {/* End .total_review */}
+                    
 
                     <Comments />
                     <div className="custom_hr"></div>
                   </div>
-                </div>
+                </div> */}
                 {/* End .product_single_content  */}
 
-                <div className="bsp_reveiw_wrt">
+                {/* <div className="bsp_reveiw_wrt">
                   <h4>Write a Review</h4>
 
                   <ul className="review_star">
@@ -200,7 +201,7 @@ const index = () => {
                     </li>
                   </ul>
                   <ReviewBox />
-                </div>
+                </div> */}
                 {/* End .bsp_reveiw_wrt */}
               </div>
               {/* End .main_blog_post_content */}

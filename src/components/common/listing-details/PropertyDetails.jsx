@@ -5,48 +5,22 @@ const PropertyDetails = () => {
         <ul className="list-inline-item">
           <li>
             <p>
-              Property ID : <span>HZ27</span>
+              ID : <span>HZ27</span>
             </p>
           </li>
           <li>
             <p>
-              Price : <span>$130,000</span>
+              Price : <span>$5,000,000</span>
             </p>
           </li>
           <li>
             <p>
-              Property Size : <span>1560 Sq Ft</span>
+              Peak capacity : <span>9 MW</span>
             </p>
           </li>
           <li>
             <p>
-              Year Built : <span>2016-01-09</span>
-            </p>
-          </li>
-        </ul>
-      </div>
-      {/* End .col */}
-
-      <div className="col-md-6 col-lg-6 col-xl-4">
-        <ul className="list-inline-item">
-          <li>
-            <p>
-              Bedrooms : <span>8</span>
-            </p>
-          </li>
-          <li>
-            <p>
-              Bathrooms : <span>4</span>
-            </p>
-          </li>
-          <li>
-            <p>
-              Garage : <span>2</span>
-            </p>
-          </li>
-          <li>
-            <p>
-              Garage Size : <span>200 SqFt</span>
+              Year Built : <span>2017-01-09</span>
             </p>
           </li>
         </ul>
@@ -57,12 +31,38 @@ const PropertyDetails = () => {
         <ul className="list-inline-item">
           <li>
             <p>
-              Property Type : <span>Apartment</span>
+              Land size : <span>35 ha</span>
             </p>
           </li>
           <li>
             <p>
-              Property Status : <span>For Sale</span>
+              Inverters : <span>SMA</span>
+            </p>
+          </li>
+          <li>
+            <p>
+              Substation : <span>Hitachi</span>
+            </p>
+          </li>
+          <li>
+            <p>
+              Solar panels brand : <span>Trinasolar</span>
+            </p>
+          </li>
+        </ul>
+      </div>
+      {/* End .col */}
+
+      <div className="col-md-6 col-lg-6 col-xl-4">
+        <ul className="list-inline-item">
+          <li>
+            <p>
+              Asset type : <span>Land leased to solar plant</span>
+            </p>
+          </li>
+          <li>
+            <p>
+              Asset Status : <span>For Sale</span>
             </p>
           </li>
         </ul>

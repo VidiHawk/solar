@@ -31,8 +31,8 @@ const index = () => {
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center mb40">
-                <h2>Featured Properties</h2>
-                <p>Handpicked properties by our team.</p>
+                <h2>Featured Projects</h2>
+                <p>Hottest deals on the market.</p>
               </div>
             </div>
             <div className="col-lg-12">
@@ -45,37 +45,34 @@ const index = () => {
       </section>
 
       {/* <!-- Property Cities --> */}
-      <section id="property-city" className="property-city pb30">
+      {/* <section id="property-city" className="property-city pb30">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
-                <h2>Find Properties in These Cities</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2>Find Projects in these Countries</h2>
+                <p>Over 30,000 power plants listed in over 130 countries.</p>
               </div>
             </div>
           </div>
-          {/* End .row */}
-
-          <div className="row">
+                 <div className="row">
             <FindProperties />
           </div>
-          {/* End .row */}
+          
         </div>
-      </section>
+      </section> */}
 
       {/* <!-- Our Testimonials --> */}
-      <section className="our-testimonials bgc-f7">
+      {/* <section className="our-testimonials bgc-f7">
         <div className="container ovh">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2>Testimonials</h2>
-                <p>Here could be a nice sub title</p>
+                <p>What people say about us.</p>
               </div>
             </div>
           </div>
-          {/* End .row */}
 
           <div className="row">
             <div className="col-lg-12">
@@ -84,19 +81,20 @@ const index = () => {
               </div>
             </div>
           </div>
-          {/* End .row */}
         </div>
-        {/* End container */}
-      </section>
+      </section> */}
+      {/* End container */}
 
       {/* <!-- Our Blog --> */}
-      <section className="our-blog pb0">
+      {/* <section className="our-blog pb0">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
               <div className="main-title text-center">
                 <h2>Articles & Tips</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p>
+                  Discover the latest news about power plant asset transactions.
+                </p>
               </div>
             </div>
           </div>
@@ -104,10 +102,10 @@ const index = () => {
             <Blogs />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <!-- Our Partners --> */}
-      <section id="our-partners" className="our-partners pt30">
+      {/* <section id="our-partners" className="our-partners pt30">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 offset-lg-3">
@@ -121,7 +119,7 @@ const index = () => {
             <Partners />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <!-- Our Footer --> */}
       <section className="footer_one home5">

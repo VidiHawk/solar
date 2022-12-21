@@ -14,7 +14,7 @@ const BlogSidebar = () => {
       {/* End .sidebar_search_widget */}
 
       <div className="terms_condition_widget">
-        <h4 className="title">Categories Property</h4>
+        <h4 className="title">Categories</h4>
         <div className="widget_list">
           <Categories />
         </div>

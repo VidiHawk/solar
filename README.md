@@ -5,9 +5,13 @@ Built with React and NextJS.
 Install using node v16.16.0 or yarn v1.22.19
 
 ## Branches
+
 - master: initial branch
+  
 - barebone: forked from master on Dec 5th 2022. The main difference from master is the removal of unused files and directories across the app
+
 - mapbox: forked from barebone on Dec 21st 2022. This is an attempt to use Mapbox GL API instead of the Google Maps API.
+
 
 ## Available Scripts
 
@@ -24,18 +28,19 @@ You will also see any lint errors in the console.
 
 Deploying to Netlify - https://www.youtube.com/watch?v=TbQ4kWX29lQ
 
-### For locally build
+### For local build
 Open you command prompt
 `yarn build` (will build locally and generate public directory)
 `yarn start` (will start the locally build server at http://loaclhost:3000)
 Deploying to Vercel - https://www.youtube.com/watch?v=_8wkKL0LKks
 
+
 ### Other Scripts
 Open you command prompt
 `yarn lint:fix` (This will format your code and fix auto fixable eslint error)
 
-### Inspirations
+### Ideas
 
-- [Google Map Clustering by Leigh Halliday](https://github.com/leighhalliday/google-maps-clustering) for its clustering implementation
-
-- [Google Map Marker by Daw-Chih Liou](https://github.com/DawChihLiou/react-google-maps-marker-demo) for its marker behavior and styling
+- [Flickering neon text](https://css-tricks.com/how-to-create-neon-text-with-css/)
+- [Lightning effect on text](https://dev.to/pankaj_singhr/lightning-effect-using-css-animation-4h3)
+- [Neon glitch effect](https://gist.github.com/CodeMyUI/17cba2cb0698753fc21434a53863a23c)

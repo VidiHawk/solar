@@ -121,7 +121,7 @@ const BlogDetailsDynamic = () => {
                       sollicitudin et.
                     </p>
                     <h4 className="mb15">
-                      Housing Markets That Changed the Most This Decade
+                      2GWp of New Project Developed by Enerclean in 2022
                     </h4>
                     <p>
                       Nullam tempus sollicitudin cursus. Nulla elit mauris,
@@ -176,7 +176,7 @@ const BlogDetailsDynamic = () => {
                   <Pagination />
                 </div>
                 {/* End mbp_pagination_tab */}
-
+                {/* 
                 <div className="product_single_content mb30">
                   <div className="mbp_pagination_comments">
                     <div className="total_review">
@@ -190,16 +190,16 @@ const BlogDetailsDynamic = () => {
                       <a className="write_review float-end fn-xsd" href="#">
                         Write a Review
                       </a>
-                    </div>
-                    {/* End .total_review */}
+                    </div> */}
+                {/* End .total_review */}
 
-                    <Comments />
+                {/* <Comments />
                     <div className="custom_hr"></div>
                   </div>
-                </div>
+                </div> */}
                 {/* End .product_single_content  */}
 
-                <div className="bsp_reveiw_wrt">
+                {/* <div className="bsp_reveiw_wrt">
                   <h4>Write a Review</h4>
 
                   <ul className="review_star">
@@ -215,7 +215,7 @@ const BlogDetailsDynamic = () => {
                     </li>
                   </ul>
                   <ReviewBox />
-                </div>
+                </div> */}
                 {/* End .bsp_reveiw_wrt */}
               </div>
               {/* End .main_blog_post_content */}

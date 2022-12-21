@@ -7,10 +7,11 @@ const Footer = () => {
     <>
       <div className="col-sm-6 col-md-6 col-lg-3 col-xl-3 pr0 pl0">
         <div className="footer_about_widget">
-          <h4>About Site</h4>
+          <h4>About Tera</h4>
           <p>
-            We’re reimagining how you buy, sell and rent. It’s now easier to get
-            into a place you love. So let’s do this, together.
+            We’re reimagining how you buy, sell and service power plants. It’s
+            now easier than ever to make money in the energy market. So let’s do
+            this, together.
           </p>
         </div>
       </div>
@@ -21,28 +22,28 @@ const Footer = () => {
           <h4>Quick Links</h4>
           <ul className="list-unstyled">
             <li>
-              <Link href="/">
+              <Link href="/membership">
+                <a>Pricing</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/about-us">
                 <a>About Us</a>
               </Link>
             </li>
             <li>
-              <Link href="/">
-                <a>Terms & Conditions</a>
+              <Link href="/blog-list-1">
+                <a>Blog</a>
               </Link>
             </li>
             <li>
-              <Link href="/">
-                <a>User’s Guide</a>
+              <Link href="/gallery">
+                <a>Gallery</a>
               </Link>
             </li>
             <li>
-              <Link href="/">
-                <a>Support Center</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <a>Press Info</a>
+              <Link href="/faq">
+                <a>FAQ</a>
               </Link>
             </li>
           </ul>
@@ -55,19 +56,19 @@ const Footer = () => {
           <h4>Contact Us</h4>
           <ul className="list-unstyled">
             <li>
-              <a href="mailto:info@findhouse.com">info@findhouse.com</a>
+              <a href="mailto:info@terapower.io">info@terapower.io</a>
             </li>
             <li>
-              <a href="#">Collins Street West, Victoria</a>
+              <a>1 The Anchorage,</a>
             </li>
             <li>
-              <a href="#">8007, Australia.</a>
+              <a>Charlotte Quay, Grand Canal Dock,</a>
             </li>
             <li>
-              <a href="tel:+4733378901">+1 246-345-0699</a>
+              <a>Dublin 1, Ireland</a>
             </li>
             <li>
-              <a href="tel:+4733378901">+1 246-345-0695</a>
+              <a href="tel:+353871543929">+353 87 154 3929</a>
             </li>
           </ul>
         </div>

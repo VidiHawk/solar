@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const FloorPlans = () => {
   return (
     <div className="accordion" id="accordionExample">
@@ -13,18 +14,20 @@ const FloorPlans = () => {
               aria-controls="collapseOne"
             >
               <ul className="mb0 d-flex align-items-cener flex-wrap">
-                <li className="d-inline-flex list-inline-item">First Floor</li>
                 <li className="d-inline-flex list-inline-item">
-                  <p>Size:</p> <span>1267 Sqft</span>
+                  Technical design
                 </li>
                 <li className="d-inline-flex list-inline-item">
-                  <p>Rooms:</p> <span>670 Sqft</span>
+                  <p>Section:</p> <span>A</span>
                 </li>
                 <li className="d-inline-flex list-inline-item">
-                  <p>Baths:</p> <span>530 Sqft</span>
+                  <p>Substation:</p> <span>1 mobile</span>
                 </li>
                 <li className="d-inline-flex list-inline-item">
-                  <p>Price:</p> <span>$1489</span>
+                  <p>Inverter:</p> <span>1x SMA 3,000 kVA</span>
+                </li>
+                <li className="d-inline-flex list-inline-item">
+                  <p>Land:</p> <span>20 ha</span>
                 </li>
               </ul>
             </button>
@@ -39,7 +42,7 @@ const FloorPlans = () => {
           <div className="card-body text-center">
             <img
               className="img-fluid"
-              src="/assets/images/resource/floor_plan.png"
+              src="/assets/images/technical/index.png"
               alt="floor_plan.png"
             />
             <p>
@@ -66,16 +69,16 @@ const FloorPlans = () => {
               <ul className="mb0 d-flex align-items-cener flex-wrap">
                 <li className="d-inline-flex list-inline-item">First Floor</li>
                 <li className="d-inline-flex list-inline-item">
-                  <p>Size:</p> <span>1267 Sqft</span>
+                  <p>Section: </p> <span>B</span>
                 </li>
                 <li className="d-inline-flex list-inline-item">
-                  <p>Rooms:</p> <span>670 Sqft</span>
+                  <p>Substation: </p> <span>none</span>
                 </li>
                 <li className="d-inline-flex list-inline-item">
-                  <p>Baths:</p> <span>530 Sqft</span>
+                  <p>Inverter: </p> <span>2x SMA 1,000 kVA</span>
                 </li>
                 <li className="d-inline-flex list-inline-item">
-                  <p>Price:</p> <span>$1489</span>
+                  <p>Land: </p> <span>15 ha</span>
                 </li>
               </ul>
             </button>
@@ -90,7 +93,7 @@ const FloorPlans = () => {
           <div className="card-body text-center">
             <img
               className="img-fluid"
-              src="/assets/images/resource/floor_plan.png"
+              src="/assets/images/technical/index.png"
               alt="floor_plan.png"
             />
             <p>
