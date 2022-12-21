@@ -63,7 +63,7 @@ const LocationField = () => {
       <div className="col-lg-12">
         <div className="my_profile_setting_input form-group">
           <div className="h400 bdrs8" id="map-canvas">
-            <div className="gmap_canvas pe-none">
+            <div className="map_canvas pe-none">
               <iframe
                 title="map"
                 className="gmap_iframe"

@@ -4,7 +4,7 @@ const PropertyLocation = () => {
     <>
       <div className="thumb">
         <div className="h400" id="map-canvas">
-          <div className="gmap_canvas ">
+          <div className="map_canvas ">
             <iframe
               title="map"
               className="gmap_iframe"

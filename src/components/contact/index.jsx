@@ -55,7 +55,7 @@ const index = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="h600" id="map-canvas">
-                <div className="gmap_canvas pe-none">
+                <div className="map_canvas pe-none">
                   {/* <iframe
                     title="map"
                     className="gmap_iframe"

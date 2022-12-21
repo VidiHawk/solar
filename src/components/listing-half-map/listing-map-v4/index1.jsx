@@ -17,109 +17,102 @@ import useSupercluster from "use-supercluster";
 import useSwr from "swr"; // excellent API fetching library
 // import generatorData from "./global_power_plant_database.json";
 import generatorData from "./testData.json";
-import dynamic from "next/dynamic";
-import Head from "next/head";
-import { addDataLayer } from "../../common/map/addDataLayer";
-import { initializeMap } from "../../common/map/initializeMap";
-const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+
+const fetcher = (...args) => fetch(...args).then((response) => response.json());
 
 const index = () => {
-  const [pageIsMounted, setPageIsMounted] = useState(false);
-  const [Map, setMap] = useState();
-
-  const data = {
-    type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        geometry: { type: "Point", coordinates: [-77.0317, 38.9146] },
-        properties: {
-          title: "Black Cat",
-          cluster: false,
-          venue: "blackcat",
-          event_count: 10,
-        },
-      },
-      {
-        type: "Feature",
-        geometry: { type: "Point", coordinates: [-77.023982, 38.878824] },
-        properties: {
-          title: "Pearl Street Warehouse",
-          cluster: false,
-          venue: "pearlstreet",
-          event_count: 2,
-        },
-      },
-    ],
-  };
-
-  mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+  const [coordinates, setCoordinates] = useState({ lat: 53.342, lng: -6.235 });
+  const [zoom, setZoom] = useState(10);
+  const [viewport, setViewport] = useState({
+    latitude: 52.6376,
+    longitude: -1.135171,
+    // width: "100vw",
+    // height: "100vh",
+    zoom: zoom,
+  });
+  const [bounds, setBounds] = useState(null);
+  const mapRef = useRef();
 
   useEffect(() => {
-    setPageIsMounted(true);
-
-    let map = new mapboxgl.Map({
-      container: "my-map",
-      style: "mapbox://styles/thefabster/cl7qbppp0003l15o6drhio03h",
-      center: [-77.02, 38.887],
-      zoom: 12.5,
-    });
-
-    initializeMap(mapboxgl, map);
-    setMap(map);
+    // get the users current location on initial session
+    navigator.geolocation.getCurrentPosition(
+      ({ coords: { latitude, longitude } }) => {
+        setCoordinates({ lat: latitude, lng: longitude });
+      }
+    );
   }, []);
 
-  useEffect(() => {
-    if (pageIsMounted && data) {
-      Map.on("load", function () {
-        addDataLayer(Map, data);
-      });
-    }
-  }, [pageIsMounted, setMap, data, Map]);
+  // const Marker = ({ children }) => children;
 
-  // const [coordinates, setCoordinates] = useState({ lat: 53.342, lng: -6.235 });
-  // const [zoom, setZoom] = useState(10);
-  // const [viewport, setViewport] = useState({
-  //   latitude: 52.6376,
-  //   longitude: -1.135171,
-  //   // width: "100vw",
-  //   // height: "100vh",
-  //   zoom: zoom,
-  // });
-  // const [bounds, setBounds] = useState(null);
-  // const mapRef = useRef();
+  // const url =
+  //   "https://data.police.uk/api/crimes-street/all-crime?poly=52.268,0.543:52.794,0.238:52.130,0.478&date=2020-01";
+  // const { data, error } = useSwr(url, { fetcher });
+  // const newData = data && !error ? data.slice(0, 2000) : [];
+  // console.log("data: ", newData);
 
-  // useEffect(() => {
-  //   // get the users current location on initial session
-  //   navigator.geolocation.getCurrentPosition(
-  //     ({ coords: { latitude, longitude } }) => {
-  //       setCoordinates({ lat: latitude, lng: longitude });
-  //     }
-  //   );
-  // }, []);
-
-  // const points = generatorData.map((generator) => ({
+  // const points = newData.map((generator) => ({
   //   type: "Feature",
   //   properties: {
   //     cluster: false,
-  //     generatorID: generator.gppd_idnr,
-  //     category: generator.primary_fuel,
+  //     generatorID: generator.crime.id,
+  //     category: generator.crime.category,
   //   },
   //   geometry: {
   //     type: "Point",
   //     coordinates: [
-  //       parseFloat(generator.longitude),
-  //       parseFloat(generator.latitude),
+  //       parseFloat(generator.location.longitude),
+  //       parseFloat(generator.location.latitude),
   //     ],
   //   },
   // }));
+  const points = generatorData.map((generator) => ({
+    type: "Feature",
+    properties: {
+      cluster: false,
+      generatorID: generator.gppd_idnr,
+      category: generator.primary_fuel,
+    },
+    geometry: {
+      type: "Point",
+      coordinates: [
+        parseFloat(generator.longitude),
+        parseFloat(generator.latitude),
+      ],
+    },
+  }));
 
-  // const { clusters, supercluster } = useSupercluster({
-  //   points,
-  //   bounds,
-  //   zoom: viewport.zoom,
-  //   options: { radius: 75, maxZoom: 20 },
-  // });
+  // const bounds = mapRef.current
+  //   ? mapRef.current.getMap().getBounds().toArray().flat()
+  //   : null;
+
+  const { clusters, supercluster } = useSupercluster({
+    points,
+    bounds,
+    zoom: viewport.zoom,
+    options: { radius: 75, maxZoom: 20 },
+  });
+
+  // const [highlightedHotel, setHighlightedHotel] = useState(null);
+
+  // const onMarkerClick = useCallback(
+  //   (points) => {
+  //     if (highlightedHotel === points) {
+  //       setHighlightedHotel(null);
+  //     } else {
+  //       setHighlightedHotel(points);
+  //     }
+  //   },
+  //   [highlightedHotel]
+  // );
+
+  // const Looper = (points) => {
+  //   console.log("hello");
+  //   for (let i = 0; i < points.length; i++) {
+  //     let obj = points[i];
+
+  //     console.log(points);
+  //   }
+  // };
 
   return (
     <>
@@ -171,28 +164,15 @@ const index = () => {
             </div>
             {/* End .col */}
 
-            <div className="col-xxl-7 col-xl-6 p0 position-relative">
+            <div className="col-xxl-7 col-xl-6  p0 position-relative">
               <div className="sidebar_switch style2 text-right dn-991 visible-filter filter-let-top">
                 <ShowFilter />
               </div>
               {/* filter switch */}
 
               <div className="home_two_map style2 half_map_area">
-                <div className="">
-                  <div className="map_canvas half_style">
-                    <Head>
-                      <link rel="icon" href="/favicon.ico" />
-                      <link
-                        href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
-                        rel="stylesheet"
-                      />
-                    </Head>
-                    <main className="map-canvas">
-                      {/* <div id="my-map" style={{ height: 500, width: 500 }} /> */}
-                      <div id="my-map" style={{ height: 600, width: 600 }} />
-                    </main>
-                  </div>
-                  {/* <ReactMapGL
+                <div className="map_canvas map-canvas half_style">
+                  <ReactMapGL
                     {...viewport}
                     maxZoom={20}
                     mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
@@ -270,7 +250,92 @@ const index = () => {
                         </Marker>
                       );
                     })}
-                  </ReactMapGL> */}
+                  </ReactMapGL>
+
+                  {/* <GoogleMapReact
+                    bootstrapURLKeys={{ key: MY_API_KEY }}
+                    // defaultCenter={{ lat: 53.342, lng: -6.235 }}
+                    center={coordinates}
+                    defaultZoom={10}
+                    options={{ mapId: "58887c3f87185bbb" }}
+                    yesIWantToUseGoogleMapApiInternals
+                    onGoogleApiLoaded={({ map }) => {
+                      mapRef.current = map;
+                    }}
+                    onChange={({ zoom, bounds }) => {
+                      setZoom(zoom);
+                      setBounds([
+                        bounds.nw.lng,
+                        bounds.se.lat,
+                        bounds.se.lng,
+                        bounds.nw.lat,
+                      ]);
+                    }}
+                    // onIdle={onIdle}
+                    // onMarkerClick={onMarkerClick}
+                    markers={points}
+                    onMarkerClick={Looper}
+                    // highlightedMarkerId={highlightedHotel?.hotelId}
+                  >
+                    {clusters.map((cluster) => {
+                      const [longitude, latitude] =
+                        cluster.geometry.coordinates;
+                      const { cluster: isCluster, point_count: pointCount } =
+                        cluster.properties;
+
+                      if (isCluster) {
+                        return (
+                          <Marker
+                            key={`cluster-${cluster.id}`}
+                            lat={latitude}
+                            lng={longitude}
+                          >
+                            <div
+                              className={"cluster-marker"}
+                              style={{
+                                width: `${
+                                  10 + (pointCount / points.length) * 20
+                                }px`,
+                                height: `${
+                                  10 + (pointCount / points.length) * 20
+                                }px`,
+                              }}
+                              onClick={() => {
+                                const expansionZoom = Math.min(
+                                  supercluster.getClusterExpansionZoom(
+                                    cluster.id
+                                  ),
+                                  20
+                                );
+                                mapRef.current.setZoom(expansionZoom);
+                                mapRef.current.panTo({
+                                  lat: latitude,
+                                  lng: longitude,
+                                });
+                              }}
+                            >
+                              {pointCount}
+                            </div>
+                          </Marker>
+                        );
+                      }
+
+                      return (
+                        <Marker
+                          key={`generator-${cluster.properties.generatorID}`}
+                          lat={latitude}
+                          lng={longitude}
+                        >
+                          <button className="generator-marker">
+                            <img
+                              src="/assets/images/energy-icon.svg"
+                              alt="generator location"
+                            />
+                          </button>
+                        </Marker>
+                      );
+                    })}
+                  </GoogleMapReact> */}
                 </div>
               </div>
             </div>

@@ -6,6 +6,10 @@ Install using node v16.16.0 or yarn v1.22.19
 
 ## Branches
 
+This branch is <b>mapbox<b>
+
+Recap of branches:
+
 - master: initial branch
   
 - barebone: forked from master on Dec 5th 2022. The main difference from master is the removal of unused files and directories across the app
