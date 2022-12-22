@@ -1,11 +1,11 @@
 export function initializeMap(mapboxgl, map) {
   map.on("click", "data", function (e) {
-    var features = map.queryRenderedFeatures(e.point, {
+    const features = map.queryRenderedFeatures(e.point, {
       layers: ["data"],
     });
-    var clusterId = features[0].properties.cluster_id;
+    const clusterId = features[0].properties.cluster_id;
     map
-      .getSource("dcmusic.live")
+      .getSource("power-generator")
       .getClusterExpansionZoom(clusterId, function (err, zoom) {
         if (err) return;
         map.easeTo({
@@ -16,20 +16,21 @@ export function initializeMap(mapboxgl, map) {
   });
 
   map.on("click", "unclustered-point", function (e) {
-    var coordinates = e.features[0].geometry.coordinates.slice();
-    var mag = e.features[0].properties.mag;
-    var tsunami;
-    if (e.features[0].properties.tsunami === 1) {
-      tsunami = "yes";
-    } else {
-      tsunami = "no";
-    }
+    const coordinates = e.features[0].geometry.coordinates.slice();
+    const fuel = e.features[0].properties.primary_fuel;
+    const name = e.features[0].properties.name;
+    const owner = e.features[0].properties.owner;
+    // if (e.features[0].properties.name === 1) {
+    //   name = "yes";
+    // } else {
+    //   name = "no";
+    // }
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
     new mapboxgl.Popup()
       .setLngLat(coordinates)
-      .setHTML("magnitude: " + mag + "<br>Was there a tsunami?: " + tsunami)
+      .setHTML("name: " + name + "<br>fuel: " + fuel + "<br>owner: " + owner)
       .addTo(map);
   });
   map.addControl(
@@ -40,7 +41,7 @@ export function initializeMap(mapboxgl, map) {
       trackUserLocation: true,
     })
   );
-
+  map.addControl(new mapboxgl.FullscreenControl());
   map.on("mouseenter", "data", function () {
     map.getCanvas().style.cursor = "pointer";
   });

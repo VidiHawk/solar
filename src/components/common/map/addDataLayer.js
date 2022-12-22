@@ -1,27 +1,33 @@
 export function addDataLayer(map, data) {
-  if (!map.getSource("dcmusic.live")) {
-    map.addSource("dcmusic.live", {
+  if (!map.getSource("power-generator")) {
+    map.addSource("power-generator", {
       type: "geojson",
       data: data,
       cluster: true,
       clusterMaxZoom: 14,
       clusterRadius: 50,
       clusterProperties: {
-        sum: ["+", ["get", "event_count"]],
+        sum: ["+", ["get", "capacity_mw"]],
       },
     });
   } else {
-    map.getSource("dcmusic.live").setData(data);
+    map.getSource("power-generator").setData(data);
   }
+
+  const wind = [
+    "all",
+    ["has", "point_count"],
+    ["==", ["get", "primary_fuel"], "Wind"],
+  ];
 
   map.addLayer({
     id: "clusters",
     type: "circle",
-    source: "dcmusic.live",
-    filter: ["has", "point_count"],
+    source: "power-generator",
+    filter: wind,
     paint: {
-      "circle-color": "rgb(229, 36, 59)",
-      "circle-radius": ["step", ["get", "point_count"], 20, 100, 30, 750, 40],
+      "circle-color": "rgb(231, 76, 60)",
+      "circle-radius": ["step", ["get", "point_count"], 70, 100, 30, 750, 40],
       "circle-opacity": 0.75,
       "circle-stroke-width": 4,
       "circle-stroke-color": "#fff",
@@ -32,12 +38,12 @@ export function addDataLayer(map, data) {
   map.addLayer({
     id: "cluster-count",
     type: "symbol",
-    source: "dcmusic.live",
-    filter: ["has", "point_count"],
+    source: "power-generator",
+    filter: wind,
     layout: {
-      "text-field": "{sum}",
+      "text-field": ["get", "point_count_abbreviated"],
       "text-font": ["Open Sans Bold"],
-      "text-size": 16,
+      "text-size": 12,
     },
     paint: {
       "text-color": "white",
@@ -47,11 +53,15 @@ export function addDataLayer(map, data) {
   map.addLayer({
     id: "unclustered-point",
     type: "circle",
-    source: "dcmusic.live",
-    filter: ["!", ["has", "point_count"]],
+    source: "power-generator",
+    filter: [
+      "all",
+      ["!", ["has", "point_count"]],
+      ["==", ["get", "primary_fuel"], "Wind"],
+    ],
     paint: {
-      "circle-radius": ["step", ["get", "event_count"], 20, 100, 30, 750, 40],
-      "circle-color": "rgb(229, 36, 59)",
+      "circle-radius": ["step", ["get", "capacity_mw"], 15, 100, 30, 500, 40],
+      "circle-color": "rgb(231, 76, 60)",
       "circle-opacity": 0.75,
       "circle-stroke-width": 4,
       "circle-stroke-color": "#fff",
@@ -60,12 +70,16 @@ export function addDataLayer(map, data) {
   });
 
   map.addLayer({
-    id: "event-count",
+    id: "capacity-mw",
     type: "symbol",
-    source: "dcmusic.live",
-    filter: ["!", ["has", "point_count"]],
+    source: "power-generator",
+    filter: [
+      "all",
+      ["!", ["has", "point_count"]],
+      ["==", ["get", "primary_fuel"], "Wind"],
+    ],
     layout: {
-      "text-field": "{event_count}",
+      "text-field": "{capacity_mw}",
       "text-font": ["Open Sans Bold"],
       "text-size": 16,
     },

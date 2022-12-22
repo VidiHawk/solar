@@ -16,7 +16,7 @@ import ReactMapGL, { Marker, FlyToInterpolator } from "react-map-gl";
 import useSupercluster from "use-supercluster";
 import useSwr from "swr"; // excellent API fetching library
 // import generatorData from "./global_power_plant_database.json";
-import generatorData from "./testData.json";
+import generatorData from "./global.json";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { addDataLayer } from "../../common/map/addDataLayer";
@@ -27,32 +27,6 @@ const index = () => {
   const [pageIsMounted, setPageIsMounted] = useState(false);
   const [Map, setMap] = useState();
 
-  const data = {
-    type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        geometry: { type: "Point", coordinates: [-77.0317, 38.9146] },
-        properties: {
-          title: "Black Cat",
-          cluster: false,
-          venue: "blackcat",
-          event_count: 10,
-        },
-      },
-      {
-        type: "Feature",
-        geometry: { type: "Point", coordinates: [-77.023982, 38.878824] },
-        properties: {
-          title: "Pearl Street Warehouse",
-          cluster: false,
-          venue: "pearlstreet",
-          event_count: 2,
-        },
-      },
-    ],
-  };
-
   mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
   useEffect(() => {
@@ -61,8 +35,8 @@ const index = () => {
     let map = new mapboxgl.Map({
       container: "my-map",
       style: "mapbox://styles/thefabster/cl7qbppp0003l15o6drhio03h",
-      center: [-77.02, 38.887],
-      zoom: 12.5,
+      center: [-6.235, 53.342],
+      zoom: 5,
     });
 
     initializeMap(mapboxgl, map);
@@ -70,24 +44,12 @@ const index = () => {
   }, []);
 
   useEffect(() => {
-    if (pageIsMounted && data) {
+    if (pageIsMounted && generatorData) {
       Map.on("load", function () {
-        addDataLayer(Map, data);
+        addDataLayer(Map, generatorData);
       });
     }
-  }, [pageIsMounted, setMap, data, Map]);
-
-  // const [coordinates, setCoordinates] = useState({ lat: 53.342, lng: -6.235 });
-  // const [zoom, setZoom] = useState(10);
-  // const [viewport, setViewport] = useState({
-  //   latitude: 52.6376,
-  //   longitude: -1.135171,
-  //   // width: "100vw",
-  //   // height: "100vh",
-  //   zoom: zoom,
-  // });
-  // const [bounds, setBounds] = useState(null);
-  // const mapRef = useRef();
+  }, [pageIsMounted, setMap, generatorData, Map]);
 
   // useEffect(() => {
   //   // get the users current location on initial session
@@ -181,15 +143,15 @@ const index = () => {
                 <div className="">
                   <div className="map_canvas half_style">
                     <Head>
-                      <link rel="icon" href="/favicon.ico" />
+                      {/* <link rel="icon" href="/favicon.ico" /> */}
                       <link
-                        href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
+                        href="https://api.mapbox.com/mapbox-gl-js/v2.11.1/mapbox-gl.css"
                         rel="stylesheet"
                       />
                     </Head>
                     <main className="map-canvas">
                       {/* <div id="my-map" style={{ height: 500, width: 500 }} /> */}
-                      <div id="my-map" style={{ height: 600, width: 600 }} />
+                      <div id="my-map" style={{ height: 600, width: 650 }} />
                     </main>
                   </div>
                   {/* <ReactMapGL
