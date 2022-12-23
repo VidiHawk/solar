@@ -48,3 +48,5 @@ Open you command prompt
 - [Flickering neon text](https://css-tricks.com/how-to-create-neon-text-with-css/)
 - [Lightning effect on text](https://dev.to/pankaj_singhr/lightning-effect-using-css-animation-4h3)
 - [Neon glitch effect](https://gist.github.com/CodeMyUI/17cba2cb0698753fc21434a53863a23c)
+
+Try to achieve a great user experience when interacting with markers on the map. Check out [AirBnB](https://www.airbnb.ie/s/San-Francisco--CA--United-States/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&query=San%20Francisco%2C%20CA%2C%20USA&place_id=ChIJIQBpAG2ahYAR_6128GcTUEo&date_picker_type=calendar&checkin=2022-08-27&checkout=2022-08-31&adults=2&source=structured_search_input_header&search_type=user_map_move&ne_lat=37.8053501277308&ne_lng=-122.37779937848381&sw_lat=37.77496292220189&sw_lng=-122.44955383405022&zoom=15&search_by_map=true&ref=hackernoon.com&locale=en&_set_bev_on_new_domain=1667590370_NzBmMmQwODdlMjY0)

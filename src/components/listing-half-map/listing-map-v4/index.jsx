@@ -48,6 +48,15 @@ const index = () => {
       Map.on("load", function () {
         addDataLayer(Map, generatorData);
       });
+      // for (const feature of generatorData.features) {
+      //   // create a HTML element for each feature
+      //   const el = document.createElement("div");
+      //   el.className = "generator-marker";
+
+      //   new mapboxgl.Marker(el)
+      //     .setLngLat(feature.geometry.coordinates)
+      //     .addTo(Map);
+      // }
     }
   }, [pageIsMounted, setMap, generatorData, Map]);
 
@@ -59,29 +68,6 @@ const index = () => {
   //     }
   //   );
   // }, []);
-
-  // const points = generatorData.map((generator) => ({
-  //   type: "Feature",
-  //   properties: {
-  //     cluster: false,
-  //     generatorID: generator.gppd_idnr,
-  //     category: generator.primary_fuel,
-  //   },
-  //   geometry: {
-  //     type: "Point",
-  //     coordinates: [
-  //       parseFloat(generator.longitude),
-  //       parseFloat(generator.latitude),
-  //     ],
-  //   },
-  // }));
-
-  // const { clusters, supercluster } = useSupercluster({
-  //   points,
-  //   bounds,
-  //   zoom: viewport.zoom,
-  //   options: { radius: 75, maxZoom: 20 },
-  // });
 
   return (
     <>
