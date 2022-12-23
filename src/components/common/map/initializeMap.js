@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 export function initializeMap(mapboxgl, map) {
   map.on("click", "data", function (e) {
@@ -31,6 +31,7 @@ export function initializeMap(mapboxgl, map) {
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
+
     new mapboxgl.Popup()
       .setLngLat(coordinates)
       .setHTML(
@@ -82,5 +83,5 @@ transition={{
   }`}
   onClick={handleClick}
 >{`$ ${price}`}</button>
-</motion.div> */
+</motion.div>  */
 }
