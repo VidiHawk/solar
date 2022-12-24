@@ -1,5 +1,33 @@
 # Solar platform
 
+## Next
+
+Look into [Supercluster](https://blog.mapbox.com/clustering-millions-of-points-on-a-map-with-supercluster-272046ec5c97)
+
+## Inspiration
+
+- [Map popup box with slider](https://everythingiknows.com/mapbox/creating-multi-location-map-with-mapbox/)
+- [Markers and popup box inspired from Zillow](https://dawchihliou.github.io/articles/building-custom-google-maps-marker-react-component-like-airbnb-in-nextjs)
+- [Mapbox tutorial for styling custom markers and custom popup](https://docs.mapbox.com/help/tutorials/building-a-store-locator/)
+
+### Ideas
+
+- [Flickering neon text](https://css-tricks.com/how-to-create-neon-text-with-css/)
+- [Lightning effect on text](https://dev.to/pankaj_singhr/lightning-effect-using-css-animation-4h3)
+- [Neon glitch effect](https://gist.github.com/CodeMyUI/17cba2cb0698753fc21434a53863a23c)
+
+Try to achieve a great user experience when interacting with markers on the map. Check out [AirBnB](https://www.airbnb.ie/s/San-Francisco--CA--United-States/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&query=San%20Francisco%2C%20CA%2C%20USA&place_id=ChIJIQBpAG2ahYAR_6128GcTUEo&date_picker_type=calendar&checkin=2022-08-27&checkout=2022-08-31&adults=2&source=structured_search_input_header&search_type=user_map_move&ne_lat=37.8053501277308&ne_lng=-122.37779937848381&sw_lat=37.77496292220189&sw_lng=-122.44955383405022&zoom=15&search_by_map=true&ref=hackernoon.com&locale=en&_set_bev_on_new_domain=1667590370_NzBmMmQwODdlMjY0)
+
+
+## Before going into production
+
+Consider removing the following packages:
+- jquery (83kB) --> remove it also from the <head>
+- framer-motion (152kB)
+- slick-carousel (40kB) --> remove it also from the <head>
+
+## Running the code
+
 Built with React and NextJS.
 
 Install using node v16.16.0 or yarn v1.22.19
@@ -15,7 +43,6 @@ Recap of branches:
 - barebone: forked from master on Dec 5th 2022. The main difference from master is the removal of unused files and directories across the app
 
 - mapbox: forked from barebone on Dec 21st 2022. This is an attempt to use Mapbox GL API instead of the Google Maps API.
-
 
 ## Available Scripts
 
@@ -42,25 +69,3 @@ Deploying to Vercel - https://www.youtube.com/watch?v=_8wkKL0LKks
 ### Other Scripts
 Open you command prompt
 `yarn lint:fix` (This will format your code and fix auto fixable eslint error)
-
-### Ideas
-
-- [Flickering neon text](https://css-tricks.com/how-to-create-neon-text-with-css/)
-- [Lightning effect on text](https://dev.to/pankaj_singhr/lightning-effect-using-css-animation-4h3)
-- [Neon glitch effect](https://gist.github.com/CodeMyUI/17cba2cb0698753fc21434a53863a23c)
-
-Try to achieve a great user experience when interacting with markers on the map. Check out [AirBnB](https://www.airbnb.ie/s/San-Francisco--CA--United-States/homes?tab_id=home_tab&refinement_paths%5B%5D=%2Fhomes&flexible_trip_lengths%5B%5D=one_week&query=San%20Francisco%2C%20CA%2C%20USA&place_id=ChIJIQBpAG2ahYAR_6128GcTUEo&date_picker_type=calendar&checkin=2022-08-27&checkout=2022-08-31&adults=2&source=structured_search_input_header&search_type=user_map_move&ne_lat=37.8053501277308&ne_lng=-122.37779937848381&sw_lat=37.77496292220189&sw_lng=-122.44955383405022&zoom=15&search_by_map=true&ref=hackernoon.com&locale=en&_set_bev_on_new_domain=1667590370_NzBmMmQwODdlMjY0)
-
-
-## Inspiration
-
-- [Map popup box with slider](https://everythingiknows.com/mapbox/creating-multi-location-map-with-mapbox/)
-- [Markers and popup box inspired from Zillow](https://dawchihliou.github.io/articles/building-custom-google-maps-marker-react-component-like-airbnb-in-nextjs)
-
-
-## Before going into production
-
-Consider removing the following packages:
-- jquery (83kB) --> remove it also from the <head>
-- framer-motion (152kB)
-- slick-carousel (40kB) --> remove it also from the <head>

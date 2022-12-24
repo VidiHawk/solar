@@ -1,6 +1,6 @@
 
 # database for development purposes
-src/components/listing-half-map/listing-map-v4/global_power_plant_database.json
+*.json
 /delete
 
 

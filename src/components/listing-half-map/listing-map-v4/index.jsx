@@ -125,16 +125,16 @@ const index = () => {
                         href="https://api.mapbox.com/mapbox-gl-js/v2.11.1/mapbox-gl.css"
                         rel="stylesheet"
                       />
-                      <link
+                      {/* <link
                         rel="stylesheet"
                         type="text/css"
                         href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-                      />
+                      /> */}
                       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-                      <script
+                      {/* <script
                         type="text/javascript"
                         src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-                      ></script>
+                      ></script> */}
                     </Head>
                     <main className="map-canvas">
                       {/* <div id="my-map" style={{ height: 500, width: 500 }} /> */}
