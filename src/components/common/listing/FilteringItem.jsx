@@ -25,6 +25,8 @@ import PricingRangeSlider from "../../common/PricingRangeSlider";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/router";
 
+// ------- ADVANCED FEATURES ------- //
+
 const FilteringItem = () => {
   const {
     keyword,

@@ -1,4 +1,4 @@
-import customCard from "./Card";
+import customCard from "./customCard";
 
 export function initializeMap(mapboxgl, map) {
   map.on("click", "data", function (e) {
@@ -17,45 +17,50 @@ export function initializeMap(mapboxgl, map) {
       });
   });
 
-  // const bla = 20;
-
-  // const customPop = $(`
-  // <div class="project-wrap">
-  //   <div class="project-content">
-  //     <div class="project-img">
-  //       <img src="assets/images/generators/american-public-power-association-513dBrMJ_5w-unsplash.jpg" />
-  //     </div>
-  //     <h3 class="project-title">${bla} MW  Hartford Power</h3>
-  //     <p class="project-address">
-  //       <i class="fa-solid fa-location-dot"></i> Wexford road,
-  //       County Wicklow, Ireland
-  //     </p>
-  //     <p class="project-telephone">
-  //       </i> Solar
-  //     </p>
-  //   </div>
-  // </div>
-  // `);
-
-  map.on("click", "unclustered-point-wind", function (e) {
+  const getCoordinates = (e) => {
     const coordinates = e.features[0].geometry.coordinates.slice();
     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
       coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
     }
-    const customPop = customCard(e);
+    return coordinates;
+  };
 
-    new mapboxgl.Marker(customPop[0])
-      .setLngLat([coordinates[0] + 2.2, coordinates[1] - 1])
-      .addTo(map);
-  });
+  const markerEvent = (id) => {
+    const cards = [];
 
-  map.on("mouseenter", "unclustered-point-wind", function () {
-    map.getCanvas().style.cursor = "pointer";
-  });
+    map.on("click", id, function (e) {
+      // const [coordinates, customPop] = [getCoordinates(e), customCard(e)];
+      // const card = new mapboxgl.Marker(customPop[0]).setLngLat([
+      //   coordinates[0],
+      //   coordinates[1] - 0.3,
+      // ]);
+      // card.addTo(map);
+      // cards.push(card);
+    });
 
-  map.on("mouseleave", "unclustered-point-wind", function () {
-    map.getCanvas().style.cursor = "";
-  });
+    map.on("mouseenter", id, function (e) {
+      map.getCanvas().style.cursor = "pointer";
+      const [coordinates, customPop] = [getCoordinates(e), customCard(e)];
+      const card = new mapboxgl.Marker(customPop[0]).setLngLat([
+        coordinates[0],
+        coordinates[1] - 0.3,
+      ]);
+      card.addTo(map);
+      cards.push(card);
+    });
+
+    map.on("mouseleave", id, function (e) {
+      map.getCanvas().style.cursor = "";
+      cards.forEach((card) => card.remove());
+      cards = [];
+    });
+  };
+  markerEvent("unclustered-point-coal");
+  markerEvent("unclustered-point-wind");
+  markerEvent("unclustered-point-solar");
+  markerEvent("unclustered-point-hydro");
+  markerEvent("unclustered-point-nuclear");
+  markerEvent("unclustered-point-gas");
 
   map.addControl(
     new mapboxgl.GeolocateControl({

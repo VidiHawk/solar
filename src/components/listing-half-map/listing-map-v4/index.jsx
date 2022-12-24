@@ -17,7 +17,6 @@ import useSupercluster from "use-supercluster";
 import useSwr from "swr"; // excellent API fetching library
 // import generatorData from "./global_power_plant_database.json";
 import generatorData from "./global.json";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import { addDataLayer } from "../../common/map/addDataLayer";
 import { initializeMap } from "../../common/map/initializeMap";
@@ -141,85 +140,6 @@ const index = () => {
                       <div id="my-map" style={{ height: 600, width: 650 }} />
                     </main>
                   </div>
-                  {/* <ReactMapGL
-                    {...viewport}
-                    maxZoom={20}
-                    mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN}
-                    mapStyle="mapbox://styles/thefabster/cl7qbppp0003l15o6drhio03h"
-                    onViewportChange={(newViewport) => {
-                      setViewport({ ...newViewport });
-                    }}
-                    attributionControl={false}
-                    center={coordinates}
-                    ref={mapRef}
-                  >
-                    {clusters.map((cluster) => {
-                      const [longitude, latitude] =
-                        cluster.geometry.coordinates;
-                      const { cluster: isCluster, point_count: pointCount } =
-                        cluster.properties;
-
-                      if (isCluster) {
-                        return (
-                          <Marker
-                            key={`cluster-${cluster.id}`}
-                            latitude={latitude}
-                            longitude={longitude}
-                          >
-                            <div
-                              className="cluster-marker"
-                              style={{
-                                width: `${
-                                  10 + (pointCount / points.length) * 20
-                                }px`,
-                                height: `${
-                                  10 + (pointCount / points.length) * 20
-                                }px`,
-                              }}
-                              onClick={() => {
-                                const expansionZoom = Math.min(
-                                  supercluster.getClusterExpansionZoom(
-                                    cluster.id
-                                  ),
-                                  20
-                                );
-
-                                setViewport({
-                                  ...viewport,
-                                  latitude,
-                                  longitude,
-                                  zoom: expansionZoom,
-                                  transitionInterpolator: new FlyToInterpolator(
-                                    {
-                                      speed: 2,
-                                    }
-                                  ),
-                                  transitionDuration: "auto",
-                                });
-                              }}
-                            >
-                              {pointCount}
-                            </div>
-                          </Marker>
-                        );
-                      }
-
-                      return (
-                        <Marker
-                          key={`crime-${cluster.properties.crimeId}`}
-                          latitude={latitude}
-                          longitude={longitude}
-                        >
-                          <button className="generator-marker">
-                            <img
-                              src="/assets/images/energy-icon.svg"
-                              alt="generator location"
-                            />
-                          </button>
-                        </Marker>
-                      );
-                    })}
-                  </ReactMapGL> */}
                 </div>
               </div>
             </div>
@@ -227,9 +147,9 @@ const index = () => {
 
             <div className="col-xxl-5 col-xl-6 ">
               <div className="half_map_area_content mt30">
-                <div className="listing_list_style listing-map-style m0 mb20">
+                {/* <div className="listing_list_style listing-map-style m0 mb20">
                   <GridListButton />
-                </div>
+                </div> */}
                 {/* GridListButton */}
 
                 <div className="col-md-12">

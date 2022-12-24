@@ -1,7 +1,3 @@
-import $ from "jquery";
-// import "slick-carousel";
-import Card from "./Card";
-
 export function addDataLayer(map, data, mapboxgl) {
   if (!map.getSource("power-generator")) {
     map.addSource("power-generator", {
@@ -18,42 +14,14 @@ export function addDataLayer(map, data, mapboxgl) {
     map.getSource("power-generator").setData(data);
   }
 
-  // const marker = $(`
-  //   <div class="marker-wrapper">
-  //   <div class="custommarker">
-  //     <p class="marker-text"> 12 MW </>
-  //   </div>
-  //   <div class="project-wrap">
-
-  //     <div class="project-content">
-  //       <div class="project-img">
-  //         <img src="assets/images/generators/american-public-power-association-513dBrMJ_5w-unsplash.jpg" />
-  //       </div>
-  //       <h3 class="project-title">15 MW  Hartford Power</h3>
-  //       <p class="project-address">
-  //         <i class="fa-solid fa-location-dot"></i> Wexford road,
-  //         County Wicklow, Ireland
-  //       </p>
-  //       <p class="project-telephone">
-  //         </i> Solar
-  //       </p>
-  //     </div>
-  //   </div>
-  // </div>
-  //   `);
-
-  // marker.find(".custommarker").click(function () {
-  //   $(this).parent().toggleClass("open");
-  // });
-  // marker.find(".close").click(function () {
-  //   $(this).closest(".marker-wrapper").removeClass("open");
-  // });
-  // new mapboxgl.Marker(marker[0]).setLngLat([-6.235, 53.342]).addTo(map);
-
   const hasPoint = ["has", "point_count"];
   const noPoint = ["!", ["has", "point_count"]];
-  const wind = ["==", ["get", "primary_fuel"], "Wind"];
-  const coal = ["==", ["get", "primary_fuel"], "Coal"];
+  const windFilter = ["==", ["get", "primary_fuel"], "Wind"];
+  const coalFilter = ["==", ["get", "primary_fuel"], "Coal"];
+  const solarFilter = ["==", ["get", "primary_fuel"], "Solar"];
+  const nuclearFilter = ["==", ["get", "primary_fuel"], "Nuclear"];
+  const hydroFilter = ["==", ["get", "primary_fuel"], "Hydro"];
+  const gasFilter = ["==", ["get", "primary_fuel"], "Gas"];
 
   map.addLayer({
     id: "clusters",
@@ -90,10 +58,10 @@ export function addDataLayer(map, data, mapboxgl) {
     id: "unclustered-point-wind",
     type: "circle",
     source: "power-generator",
-    filter: ["all", noPoint, wind],
+    filter: ["all", noPoint, windFilter],
     paint: {
       "circle-radius": ["step", ["get", "capacity_mw"], 15, 100, 30, 500, 40],
-      "circle-color": "#0096ff",
+      "circle-color": "#01befa",
       "circle-opacity": 0.75,
       "circle-stroke-width": 4,
       "circle-stroke-color": "#fff",
@@ -105,7 +73,7 @@ export function addDataLayer(map, data, mapboxgl) {
     id: "capacity-mw-wind",
     type: "symbol",
     source: "power-generator",
-    filter: ["all", noPoint, wind],
+    filter: ["all", noPoint, windFilter],
     layout: {
       "text-field": "{capacity_mw} MW",
       "text-font": ["Open Sans Bold"],
@@ -120,10 +88,10 @@ export function addDataLayer(map, data, mapboxgl) {
     id: "unclustered-point-coal",
     type: "circle",
     source: "power-generator",
-    filter: ["all", noPoint, coal],
+    filter: ["all", noPoint, coalFilter],
     paint: {
       "circle-radius": ["step", ["get", "capacity_mw"], 15, 100, 30, 500, 40],
-      "circle-color": "rgb(231, 76, 60)",
+      "circle-color": "#964B00",
       "circle-opacity": 0.75,
       "circle-stroke-width": 4,
       "circle-stroke-color": "#fff",
@@ -135,7 +103,127 @@ export function addDataLayer(map, data, mapboxgl) {
     id: "capacity-mw-coal",
     type: "symbol",
     source: "power-generator",
-    filter: ["all", noPoint, coal],
+    filter: ["all", noPoint, coalFilter],
+    layout: {
+      "text-field": "{capacity_mw} MW",
+      "text-font": ["Open Sans Bold"],
+      "text-size": 12,
+    },
+    paint: {
+      "text-color": "white",
+    },
+  });
+
+  map.addLayer({
+    id: "unclustered-point-solar",
+    type: "circle",
+    source: "power-generator",
+    filter: ["all", noPoint, solarFilter],
+    paint: {
+      "circle-radius": ["step", ["get", "capacity_mw"], 15, 100, 30, 500, 40],
+      "circle-color": "#fadf01",
+      "circle-opacity": 0.75,
+      "circle-stroke-width": 4,
+      "circle-stroke-color": "#fff",
+      "circle-stroke-opacity": 0.5,
+    },
+  });
+
+  map.addLayer({
+    id: "capacity-mw-solar",
+    type: "symbol",
+    source: "power-generator",
+    filter: ["all", noPoint, solarFilter],
+    layout: {
+      "text-field": "{capacity_mw} MW",
+      "text-font": ["Open Sans Bold"],
+      "text-size": 12,
+    },
+    paint: {
+      "text-color": "white",
+    },
+  });
+
+  map.addLayer({
+    id: "unclustered-point-nuclear",
+    type: "circle",
+    source: "power-generator",
+    filter: ["all", noPoint, nuclearFilter],
+    paint: {
+      "circle-radius": ["step", ["get", "capacity_mw"], 15, 100, 30, 500, 40],
+      "circle-color": "#98fa01",
+      "circle-opacity": 0.75,
+      "circle-stroke-width": 4,
+      "circle-stroke-color": "#fff",
+      "circle-stroke-opacity": 0.5,
+    },
+  });
+
+  map.addLayer({
+    id: "capacity-mw-nuclear",
+    type: "symbol",
+    source: "power-generator",
+    filter: ["all", noPoint, nuclearFilter],
+    layout: {
+      "text-field": "{capacity_mw} MW",
+      "text-font": ["Open Sans Bold"],
+      "text-size": 12,
+    },
+    paint: {
+      "text-color": "white",
+    },
+  });
+
+  map.addLayer({
+    id: "unclustered-point-hydro",
+    type: "circle",
+    source: "power-generator",
+    filter: ["all", noPoint, hydroFilter],
+    paint: {
+      "circle-radius": ["step", ["get", "capacity_mw"], 15, 100, 30, 500, 40],
+      "circle-color": "#0110fa",
+      "circle-opacity": 0.75,
+      "circle-stroke-width": 4,
+      "circle-stroke-color": "#fff",
+      "circle-stroke-opacity": 0.5,
+    },
+  });
+
+  map.addLayer({
+    id: "capacity-mw-hydro",
+    type: "symbol",
+    source: "power-generator",
+    filter: ["all", noPoint, hydroFilter],
+    layout: {
+      "text-field": "{capacity_mw} MW",
+      "text-font": ["Open Sans Bold"],
+      "text-size": 12,
+    },
+    paint: {
+      "text-color": "white",
+    },
+  });
+
+  map.addLayer({
+    id: "unclustered-point-gas",
+    type: "circle",
+    source: "power-generator",
+    filter: ["all", noPoint, gasFilter],
+    paint: {
+      "circle-radius": ["step", ["get", "capacity_mw"], 15, 100, 30, 500, 40],
+      "circle-color": "#6e01fa",
+      "circle-opacity": 0.75,
+      "circle-stroke-width": 4,
+      "circle-stroke-color": "#fff",
+      "circle-stroke-opacity": 0.5,
+    },
+  });
+
+  map.addLayer({
+    id: "capacity-mw-gas",
+    type: "symbol",
+    source: "power-generator",
+    filter: ["all", noPoint, gasFilter],
     layout: {
       "text-field": "{capacity_mw} MW",
       "text-font": ["Open Sans Bold"],
@@ -147,7 +235,8 @@ export function addDataLayer(map, data, mapboxgl) {
   });
 }
 
-<div class="marker-wrapper">
+{
+  /* <div class="marker-wrapper">
   <div class="custommarker"></div>
   <div class="project-wrap">
     <div class="office-slider">
@@ -212,4 +301,13 @@ export function addDataLayer(map, data, mapboxgl) {
       </button>
     </div>
   </div>
-</div>;
+</div>; */
+}
+
+// marker.find(".custommarker").click(function () {
+//   $(this).parent().toggleClass("open");
+// });
+// marker.find(".close").click(function () {
+//   $(this).closest(".marker-wrapper").removeClass("open");
+// });
+// new mapboxgl.Marker(marker[0]).setLngLat([-6.235, 53.342]).addTo(map);

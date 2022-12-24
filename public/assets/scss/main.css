@@ -18282,22 +18282,22 @@ canvas {
 #main2 .filteropen2,
 #main2 .filter_open_btn {
   background-color: var(--color-primary);
-  border-radius: 8px;
+  border-radius: 5px;
   color: #ffffff;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Nunito";
   font-weight: bold;
-  height: 50px;
+  height: 40px;
   left: auto;
-  line-height: 50px;
+  line-height: 40px;
   overflow: hidden;
   padding-left: 45px;
   position: absolute;
   right: 0;
   text-align: center;
   top: 38px;
-  width: 170px;
+  width: 150px;
   z-index: 2;
   box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
 }
