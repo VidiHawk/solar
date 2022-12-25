@@ -13,7 +13,6 @@
     "@reduxjs/toolkit": "^1.8.6",
     "bootstrap": "^5.2.1",
     "chart.js": "^4.0.1",
-    "framer-motion": "^8.0.2",
     "jquery": "^3.6.3",
     "mapbox-gl": "^2.11.1",
     "next": "12.3.0",
@@ -29,10 +28,7 @@
     "react-redux": "^8.0.4",
     "react-slick": "^0.29.0",
     "sass": "^1.54.9",
-    "slick-carousel": "^1.8.1",
-    "supercluster": "^7.1.5",
     "swr": "^2.0.0",
-    "use-supercluster": "^0.4.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

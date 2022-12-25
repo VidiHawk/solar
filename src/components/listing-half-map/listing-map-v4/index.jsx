@@ -11,22 +11,40 @@ import SidebarListing2 from "../../common/listing/SidebarListing2";
 import PopupSignInUp from "../../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import Script from "next/script";
-import ReactMapGL, { Marker, FlyToInterpolator } from "react-map-gl";
 import useSupercluster from "use-supercluster";
 import useSwr from "swr"; // excellent API fetching library
-// import generatorData from "./global_power_plant_database.json";
 import generatorData from "./global.json";
 import Head from "next/head";
 import { addDataLayer } from "../../common/map/addDataLayer";
 import { initializeMap } from "../../common/map/initializeMap";
+import MapCard from "../../common/map/MapCard";
+import "mapbox-gl/dist/mapbox-gl.css";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 const index = () => {
   const [pageIsMounted, setPageIsMounted] = useState(false);
   const [Map, setMap] = useState();
+  const [sharedCard, setSharedCard] = useState({
+    // capacity: null,
+    // fuel: '',
+    // name: '',
+    // owner: '',
+    // commissioned: '',
+    // image: '',
+    // coordinates: '',
+  });
 
   mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+
+  // function ContainerOfTwo(props) {
+
+  //   return (
+  //     <>
+  //       <Sort setSharedCard={setSharedCard} sharedCard={sharedCard} />
+  //       <Products products={products} setSharedCard={setSharedCard} sharedCard={sharedCard} />
+  //     </>
+  //   )
+  // }
 
   useEffect(() => {
     setPageIsMounted(true);
@@ -38,7 +56,7 @@ const index = () => {
       zoom: 5,
     });
 
-    initializeMap(mapboxgl, map);
+    initializeMap(mapboxgl, map, setSharedCard);
     setMap(map);
   }, []);
 
@@ -116,6 +134,9 @@ const index = () => {
               {/* filter switch */}
 
               <div className="home_two_map style2 half_map_area">
+                <div className="map-card">
+                  <MapCard data={Object.entries(sharedCard)} />
+                </div>
                 <div className="">
                   <div className="map_canvas half_style">
                     <Head>

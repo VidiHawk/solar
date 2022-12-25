@@ -1,6 +1,7 @@
-import customCard from "./customCard";
+import customCard from "./customCardJquery";
+import getCardData from "./cardData";
 
-export function initializeMap(mapboxgl, map) {
+export function initializeMap(mapboxgl, map, setSharedCard) {
   map.on("click", "data", function (e) {
     const features = map.queryRenderedFeatures(e.point, {
       layers: ["data"],
@@ -25,8 +26,10 @@ export function initializeMap(mapboxgl, map) {
     return coordinates;
   };
 
+  const cardData = [];
+
   const markerEvent = (id) => {
-    const cards = [];
+    // const cardData = [];
 
     map.on("click", id, function (e) {
       // const [coordinates, customPop] = [getCoordinates(e), customCard(e)];
@@ -35,24 +38,27 @@ export function initializeMap(mapboxgl, map) {
       //   coordinates[1] - 0.3,
       // ]);
       // card.addTo(map);
-      // cards.push(card);
+      // cardData.push(card);
     });
 
     map.on("mouseenter", id, function (e) {
       map.getCanvas().style.cursor = "pointer";
-      const [coordinates, customPop] = [getCoordinates(e), customCard(e)];
-      const card = new mapboxgl.Marker(customPop[0]).setLngLat([
-        coordinates[0],
-        coordinates[1] - 0.3,
-      ]);
-      card.addTo(map);
-      cards.push(card);
+      // const [coordinates, customPop] = [getCoordinates(e), customCard(e)];
+      const coordinates = getCoordinates(e);
+      // const card = new mapboxgl.Marker(customPop[0]).setLngLat([
+      //   coordinates[0],
+      //   coordinates[1] - 0.1,
+      // ]);
+      // card.addTo(map);
+      // cardData.push(card);
+      cardData.push([coordinates, getCardData(e)]);
+      setSharedCard(cardData);
     });
 
     map.on("mouseleave", id, function (e) {
       map.getCanvas().style.cursor = "";
-      cards.forEach((card) => card.remove());
-      cards = [];
+      // cardData.forEach((card) => card.remove());
+      cardData = [];
     });
   };
   markerEvent("unclustered-point-coal");
