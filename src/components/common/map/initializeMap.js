@@ -1,7 +1,7 @@
 import customCard from "./customCardJquery";
 import getCardData from "./cardData";
 
-export function initializeMap(mapboxgl, map, setSharedCard) {
+export function initializeMap(mapboxgl, map, setSharedCard, setSelectedMarker) {
   map.on("click", "data", function (e) {
     const features = map.queryRenderedFeatures(e.point, {
       layers: ["data"],
@@ -27,6 +27,7 @@ export function initializeMap(mapboxgl, map, setSharedCard) {
   };
 
   const cardData = [];
+  const markerData = [];
 
   const markerEvent = (id) => {
     // const cardData = [];
@@ -39,6 +40,10 @@ export function initializeMap(mapboxgl, map, setSharedCard) {
       // ]);
       // card.addTo(map);
       // cardData.push(card);
+      markerData = [];
+      const coordinates = getCoordinates(e);
+      markerData.push([coordinates, getCardData(e)]);
+      setSelectedMarker(markerData);
     });
 
     map.on("mouseenter", id, function (e) {
@@ -59,6 +64,7 @@ export function initializeMap(mapboxgl, map, setSharedCard) {
       map.getCanvas().style.cursor = "";
       // cardData.forEach((card) => card.remove());
       cardData = [];
+      setSharedCard(cardData);
     });
   };
   markerEvent("unclustered-point-coal");

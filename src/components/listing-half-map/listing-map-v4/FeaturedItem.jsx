@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addLength } from "../../../features/properties/propertiesSlice";
 import properties from "../../../data/properties";
+import FilterTopBar2 from "../../common/listing/FilterTopBar2";
 
-const FeaturedItem = () => {
+function FeaturedItem(data) {
   const {
     keyword,
     location,
@@ -115,7 +116,7 @@ const FeaturedItem = () => {
 
   // status handler
   let content = properties
-    ?.slice(0, 8)
+    ?.slice(0, 7)
     ?.filter(keywordHandler)
     ?.filter(locationHandler)
     ?.filter(statusHandler)
@@ -223,12 +224,170 @@ const FeaturedItem = () => {
       </div>
     ));
 
+  const coordinates = data.data[0] ? data.data[0][0] : undefined;
+  const capacity = data.data[0] ? data.data[0][1]["capacity"] : undefined;
+  const fuel = data.data[0] ? data.data[0][1]["fuel"] : undefined;
+  const name = data.data[0] ? data.data[0][1]["name"] : undefined;
+  const owner = data.data[0] ? data.data[0][1]["owner"] : undefined;
+  const commissioned = data.data[0]
+    ? data.data[0][1]["commissioned"]
+    : undefined;
+  const image = data.data[0] ? data.data[0][1]["image"] : undefined;
+
+  const selectedMarker = [
+    {
+      id: 0,
+      img: "",
+      price: "7.4",
+      type: "Solar",
+      title: "Blabla Title",
+      location: `1421 San Pedro`,
+      saleTag: ["Selected", "Not For Sale"],
+      itemDetails: [
+        {
+          name: "Capacity",
+          number: "5MWp",
+        },
+        {
+          name: "PPA",
+          number: "Unknown",
+        },
+        {
+          name: "Area",
+          number: "Unknown",
+        },
+      ],
+      posterAvatar: "",
+      posterName: "Patrick Connor",
+      postedYear: "1 year ago",
+      built: "2013",
+      amenities: "air-conditioning",
+      featured: "sale",
+      created_at: 1667181268893,
+    },
+  ];
+
+  selectedMarker[0]["title"] = name;
+  selectedMarker[0]["type"] = fuel;
+  selectedMarker[0]["title"] = name;
+  selectedMarker[0]["itemDetails"][0]["number"] = capacity;
+  selectedMarker[0]["price"] = capacity * 2;
+  selectedMarker[0]["posterAvatar"] = image;
+
+  // https://api.mapbox.com/geocoding/v5/mapbox.places/-73.989,40.733.json?types=address&access_token=pk.eyJ1IjoianNjYXN0cm8iLCJhIjoiY2s2YzB6Z25kMDVhejNrbXNpcmtjNGtpbiJ9.28ynPf1Y5Q8EyB_moOHylw
+
+  const cardFromMarkers = selectedMarker.map((item) => (
+    <div
+      className={`${
+        isGridOrList ? "col-12 list_map feature-list" : "col-md-6 col-lg-6"
+      } `}
+      key={item.id}
+    >
+      <div
+        className={`feat_property home7 style4 ${
+          isGridOrList ? "d-flex align-items-center" : undefined
+        }`}
+      >
+        <div className="thumb">
+          <img className="img-whp" src={item.img} alt="image not available" />
+          <div className="thmb_cntnt">
+            <ul className="tag mb0">
+              <li className="list-inline-item">
+                <a href="#">Featured</a>
+              </li>
+              <li className="list-inline-item">
+                <a href="#" className="text-capitalize">
+                  {item.featured}
+                </a>
+              </li>
+            </ul>
+            <ul className="icon mb0">
+              <li className="list-inline-item">
+                <a href="#">
+                  <span className="flaticon-transfer-1"></span>
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="#">
+                  <span className="flaticon-heart"></span>
+                </a>
+              </li>
+            </ul>
+
+            <Link href={`/listing-details-v1/${item.id}`}>
+              <a className="fp_price">
+                ${item.price}
+                <small>million (estimated)</small>
+              </a>
+            </Link>
+          </div>
+        </div>
+        <div className="details">
+          <div className="tc_content">
+            <p className="text-thm">{item.type}</p>
+            <h4>
+              <Link href={`/listing-details-v1/${item.id}`}>
+                <a>{item.title}</a>
+              </Link>
+            </h4>
+            <p>
+              <span className="flaticon-placeholder"></span>
+              {item.location}
+            </p>
+
+            <ul className="prop_details mb0">
+              {item.itemDetails.map((val, i) => (
+                <li className="list-inline-item" key={i}>
+                  <a href="#">
+                    {val.name}: {val.number}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* End .tc_content */}
+
+          <div className="fp_footer">
+            <ul className="fp_meta float-start mb0">
+              <li className="list-inline-item">
+                <Link href="/agent-v2">
+                  <a>
+                    <img src={item.posterAvatar} alt="pposter1.png" />
+                  </a>
+                </Link>
+              </li>
+              <li className="list-inline-item">
+                <Link href="/agent-v2">
+                  <a>{item.posterName}</a>
+                </Link>
+              </li>
+            </ul>
+            <div className="fp_pdate float-end">{item.postedYear}</div>
+          </div>
+          {/* End .fp_footer */}
+        </div>
+      </div>
+    </div>
+  ));
+
   // add length of filter items
   useEffect(() => {
     dispatch(addLength(content.length));
   }, [dispatch, addLength, content]);
 
-  return <>{content}</>;
-};
+  // console.log(JSON.stringify(properties.slice(0, 1), null, "  "));
+  console.log(data.data[0]);
+  return (
+    <>
+      <>{cardFromMarkers}</>
+      <div className="grid_list_search_result ">
+        <div className="row align-items-center">
+          <FilterTopBar2 />
+        </div>
+      </div>
+      <>{content}</>
+    </>
+  );
+}
 
 export default FeaturedItem;

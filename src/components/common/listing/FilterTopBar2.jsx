@@ -39,7 +39,7 @@ const FilterTopBar2 = () => {
               {length}{" "}
             </span>
             {length !== 0 ? (
-              "Search results"
+              "other projects in this area featured below"
             ) : (
               <span className="text-danger">Not found results</span>
             )}

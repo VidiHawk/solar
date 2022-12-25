@@ -1,40 +1,21 @@
 export default function MapCard(data) {
-  // console.log(JSON.stringify(data, null, 2));
+  const coordinates = data.data[0] ? data.data[0][1][0] : undefined;
+  const capacity = data.data[0] ? data.data[0][1][1]["capacity"] : undefined;
+  const fuel = data.data[0] ? data.data[0][1][1]["fuel"] : undefined;
+  const name = data.data[0] ? data.data[0][1][1]["name"] : undefined;
+  const owner = data.data[0] ? data.data[0][1][1]["owner"] : undefined;
+  const commissioned = data.data[0]
+    ? data.data[0][1][1]["commissioned"]
+    : undefined;
+  const image = data.data[0] ? data.data[0][1][1]["image"] : undefined;
 
-  const coordinates = data ? data.data[0][1][0] : undefined;
-  // const [capacity, fuel, name, owner, commissioned, image] = data["data"][0][1];
-  const capacity = data ? data.data[0][1][1]["capacity"] : undefined;
-  const fuel = data ? data.data[0][1][1]["fuel"] : undefined;
-  const name = data ? data.data[0][1][1]["name"] : undefined;
-  const owner = data ? data.data[0][1][1]["owner"] : undefined;
-  const commissioned = data ? data.data[0][1][1]["commissioned"] : undefined;
-  const image = data ? data.data[0][1][1]["image"] : undefined;
-  // console.log(data.data[0][1][1]["capacity"]);
-
-  // {
-  //   "data": [
-  //     [
-  //       [
-  //         -6.090545654296875,
-  //         55.86837652265993
-  //       ],
-  //       {
-  //         "capacity": 2,
-  //         "fuel": "Hydro",
-  //         "name": "Inver Hydro",
-  //         "owner": "Inver Hydro LLP",
-  //         "commissioned": "unknown",
-  //         "image": "assets/images/avatar/hydro.jpg"
-  //       }
-  //     ]
-  //   ]
-  // }
+  // console.log(data.data[0]);
 
   return (
     <div class="project-wrap">
       <div class="project-content">
         <div class="project-img">
-          <img src="" />
+          <img src={image} />
         </div>
         <h3 class="project-title">
           {capacity} MW {name}

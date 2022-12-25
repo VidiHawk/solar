@@ -18,33 +18,15 @@ import Head from "next/head";
 import { addDataLayer } from "../../common/map/addDataLayer";
 import { initializeMap } from "../../common/map/initializeMap";
 import MapCard from "../../common/map/MapCard";
-import "mapbox-gl/dist/mapbox-gl.css";
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 const index = () => {
   const [pageIsMounted, setPageIsMounted] = useState(false);
   const [Map, setMap] = useState();
-  const [sharedCard, setSharedCard] = useState({
-    // capacity: null,
-    // fuel: '',
-    // name: '',
-    // owner: '',
-    // commissioned: '',
-    // image: '',
-    // coordinates: '',
-  });
+  const [sharedCard, setSharedCard] = useState({});
+  const [selectedMarker, setSelectedMarker] = useState({});
 
   mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-
-  // function ContainerOfTwo(props) {
-
-  //   return (
-  //     <>
-  //       <Sort setSharedCard={setSharedCard} sharedCard={sharedCard} />
-  //       <Products products={products} setSharedCard={setSharedCard} sharedCard={sharedCard} />
-  //     </>
-  //   )
-  // }
 
   useEffect(() => {
     setPageIsMounted(true);
@@ -56,7 +38,7 @@ const index = () => {
       zoom: 5,
     });
 
-    initializeMap(mapboxgl, map, setSharedCard);
+    initializeMap(mapboxgl, map, setSharedCard, setSelectedMarker);
     setMap(map);
   }, []);
 
@@ -77,6 +59,19 @@ const index = () => {
   //   );
   // }, []);
 
+  const coordinates = sharedCard[0] ? sharedCard[0][0] : "this";
+  const capacity = sharedCard[0] ? sharedCard[0][1]["capacity"] : undefined;
+  const fuel = sharedCard[0] ? sharedCard[0][1]["fuel"] : undefined;
+  const name = sharedCard[0] ? sharedCard[0][1]["name"] : undefined;
+  const owner = sharedCard[0] ? sharedCard[0][1]["owner"] : undefined;
+  const commissioned = sharedCard[0]
+    ? sharedCard[0][1]["commissioned"]
+    : undefined;
+  const image = sharedCard[0] ? sharedCard[0][1]["image"] : undefined;
+  const cardStyle = sharedCard[0]
+    ? "project-wrap card-open"
+    : "project-wrap card-close";
+
   return (
     <>
       {/* <!-- Main Header Nav --> */}
@@ -96,6 +91,21 @@ const index = () => {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12">
+              {/* <!-- Map Card --> */}
+              <div className="map-card">
+                <div className={cardStyle}>
+                  <div className="project-content">
+                    <div className="project-img">
+                      <img src={image} />
+                    </div>
+                    <h3 className="project-title">
+                      {capacity} MW {name}
+                    </h3>
+                    <p className="project-address">Owner: {owner}</p>
+                    <p className="project-telephone">Year: {commissioned}</p>
+                  </div>
+                </div>
+              </div>
               <div className="sidebar_switch mobile_style dn db-991 mt30 mb0">
                 {" "}
                 <ShowFilter />
@@ -134,9 +144,6 @@ const index = () => {
               {/* filter switch */}
 
               <div className="home_two_map style2 half_map_area">
-                <div className="map-card">
-                  <MapCard data={Object.entries(sharedCard)} />
-                </div>
                 <div className="">
                   <div className="map_canvas half_style">
                     <Head>
@@ -174,15 +181,10 @@ const index = () => {
                 {/* GridListButton */}
 
                 <div className="col-md-12">
-                  <div className="grid_list_search_result ">
-                    <div className="row align-items-center">
-                      <FilterTopBar2 />
-                    </div>
-                  </div>
                   {/* End .row */}
 
                   <div className="row">
-                    <FeaturedItem />
+                    <FeaturedItem data={selectedMarker} />
                   </div>
                   {/* End .row */}
 

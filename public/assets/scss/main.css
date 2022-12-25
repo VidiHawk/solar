@@ -19855,8 +19855,10 @@ button.gm-ui-hover-effect:focus {
  /*== Map Card on Hover ==*/
 
 .map-card {
-  bottom: 20px;
-  left: 20px;
+  top: 360px;
+  left: 130px;
+  position: absolute;
+  z-index: 100;
 }
 
 .project-wrap {
@@ -19866,8 +19868,8 @@ margin-top: 50px;
 left: -115px;
 background: #fff;
 overflow: hidden;
-opacity: 1;
-visibility: visible;
+opacity: 0;
+visibility: hidden;
 pointer-events: none;
 transition: opacity 0.2s ease;
 box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
@@ -19875,13 +19877,13 @@ border-radius: 4px;
 cursor: pointer;
 }
 
-.open .project-wrap {
+.project-wrap.card-open{
 opacity: 1;
 visibility: visible;
 pointer-events: auto;
 }
 
-.close .project-wrap {
+.project-wrap.card-close{
   opacity: 0;
   visibility: hidden;
   pointer-events: auto;
