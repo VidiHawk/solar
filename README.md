@@ -2,7 +2,18 @@
 
 ## Next
 
-Look into [Supercluster](https://blog.mapbox.com/clustering-millions-of-points-on-a-map-with-supercluster-272046ec5c97)
+### Refactor setState() to Redux
+
+- [use Redux with NextJS](https://blog.logrocket.com/use-redux-next-js/)
+
+### Power plant images
+- Get power plant images with the [Place API](https://stackoverflow.com/questions/28705590/api-to-display-the-nearest-photos-to-a-long-lat-location-from-google-maps-views)
+- Another paying option is to use the [Serpapi](https://serpapi.com/google-maps-photos-api)
+- To bypass the Serpapi limits, you can use [Bright Data](https://brightdata.com/pricing/serp)
+
+### Cluster improvements 
+
+- Look into [Supercluster](https://blog.mapbox.com/clustering-millions-of-points-on-a-map-with-supercluster-272046ec5c97)
 
 ## Inspiration
 
