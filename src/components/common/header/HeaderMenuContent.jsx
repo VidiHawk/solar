@@ -84,8 +84,19 @@ const HeaderMenuContent = ({ float = "" }) => {
       data-menu-style="horizontal"
     >
       <li className="last">
-        <Link href="/listing-map-v4">
+        <Link href="/">
           <a className={route.pathname === "/" ? "ui-active" : undefined}>
+            Home
+          </a>
+        </Link>
+      </li>
+      <li className="last">
+        <Link href="/listing-map-v4">
+          <a
+            className={
+              route.pathname === "/listing-map-v4" ? "ui-active" : undefined
+            }
+          >
             Map
           </a>
         </Link>

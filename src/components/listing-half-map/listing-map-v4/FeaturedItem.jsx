@@ -143,6 +143,7 @@ function FeaturedItem(data) {
           }`}
         >
           <div className="thumb">
+            {/* Ideal image size is 752x450 */}
             <img className="img-whp" src={item.img} alt="fp1.jpg" />
             <div className="thmb_cntnt">
               <ul className="tag mb0">
@@ -287,6 +288,7 @@ function FeaturedItem(data) {
         }`}
       >
         <div className="thumb">
+          {/* Ideal image size is 752x450 */}
           <img className="img-whp" src={item.img} alt="image not available" />
           <div className="thmb_cntnt">
             <ul className="tag mb0">

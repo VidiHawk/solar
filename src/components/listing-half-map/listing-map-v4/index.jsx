@@ -36,6 +36,7 @@ const index = () => {
       style: "mapbox://styles/thefabster/cl7qbppp0003l15o6drhio03h",
       center: [-6.235, 53.342],
       zoom: 5,
+      attributionControl: false,
     });
 
     initializeMap(mapboxgl, map, setSharedCard, setSelectedMarker);
@@ -59,18 +60,19 @@ const index = () => {
   //   );
   // }, []);
 
-  const coordinates = sharedCard[0] ? sharedCard[0][0] : "this";
-  const capacity = sharedCard[0] ? sharedCard[0][1]["capacity"] : undefined;
-  const fuel = sharedCard[0] ? sharedCard[0][1]["fuel"] : undefined;
-  const name = sharedCard[0] ? sharedCard[0][1]["name"] : undefined;
-  const owner = sharedCard[0] ? sharedCard[0][1]["owner"] : undefined;
-  const commissioned = sharedCard[0]
-    ? sharedCard[0][1]["commissioned"]
-    : undefined;
-  const image = sharedCard[0] ? sharedCard[0][1]["image"] : undefined;
-  const cardStyle = sharedCard[0]
-    ? "project-wrap card-open"
-    : "project-wrap card-close";
+  //THE FOLLOWING IS FOR THE CARD APPEARING ON FEATURED ITEMS
+  // const coordinates = sharedCard[0] ? sharedCard[0][0] : "this";
+  // const capacity = sharedCard[0] ? sharedCard[0][1]["capacity"] : undefined;
+  // const fuel = sharedCard[0] ? sharedCard[0][1]["fuel"] : undefined;
+  // const name = sharedCard[0] ? sharedCard[0][1]["name"] : undefined;
+  // const owner = sharedCard[0] ? sharedCard[0][1]["owner"] : undefined;
+  // const commissioned = sharedCard[0]
+  //   ? sharedCard[0][1]["commissioned"]
+  //   : undefined;
+  // const image = sharedCard[0] ? sharedCard[0][1]["image"] : undefined;
+  // const cardStyle = sharedCard[0]
+  //   ? "project-wrap card-open"
+  //   : "project-wrap card-close";
 
   return (
     <>
@@ -92,7 +94,7 @@ const index = () => {
           <div className="row">
             <div className="col-lg-12">
               {/* <!-- Map Card --> */}
-              <div className="map-card">
+              {/* <div className="map-card">
                 <div className={cardStyle}>
                   <div className="project-content">
                     <div className="project-img">
@@ -105,7 +107,7 @@ const index = () => {
                     <p className="project-telephone">Year: {commissioned}</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <div className="sidebar_switch mobile_style dn db-991 mt30 mb0">
                 {" "}
                 <ShowFilter />

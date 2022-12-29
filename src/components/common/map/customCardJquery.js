@@ -33,9 +33,12 @@ export default function customCard(e) {
   };
 
   const image = getImage();
+  // const cardStyle = sharedCard[0]
+  //   ? "project-wrap card-open"
+  //   : "project-wrap card-close";
 
   return $(`
-    <div class="project-wrap">
+    <div class="project-wrap card-open">
       <div class="project-content">
         <div class="project-img">
           <img src=${image} />

@@ -30,8 +30,6 @@ export function initializeMap(mapboxgl, map, setSharedCard, setSelectedMarker) {
   const markerData = [];
 
   const markerEvent = (id) => {
-    // const cardData = [];
-
     map.on("click", id, function (e) {
       // const [coordinates, customPop] = [getCoordinates(e), customCard(e)];
       // const card = new mapboxgl.Marker(customPop[0]).setLngLat([
@@ -48,23 +46,23 @@ export function initializeMap(mapboxgl, map, setSharedCard, setSelectedMarker) {
 
     map.on("mouseenter", id, function (e) {
       map.getCanvas().style.cursor = "pointer";
-      // const [coordinates, customPop] = [getCoordinates(e), customCard(e)];
-      const coordinates = getCoordinates(e);
-      // const card = new mapboxgl.Marker(customPop[0]).setLngLat([
-      //   coordinates[0],
-      //   coordinates[1] - 0.1,
-      // ]);
-      // card.addTo(map);
-      // cardData.push(card);
-      cardData.push([coordinates, getCardData(e)]);
-      setSharedCard(cardData);
+      const [coordinates, customPop] = [getCoordinates(e), customCard(e)];
+      // const coordinates = getCoordinates(e);
+      const card = new mapboxgl.Marker(customPop[0]).setLngLat([
+        coordinates[0],
+        coordinates[1] - 0.1,
+      ]);
+      card.addTo(map);
+      cardData.push(card);
+      // cardData.push([coordinates, getCardData(e)]);
+      // setSharedCard(cardData);
     });
 
     map.on("mouseleave", id, function (e) {
       map.getCanvas().style.cursor = "";
-      // cardData.forEach((card) => card.remove());
+      cardData.forEach((card) => card.remove());
       cardData = [];
-      setSharedCard(cardData);
+      // setSharedCard(cardData);
     });
   };
   markerEvent("unclustered-point-coal");
