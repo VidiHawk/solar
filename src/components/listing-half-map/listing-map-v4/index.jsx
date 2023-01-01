@@ -74,6 +74,10 @@ const index = () => {
   //   ? "project-wrap card-open"
   //   : "project-wrap card-close";
 
+  // $.getJSON("delete.json", function (json) {
+  //   console.log(JSON.stringify(json)); // this will show the info it in firebug console
+  // });
+
   return (
     <>
       {/* <!-- Main Header Nav --> */}
