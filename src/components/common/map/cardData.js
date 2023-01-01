@@ -8,6 +8,9 @@ export default function customCard(e) {
   const commissioned = e.features[0].properties.commissioning_year
     ? e.features[0].properties.commissioning_year
     : "unknown";
+  const address = e.features[0].properties.address
+    ? e.features[0].properties.address
+    : "unknown";
 
   const getImage = () => {
     if (fuel == "Hydro") {
@@ -32,5 +35,5 @@ export default function customCard(e) {
 
   const image = getImage();
 
-  return { capacity, fuel, name, owner, commissioned, image };
+  return { capacity, fuel, name, owner, commissioned, image, address };
 }

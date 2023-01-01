@@ -43,12 +43,15 @@ export default function customCard(e) {
         <div class="project-img">
           <img src=${image} />
         </div>
-        <h3 class="project-title">${capacity} MW ${name}</h3>
-        <p class="project-address">
-          Owner: ${owner}
+        <h3 class="project-title">${capacity} MW ${" - " + fuel}</h3>
+        <p>
+          <b>${name}</>
+        </p>
+        <p>
+          Owned by: ${owner}
         </p>
         <p class="project-telephone">
-          Year: ${commissioned}
+          Built in: ${commissioned}
         </p>
       </div>
     </div>

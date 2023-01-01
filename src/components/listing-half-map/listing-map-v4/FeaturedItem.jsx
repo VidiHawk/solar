@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -225,62 +226,64 @@ function FeaturedItem(data) {
       </div>
     ));
 
+  // const selectedMarker = [
+  //   {
+  //     id: 0,
+  //     img: "",
+  //     price: "7.4",
+  //     type: "Solar",
+  //     title: "Blabla Title",
+  //     location: `1421 San Pedro`,
+  //     saleTag: ["Selected", "Not For Sale"],
+  //     itemDetails: [
+  //       {
+  //         name: "Capacity",
+  //         number: "5MWp",
+  //       },
+  //       {
+  //         name: "PPA",
+  //         number: "Unknown",
+  //       },
+  //       {
+  //         name: "Area",
+  //         number: "Unknown",
+  //       },
+  //     ],
+  //     posterAvatar: "",
+  //     posterName: "Patrick Connor",
+  //     postedYear: "1 year ago",
+  //     built: "2013",
+  //     amenities: "air-conditioning",
+  //     featured: "sale",
+  //     created_at: 1667181268893,
+  //   },
+  // ];
+
+  // selectedMarker[0]["title"] = name;
+  // selectedMarker[0]["type"] = fuel;
+  // selectedMarker[0]["title"] = name;
+  // selectedMarker[0]["itemDetails"][0]["number"] = capacity;
+  // selectedMarker[0]["price"] = capacity * 2;
+  // selectedMarker[0]["posterAvatar"] = image;
+
+  // const cardFromMarkers = selectedMarker.map((item) => (
   const coordinates = data.data[0] ? data.data[0][0] : undefined;
   const capacity = data.data[0] ? data.data[0][1]["capacity"] : undefined;
   const fuel = data.data[0] ? data.data[0][1]["fuel"] : undefined;
   const name = data.data[0] ? data.data[0][1]["name"] : undefined;
   const owner = data.data[0] ? data.data[0][1]["owner"] : undefined;
+  const address = data.data[0] ? data.data[0][1]["address"] : undefined;
   const commissioned = data.data[0]
     ? data.data[0][1]["commissioned"]
     : undefined;
   const image = data.data[0] ? data.data[0][1]["image"] : undefined;
 
-  const selectedMarker = [
-    {
-      id: 0,
-      img: "",
-      price: "7.4",
-      type: "Solar",
-      title: "Blabla Title",
-      location: `1421 San Pedro`,
-      saleTag: ["Selected", "Not For Sale"],
-      itemDetails: [
-        {
-          name: "Capacity",
-          number: "5MWp",
-        },
-        {
-          name: "PPA",
-          number: "Unknown",
-        },
-        {
-          name: "Area",
-          number: "Unknown",
-        },
-      ],
-      posterAvatar: "",
-      posterName: "Patrick Connor",
-      postedYear: "1 year ago",
-      built: "2013",
-      amenities: "air-conditioning",
-      featured: "sale",
-      created_at: 1667181268893,
-    },
-  ];
-
-  selectedMarker[0]["title"] = name;
-  selectedMarker[0]["type"] = fuel;
-  selectedMarker[0]["title"] = name;
-  selectedMarker[0]["itemDetails"][0]["number"] = capacity;
-  selectedMarker[0]["price"] = capacity * 2;
-  selectedMarker[0]["posterAvatar"] = image;
-
-  const cardFromMarkers = selectedMarker.map((item) => (
+  const cardFromMarkers = (
     <div
       className={`${
         isGridOrList ? "col-12 list_map feature-list" : "col-md-6 col-lg-6"
       } `}
-      key={item.id}
+      key={0}
     >
       <div
         className={`feat_property home7 style4 ${
@@ -289,15 +292,19 @@ function FeaturedItem(data) {
       >
         <div className="thumb">
           {/* Ideal image size is 752x450 */}
-          <img className="img-whp" src={item.img} alt="image not available" />
+          <img
+            className="img-whp"
+            src={"assets/images/property/1.jpg"}
+            alt="image not available"
+          />
           <div className="thmb_cntnt">
             <ul className="tag mb0">
               <li className="list-inline-item">
-                <a href="#">Featured</a>
+                <a href="#">Selected</a>
               </li>
               <li className="list-inline-item">
                 <a href="#" className="text-capitalize">
-                  {item.featured}
+                  Operational
                 </a>
               </li>
             </ul>
@@ -314,62 +321,66 @@ function FeaturedItem(data) {
               </li>
             </ul>
 
-            <Link href={`/listing-details-v1/${item.id}`}>
+            {/* <Link href={`/listing-details-v1/${"item.id"}`}>
               <a className="fp_price">
-                ${item.price}
-                <small>million (estimated)</small>
+                {capacity}
+                <small>MW</small>
               </a>
-            </Link>
+            </Link> */}
           </div>
         </div>
         <div className="details">
           <div className="tc_content">
-            <p className="text-thm">{item.type}</p>
+            <p className="text-thm">
+              {capacity} <small>MW</small> {"- " + fuel}
+            </p>
             <h4>
-              <Link href={`/listing-details-v1/${item.id}`}>
-                <a>{item.title}</a>
+              <Link href={`/listing-details-v1/${"item.id"}`}>
+                <a>{name}</a>
               </Link>
             </h4>
             <p>
               <span className="flaticon-placeholder"></span>
-              {item.location}
+              {" " + address}
             </p>
 
             <ul className="prop_details mb0">
-              {item.itemDetails.map((val, i) => (
-                <li className="list-inline-item" key={i}>
-                  <a href="#">
-                    {val.name}: {val.number}
-                  </a>
-                </li>
-              ))}
+              <li className="list-inline-item">
+                <a href="#">
+                  {"Owned by"}: {owner}
+                </a>
+              </li>
+              <li className="list-inline-item">
+                <a href="#">
+                  {"Built in: "}: {commissioned}
+                </a>
+              </li>
             </ul>
           </div>
           {/* End .tc_content */}
 
-          <div className="fp_footer">
+          {/* <div className="fp_footer">
             <ul className="fp_meta float-start mb0">
               <li className="list-inline-item">
                 <Link href="/agent-v2">
                   <a>
-                    <img src={item.posterAvatar} alt="pposter1.png" />
+                    <img src={image} alt="pposter1.png" />
                   </a>
                 </Link>
               </li>
               <li className="list-inline-item">
                 <Link href="/agent-v2">
-                  <a>{item.posterName}</a>
+                  <a>{"item.posterName"}</a>
                 </Link>
               </li>
             </ul>
-            <div className="fp_pdate float-end">{item.postedYear}</div>
-          </div>
+            <div className="fp_pdate float-end">updated in 2023</div>
+          </div> */}
           {/* End .fp_footer */}
         </div>
       </div>
     </div>
-  ));
-
+  );
   // add length of filter items
   useEffect(() => {
     dispatch(addLength(content.length));
@@ -379,7 +390,7 @@ function FeaturedItem(data) {
   console.log(data.data[0]);
   return (
     <>
-      <>{cardFromMarkers}</>
+      <>{data.data[0] && cardFromMarkers}</>
       <div className="grid_list_search_result ">
         <div className="row align-items-center">
           <FilterTopBar2 />

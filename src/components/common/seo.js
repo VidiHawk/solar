@@ -3,15 +3,15 @@ import Head from "next/head";
 const Seo = ({ pageTitle, font }) => (
   <>
     <Head>
-      <title>{pageTitle && `${pageTitle} || Tera Power`}</title>
+      <title>{pageTitle && `${pageTitle} - Tera Power`}</title>
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta
         name="keywords"
-        content="advanced custom search, agency, agent, business, clean, corporate, directory, google maps, homes, idx agent, listing properties, membership packages, property, real broker, real estate, real estate agent, real estate agency, realtor"
+        content="power plant, renewable energy, database, agent, broker, business, corporate, directory, listing power plants, subscribe packages"
       />
       <meta
         name="description"
-        content="Tera Power - the Power Plant Marketplace"
+        content="Tera Power - The Power Plant Marketplace"
       />
       <meta name="ibthemes" content="ATFN" />
       <meta

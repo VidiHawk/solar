@@ -1,3 +1,5 @@
+# heavy imagery
+/public/assets/images/powerplants/*
 
 # database for development purposes
 *.json

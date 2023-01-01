@@ -5,7 +5,7 @@ import ListingMapV4 from "../../components/listing-half-map/listing-map-v4";
 const index = () => {
   return (
     <>
-      <Seo pageTitle="Listing - Map V4" />
+      <Seo pageTitle="Map" />
       <ListingMapV4 />
     </>
   );
