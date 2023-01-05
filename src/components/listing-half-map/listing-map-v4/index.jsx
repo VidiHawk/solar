@@ -4,26 +4,14 @@
 import Pagination from "../../common/blog/Pagination";
 import Header from "../../common/header/DefaultHeader";
 import MobileMenu from "../../common/header/MobileMenu";
-import FilterTopBar2 from "../../common/listing/FilterTopBar2";
-import GridListButton from "../../common/listing/GridListButton";
 import ShowFilter from "../../common/listing/ShowFilter";
 import SidebarListing2 from "../../common/listing/SidebarListing2";
 import PopupSignInUp from "../../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
 import React, { useEffect, useState, useRef, useCallback } from "react";
-// import useSupercluster from "use-supercluster";
-import useSwr from "swr"; // excellent API fetching library
-import generatorData from "./global.json";
 import Head from "next/head";
-import { addDataLayer } from "../../common/map/delete-addDataLayer";
-import { initializeMap } from "../../common/map/delete- initializeMap";
-import MapCard from "../../common/map/MapCard";
-import map_style from "../../common/map/style.json";
-import style_base from "../../common/map/style_base";
-import style_power from "../../common/map/style_power";
-import maplibregl from "maplibre-gl";
 
-// const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+import mapLibreGL from "./web/src/index";
 
 const index = () => {
   const [pageIsMounted, setPageIsMounted] = useState(false);
@@ -39,22 +27,11 @@ const index = () => {
     // let map = new mapboxgl.Map({
     //   container: "my-map",
     //   style: "mapbox://styles/thefabster/cl7qbppp0003l15o6drhio03h",
-    //   // style: infraStyle,
     //   center: [-6.235, 53.342],
     //   zoom: 5,
     //   attributionControl: false,
     // });
-
-    const oim_layers = style_power;
-    map_style.layers = style_base.concat(oim_layers);
-    // map_style["sprite"] = "http://localhost:8080/style/sprite";
-    const maplibre = new maplibregl.Map({
-      container: "my-map",
-      style: map_style,
-      minZoom: 2,
-      maxZoom: 17.9,
-      center: [12, 26],
-    });
+    mapLibreGL();
 
     /// ------------------------------------------------
 
