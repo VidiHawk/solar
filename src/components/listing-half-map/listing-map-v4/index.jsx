@@ -15,15 +15,15 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import useSwr from "swr"; // excellent API fetching library
 import generatorData from "./global.json";
 import Head from "next/head";
-import { addDataLayer } from "../../common/map/addDataLayer";
-import { initializeMap } from "../../common/map/initializeMap";
+import { addDataLayer } from "../../common/map/delete-addDataLayer";
+import { initializeMap } from "../../common/map/delete- initializeMap";
 import MapCard from "../../common/map/MapCard";
 import map_style from "../../common/map/style.json";
 import style_base from "../../common/map/style_base";
-import power_layer from "../../common/map/powerLayer";
+import style_power from "../../common/map/style_power";
 import maplibregl from "maplibre-gl";
 
-const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
+// const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 const index = () => {
   const [pageIsMounted, setPageIsMounted] = useState(false);
@@ -31,7 +31,7 @@ const index = () => {
   const [sharedCard, setSharedCard] = useState({});
   const [selectedMarker, setSelectedMarker] = useState({});
 
-  mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+  // mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
   useEffect(() => {
     setPageIsMounted(true);
@@ -45,7 +45,7 @@ const index = () => {
     //   attributionControl: false,
     // });
 
-    const oim_layers = power_layer;
+    const oim_layers = style_power;
     map_style.layers = style_base.concat(oim_layers);
     // map_style["sprite"] = "http://localhost:8080/style/sprite";
     const maplibre = new maplibregl.Map({
