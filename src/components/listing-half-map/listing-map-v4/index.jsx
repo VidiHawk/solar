@@ -11,13 +11,18 @@ import SidebarListing2 from "../../common/listing/SidebarListing2";
 import PopupSignInUp from "../../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import useSupercluster from "use-supercluster";
+// import useSupercluster from "use-supercluster";
 import useSwr from "swr"; // excellent API fetching library
 import generatorData from "./global.json";
 import Head from "next/head";
 import { addDataLayer } from "../../common/map/addDataLayer";
 import { initializeMap } from "../../common/map/initializeMap";
 import MapCard from "../../common/map/MapCard";
+import map_style from "../../common/map/style.json";
+import style_base from "../../common/map/style_base";
+import power_layer from "../../common/map/powerLayer";
+import maplibregl from "maplibre-gl";
+
 const mapboxgl = require("mapbox-gl/dist/mapbox-gl.js");
 
 const index = () => {
@@ -31,25 +36,39 @@ const index = () => {
   useEffect(() => {
     setPageIsMounted(true);
 
-    let map = new mapboxgl.Map({
+    // let map = new mapboxgl.Map({
+    //   container: "my-map",
+    //   style: "mapbox://styles/thefabster/cl7qbppp0003l15o6drhio03h",
+    //   // style: infraStyle,
+    //   center: [-6.235, 53.342],
+    //   zoom: 5,
+    //   attributionControl: false,
+    // });
+
+    const oim_layers = power_layer;
+    map_style.layers = style_base.concat(oim_layers);
+    // map_style["sprite"] = "http://localhost:8080/style/sprite";
+    const maplibre = new maplibregl.Map({
       container: "my-map",
-      style: "mapbox://styles/thefabster/cl7qbppp0003l15o6drhio03h",
-      center: [-6.235, 53.342],
-      zoom: 5,
-      attributionControl: false,
+      style: map_style,
+      minZoom: 2,
+      maxZoom: 17.9,
+      center: [12, 26],
     });
 
-    initializeMap(mapboxgl, map, setSharedCard, setSelectedMarker);
-    setMap(map);
+    /// ------------------------------------------------
+
+    // initializeMap(mapboxgl, map, setSharedCard, setSelectedMarker);
+    // setMap(map);
   }, []);
 
-  useEffect(() => {
-    if (pageIsMounted && generatorData) {
-      Map.on("load", function () {
-        addDataLayer(Map, generatorData, mapboxgl);
-      });
-    }
-  }, [pageIsMounted, setMap, generatorData, Map]);
+  // useEffect(() => {
+  //   if (pageIsMounted && generatorData) {
+  //     Map.on("load", function () {
+  //       addDataLayer(Map, generatorData, mapboxgl);
+  //     });
+  //   }
+  // }, [pageIsMounted, setMap, generatorData, Map]);
 
   // useEffect(() => {
   //   // get the users current location on initial session
