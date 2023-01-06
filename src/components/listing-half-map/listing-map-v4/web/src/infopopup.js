@@ -145,7 +145,7 @@ class InfoPopup {
   }
 
   popupHtml(feature) {
-    let attrs_table = el("table", { class: "item_info" });
+    let attrs_table = el("infotable", { class: "item_info" });
     setChildren(
       attrs_table,
       Object.keys(feature.properties)

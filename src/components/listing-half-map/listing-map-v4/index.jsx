@@ -10,51 +10,12 @@ import PopupSignInUp from "../../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Head from "next/head";
-
-import mapLibreGL from "./web/src/index";
+import Map from "./web/src/Map";
 
 const index = () => {
   const [pageIsMounted, setPageIsMounted] = useState(false);
-  const [Map, setMap] = useState();
   const [sharedCard, setSharedCard] = useState({});
   const [selectedMarker, setSelectedMarker] = useState({});
-
-  // mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-
-  useEffect(() => {
-    setPageIsMounted(true);
-
-    // let map = new mapboxgl.Map({
-    //   container: "my-map",
-    //   style: "mapbox://styles/thefabster/cl7qbppp0003l15o6drhio03h",
-    //   center: [-6.235, 53.342],
-    //   zoom: 5,
-    //   attributionControl: false,
-    // });
-    mapLibreGL();
-
-    /// ------------------------------------------------
-
-    // initializeMap(mapboxgl, map, setSharedCard, setSelectedMarker);
-    // setMap(map);
-  }, []);
-
-  // useEffect(() => {
-  //   if (pageIsMounted && generatorData) {
-  //     Map.on("load", function () {
-  //       addDataLayer(Map, generatorData, mapboxgl);
-  //     });
-  //   }
-  // }, [pageIsMounted, setMap, generatorData, Map]);
-
-  // useEffect(() => {
-  //   // get the users current location on initial session
-  //   navigator.geolocation.getCurrentPosition(
-  //     ({ coords: { latitude, longitude } }) => {
-  //       setCoordinates({ lat: latitude, lng: longitude });
-  //     }
-  //   );
-  // }, []);
 
   //THE FOLLOWING IS FOR THE CARD APPEARING ON FEATURED ITEMS
   // const coordinates = sharedCard[0] ? sharedCard[0][0] : "this";
@@ -150,10 +111,10 @@ const index = () => {
                   <div className="map_canvas half_style">
                     <Head>
                       {/* <link rel="icon" href="/favicon.ico" /> */}
-                      <link
+                      {/* <link
                         href="https://api.mapbox.com/mapbox-gl-js/v2.11.1/mapbox-gl.css"
                         rel="stylesheet"
-                      />
+                      /> */}
                       {/* <link
                         rel="stylesheet"
                         type="text/css"
@@ -165,10 +126,7 @@ const index = () => {
                         src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
                       ></script> */}
                     </Head>
-                    <main className="map-canvas">
-                      {/* <div id="my-map" style={{ height: 500, width: 500 }} /> */}
-                      <div id="my-map" style={{ height: 600, width: 650 }} />
-                    </main>
+                    <Map />
                   </div>
                 </div>
               </div>

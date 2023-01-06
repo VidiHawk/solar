@@ -130,7 +130,7 @@ class KeyControl {
 
   sprite(name, size = 25) {
     let spriteDiv = el("img.oim-plant-sprite", {
-      src: `/style/sprites/${name}.svg`,
+      src: `/assets/images/map/sprites/${name}.svg`,
       height: size,
     });
     setStyle(spriteDiv, {
