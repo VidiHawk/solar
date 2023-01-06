@@ -24,7 +24,11 @@ export default function Map() {
   const [zoom] = useState(3);
 
   useEffect(() => {
-    if (map.current) return; //stops map from intializing more than once
+    if (map.current) {
+      map.current.resize();
+      return; //stops map from intializing more than once
+    }
+
     // if (!maplibregl.supported({ failIfMajorPerformanceCaveat: true })) {
     //   const infobox = new InfoBox("Warning");
     //   infobox.update(
@@ -121,12 +125,10 @@ export default function Map() {
   // }, []);
 
   return (
-    <div className="map-canvas">
-      <div
-        ref={mapContainer}
-        className="my-map"
-        style={{ height: 600, width: 650 }}
-      />
-    </div>
+    <div
+      ref={mapContainer}
+      className="map_canvas my-map"
+      style={{ height: null, width: null }}
+    />
   );
 }
