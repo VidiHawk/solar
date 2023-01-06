@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import Seo from "../../components/common/seo";
-import ListingMapV4 from "../../components/listing-half-map/listing-map-v4";
+import ListingMapV4 from "../../components/map";
 
 const index = () => {
   return (
