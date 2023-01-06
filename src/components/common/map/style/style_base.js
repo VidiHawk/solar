@@ -1,19 +1,78 @@
 // INVERT COLORS:
-// https://stackoverflow.com/questions/35969656/how-can-i-generate-the-opposite-color-according-to-current-color
+// darkMode is currently set to false as colors are already inverted in main.css
+// under "my-map"
 
-const background = "rgb(242,243,240)";
-const park = "rgb(230, 233, 229)";
-const water = "hsl(207, 12%, 78%)";
-const ice_shelf = "hsl(0, 0%, 98%)";
-const glacier = "hsl(0, 0%, 98%)";
-const land_residential = "rgb(234, 234, 230)";
+const darkMode = false;
+
+function padZero(str, len) {
+  len = len || 2;
+  const zeros = new Array(len).join("0");
+  return (zeros + str).slice(-len);
+}
+
+function invertColor(colors) {
+  const invertedColors = {};
+  for (let key in colors) {
+    const r = parseInt(colors[key].slice(0, 2), 16),
+      g = parseInt(colors[key].slice(2, 4), 16),
+      b = parseInt(colors[key].slice(4, 6), 16);
+    // invert color components
+    const ri = (255 - r).toString(16);
+    const gi = (255 - g).toString(16);
+    const bi = (255 - b).toString(16);
+    // pad each with zeros and return
+    invertedColors[key] = "#" + padZero(ri) + padZero(gi) + padZero(bi);
+  }
+  return invertedColors;
+}
+
+const colors = {
+  background: "#F2F3F0",
+  park: "#E6E9E5",
+  water: "#C0C8CE",
+  ice_shelf: "#FAFAFA",
+  glacier: "#FAFAFA",
+  land_residential: "#EAEAE6",
+  landcover_wood: "#DCE2DC",
+  waterway: "#BCC8D2",
+  building_fill: "#EAEAE5",
+  building_outline: "#DBDBDA",
+  tunnel_motorway_casing: "#D5D5D5",
+  tunnel_motorway_inner: "#EAEAEA",
+  aeroway: "#E0E0E0",
+  aeroway_runway_casing: "#E0E0E0",
+  aeroway_area: "#FFFFFF",
+  aeroway_runway: "#FFFFFF",
+  highway_path: "#EAEAEA",
+  highway_minor_casing: "#D4D4D4",
+  highway_minor: "#EBEBEB",
+  highway_major_casing: "#D5D5D5",
+  highway_major_inner: "#FFFFFF",
+  highway_major_subtle: "#D9D9D9",
+  highway_motorway_casing: "#D5D5D5",
+  highway_motorway_inner: "#D9D9D9",
+  highway_motorway_inner2: "#FFFFFF",
+  highway_motorway_subtle: "#D9D9D9",
+  railway_transit: "#DDDDDD",
+  railway_transit_dashline: "#FAFAFA",
+  railway_service: "#DDDDDD",
+  railway_service_dashline: "#FAFAFA",
+  railway: "#C0C0C0",
+  railway_dashline: "#FAFAFA",
+  highway_motorway_bridge_casing: "#D5D5D5",
+  highway_motorway_bridge_inner: "#D9D9D9",
+  highway_motorway_bridge_inner2: "#FFFFFF",
+  boundary_country: "#E6CCCF",
+};
+
+const colorMode = darkMode ? invertColor(colors) : colors;
 
 const layers = [
   {
     id: "background",
     type: "background",
     paint: {
-      "background-color": background,
+      "background-color": colorMode.background,
     },
   },
   {
@@ -26,7 +85,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "fill-color": park,
+      "fill-color": colorMode.park,
     },
   },
   {
@@ -39,7 +98,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "fill-color": water,
+      "fill-color": colorMode.water,
       "fill-antialias": true,
     },
   },
@@ -58,7 +117,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "fill-color": ice_shelf,
+      "fill-color": colorMode.ice_shelf,
       "fill-opacity": 0.7,
     },
   },
@@ -73,7 +132,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "fill-color": glacier,
+      "fill-color": colorMode.glacier,
       "fill-opacity": {
         base: 1,
         stops: [
@@ -94,7 +153,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "fill-color": land_residential,
+      "fill-color": colorMode.land_residential,
       "fill-opacity": {
         base: 0.6,
         stops: [
@@ -115,7 +174,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "fill-color": "rgb(220,226,220)",
+      "fill-color": colorMode.landcover_wood,
       "fill-opacity": {
         base: 1,
         stops: [
@@ -135,7 +194,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "hsl(207, 20%, 78%)",
+      "line-color": colorMode.waterway,
     },
   },
   {
@@ -145,8 +204,8 @@ const layers = [
     "source-layer": "building",
     minzoom: 12,
     paint: {
-      "fill-color": "rgb(234, 234, 229)",
-      "fill-outline-color": "rgb(219, 219, 218)",
+      "fill-color": colorMode.building_fill,
+      "fill-outline-color": colorMode.building_outline,
       "fill-antialias": true,
     },
   },
@@ -167,7 +226,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "rgb(213, 213, 213)",
+      "line-color": colorMode.tunnel_motorway_casing,
       "line-width": {
         base: 1.4,
         stops: [
@@ -196,7 +255,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "rgb(234,234,234)",
+      "line-color": colorMode.tunnel_motorway_inner,
       "line-width": {
         base: 1.4,
         stops: [
@@ -220,7 +279,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "hsl(0, 0%, 88%)",
+      "line-color": colorMode.aeroway,
       "line-width": {
         base: 1.55,
         stops: [
@@ -244,7 +303,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "hsl(0, 0%, 88%)",
+      "line-color": colorMode.aeroway_runway_casing,
       "line-width": {
         base: 1.5,
         stops: [
@@ -277,7 +336,7 @@ const layers = [
           [14, 1],
         ],
       },
-      "fill-color": "rgba(255, 255, 255, 1)",
+      "fill-color": colorMode.aeroway_area,
     },
   },
   {
@@ -293,7 +352,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "rgba(255, 255, 255, 1)",
+      "line-color": colorMode.aeroway_runway,
       "line-width": {
         base: 1.5,
         stops: [
@@ -316,7 +375,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "rgb(234, 234, 234)",
+      "line-color": colorMode.highway_path,
       "line-width": {
         base: 1.2,
         stops: [
@@ -344,7 +403,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "hsl(0, 0%, 83%)",
+      "line-color": colorMode.highway_minor_casing,
       "line-width": {
         base: 1.3,
         stops: [
@@ -371,7 +430,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "hsl(0, 0%, 92%)",
+      "line-color": colorMode.highway_minor,
       "line-width": {
         base: 1.55,
         stops: [
@@ -398,7 +457,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "rgb(213, 213, 213)",
+      "line-color": colorMode.highway_major_casing,
       "line-dasharray": [12, 0],
       "line-width": {
         base: 1.3,
@@ -426,7 +485,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "#fff",
+      "line-color": colorMode.highway_major_inner,
       "line-width": {
         base: 1.3,
         stops: [
@@ -453,7 +512,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "hsla(0, 0%, 85%, 0.69)",
+      "line-color": colorMode.highway_major_subtle,
       "line-width": 1,
     },
   },
@@ -478,7 +537,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "rgb(213, 213, 213)",
+      "line-color": colorMode.highway_motorway_casing,
       "line-width": {
         base: 1.4,
         stops: [
@@ -515,8 +574,8 @@ const layers = [
       "line-color": {
         base: 1,
         stops: [
-          [5.8, "hsla(0, 0%, 85%, 0.53)"],
-          [6, "#fff"],
+          [5.8, colorMode.highway_motorway_inner],
+          [6, colorMode.highway_motorway_inner2],
         ],
       },
       "line-width": {
@@ -542,7 +601,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "hsla(0, 0%, 85%, 0.53)",
+      "line-color": colorMode.highway_motorway_subtle,
       "line-width": {
         base: 1,
         stops: [
@@ -568,7 +627,7 @@ const layers = [
       "line-join": "round",
     },
     paint: {
-      "line-color": "#dddddd",
+      "line-color": colorMode.railway_transit,
       "line-width": 3,
     },
   },
@@ -588,7 +647,7 @@ const layers = [
       "line-join": "round",
     },
     paint: {
-      "line-color": "#fafafa",
+      "line-color": colorMode.railway_transit_dashline,
       "line-width": 2,
       "line-dasharray": [3, 3],
     },
@@ -609,7 +668,7 @@ const layers = [
       "line-join": "round",
     },
     paint: {
-      "line-color": "#dddddd",
+      "line-color": colorMode.railway_service,
       "line-width": 3,
     },
   },
@@ -630,7 +689,7 @@ const layers = [
       "line-join": "round",
     },
     paint: {
-      "line-color": "#fafafa",
+      "line-color": colorMode.railway_service_dashline,
       "line-width": 2,
       "line-dasharray": [3, 3],
     },
@@ -651,7 +710,7 @@ const layers = [
       "line-join": "round",
     },
     paint: {
-      "line-color": "#c0c0c0",
+      "line-color": colorMode.railway,
       "line-width": {
         base: 1.3,
         stops: [
@@ -677,7 +736,7 @@ const layers = [
       "line-join": "round",
     },
     paint: {
-      "line-color": "#fafafa",
+      "line-color": colorMode.railway_dashline,
       "line-width": {
         base: 1.3,
         stops: [
@@ -705,7 +764,7 @@ const layers = [
       visibility: "visible",
     },
     paint: {
-      "line-color": "rgb(213, 213, 213)",
+      "line-color": colorMode.highway_motorway_bridge_casing,
       "line-width": {
         base: 1.4,
         stops: [
@@ -738,8 +797,8 @@ const layers = [
       "line-color": {
         base: 1,
         stops: [
-          [5.8, "hsla(0, 0%, 85%, 0.53)"],
-          [6, "#fff"],
+          [5.8, colorMode.highway_motorway_bridge_inner],
+          [6, colorMode.highway_motorway_bridge_inner2],
         ],
       },
       "line-width": {
@@ -763,7 +822,7 @@ const layers = [
       "line-join": "round",
     },
     paint: {
-      "line-color": "rgb(230, 204, 207)",
+      "line-color": colorMode.boundary_country,
       "line-width": {
         base: 1.1,
         stops: [

@@ -1,4 +1,3 @@
-import { text_paint, underground_p, font } from "./style_oim_common.js";
 // import browserLanguage from "in-browser-language";
 
 /* List of supported languages in the OpenInfraMap layer.
@@ -30,6 +29,39 @@ const local_name_tags = temp_list
 //   .filter(code => layer_supported_languages.includes(code))
 //   .map(code => `name_${code}`)
 //   .concat(['name']);
+
+const text_paint = {
+  "text-halo-width": 4,
+  "text-halo-blur": 2,
+  "text-halo-color": "rgba(230, 230, 230, 1)",
+};
+
+const operator_text = [
+  "step",
+  ["zoom"],
+  ["get", "name"],
+  14,
+  [
+    "case",
+    ["has", "operator"],
+    ["concat", ["get", "name"], " (", ["get", "operator"], ")"],
+    ["get", "name"],
+  ],
+];
+
+const underground_p = [
+  "any",
+  ["==", ["get", "location"], "underground"],
+  ["==", ["get", "location"], "underwater"],
+  ["==", ["get", "tunnel"], true],
+  [
+    "all", // Power cables are underground by default
+    ["==", ["get", "type"], "cable"],
+    ["==", ["get", "location"], ""],
+  ],
+];
+
+const font = ["Noto Sans Regular"];
 
 const voltage_scale = [
   [null, "#7A7A85"],
