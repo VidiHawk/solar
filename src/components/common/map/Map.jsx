@@ -94,14 +94,14 @@ export default function Map() {
       new maplibregl.NavigationControl({ showCompass: false }),
       "top-right"
     );
-    map.current.addControl(
-      new maplibregl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true,
-        },
-        trackUserLocation: true,
-      })
-    );
+    // map.current.addControl(
+    //   new maplibregl.GeolocateControl({
+    //     positionOptions: {
+    //       enableHighAccuracy: true,
+    //     },
+    //     trackUserLocation: true,
+    //   })
+    // );
 
     map.current.addControl(
       new maplibregl.ScaleControl({ position: "bottom-left" })
@@ -127,7 +127,7 @@ export default function Map() {
   return (
     <div
       ref={mapContainer}
-      className="map_canvas my-map"
+      className="map_canvas my-map darkmode"
       style={{ height: null, width: null }}
     />
   );

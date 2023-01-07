@@ -1,5 +1,7 @@
 // import browserLanguage from "in-browser-language";
 
+const darkMode = true;
+
 /* List of supported languages in the OpenInfraMap layer.
  * This should be kept up to date with the list in tegola/layers.yml.
  */
@@ -63,21 +65,245 @@ const underground_p = [
 
 const font = ["Noto Sans Regular"];
 
-const voltage_scale = [
-  [null, "#7A7A85"],
-  [10, "#6E97B8"],
-  [25, "#55B555"],
-  [52, "#B59F10"],
-  [132, "#B55D00"],
-  [220, "#C73030"],
-  [310, "#B54EB2"],
-  [550, "#00C1CF"],
-];
+const voltage_scale = darkMode
+  ? [
+      [null, "#7a7a85"],
+      [10, "#477091"],
+      [25, "#4aaa4a"],
+      [52, "#efd94a"],
+      [132, "#ffa74a"],
+      [220, "#38cfcf"],
+      [310, "#b14aae"],
+      [550, "#30f1ff"],
+    ]
+  : [
+      [null, "#7A7A85"],
+      [10, "#6E97B8"],
+      [25, "#55B555"],
+      [52, "#B59F10"],
+      [132, "#B55D00"],
+      [220, "#C73030"],
+      [310, "#B54EB2"],
+      [550, "#00C1CF"],
+    ];
 
 const special_voltages = {
   HVDC: "#4E01B5",
   "Traction (<50 Hz)": "#A8B596",
 };
+// const color_scale = [
+//   [null, "#7A7A85"],
+//   [10, "#6E97B8"],
+//   [25, "#55B555"],
+//   [52, "#B59F10"],
+//   [132, "#B55D00"],
+//   [220, "#C73030"],
+//   [310, "#B54EB2"],
+//   [550, "#00C1CF"],
+// ];
+
+// function padZero(str, len) {
+//   len = len || 2;
+//   const zeros = new Array(len).join("0");
+//   return (zeros + str).slice(-len);
+// }
+
+// // exepcts a string and returns an object
+// function rgbToHSL(rgb) {
+//   // strip the leading # if it's there
+//   rgb = rgb.replace(/^\s*#|\s*$/g, "");
+
+//   // convert 3 char codes --> 6, e.g. `E0F` --> `EE00FF`
+//   if (rgb.length == 3) {
+//     rgb = rgb.replace(/(.)/g, "$1$1");
+//   }
+
+//   var r = parseInt(rgb.substr(0, 2), 16) / 255,
+//     g = parseInt(rgb.substr(2, 2), 16) / 255,
+//     b = parseInt(rgb.substr(4, 2), 16) / 255,
+//     cMax = Math.max(r, g, b),
+//     cMin = Math.min(r, g, b),
+//     delta = cMax - cMin,
+//     l = (cMax + cMin) / 2,
+//     h = 0,
+//     s = 0;
+
+//   if (delta == 0) {
+//     h = 0;
+//   } else if (cMax == r) {
+//     h = 60 * (((g - b) / delta) % 6);
+//   } else if (cMax == g) {
+//     h = 60 * ((b - r) / delta + 2);
+//   } else {
+//     h = 60 * ((r - g) / delta + 4);
+//   }
+
+//   if (delta == 0) {
+//     s = 0;
+//   } else {
+//     s = delta / (1 - Math.abs(2 * l - 1));
+//   }
+
+//   return {
+//     h: h,
+//     s: s,
+//     l: l,
+//   };
+// }
+
+// // expects an object and returns a string
+// function hslToRGB(hsl) {
+//   var h = hsl.h,
+//     s = hsl.s,
+//     l = hsl.l,
+//     c = (1 - Math.abs(2 * l - 1)) * s,
+//     x = c * (1 - Math.abs(((h / 60) % 2) - 1)),
+//     m = l - c / 2,
+//     r,
+//     g,
+//     b;
+
+//   if (h < 60) {
+//     r = c;
+//     g = x;
+//     b = 0;
+//   } else if (h < 120) {
+//     r = x;
+//     g = c;
+//     b = 0;
+//   } else if (h < 180) {
+//     r = 0;
+//     g = c;
+//     b = x;
+//   } else if (h < 240) {
+//     r = 0;
+//     g = x;
+//     b = c;
+//   } else if (h < 300) {
+//     r = x;
+//     g = 0;
+//     b = c;
+//   } else {
+//     r = c;
+//     g = 0;
+//     b = x;
+//   }
+
+//   r = normalize_rgb_value(r, m);
+//   g = normalize_rgb_value(g, m);
+//   b = normalize_rgb_value(b, m);
+
+//   return rgbToHex(r, g, b);
+// }
+
+// function normalize_rgb_value(color, m) {
+//   color = Math.floor((color + m) * 255);
+//   if (color < 0) {
+//     color = 0;
+//   }
+//   return color;
+// }
+
+// function rgbToHex(r, g, b) {
+//   return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+// }
+
+// function changeHue(rgb, degree) {
+//   var hsl = rgbToHSL(rgb);
+//   hsl.h += degree;
+//   if (hsl.h > 360) {
+//     hsl.h -= 360;
+//   } else if (hsl.h < 0) {
+//     hsl.h += 360;
+//   }
+//   return hslToRGB(hsl);
+// }
+
+// function hex2dec(hex) {
+//   return hex
+//     .replace("#", "")
+//     .match(/.{2}/g)
+//     .map((n) => parseInt(n, 16));
+// }
+
+// function rgb2hex(r, g, b) {
+//   r = Math.round(r);
+//   g = Math.round(g);
+//   b = Math.round(b);
+//   r = Math.min(r, 255);
+//   g = Math.min(g, 255);
+//   b = Math.min(b, 255);
+//   return "#" + [r, g, b].map((c) => c.toString(16).padStart(2, "0")).join("");
+// }
+
+// function rgb2cmyk(r, g, b) {
+//   let c = 1 - r / 255;
+//   let m = 1 - g / 255;
+//   let y = 1 - b / 255;
+//   let k = Math.min(c, m, y);
+//   c = (c - k) / (1 - k);
+//   m = (m - k) / (1 - k);
+//   y = (y - k) / (1 - k);
+//   return [c, m, y, k];
+// }
+
+// function cmyk2rgb(c, m, y, k) {
+//   let r = c * (1 - k) + k;
+//   let g = m * (1 - k) + k;
+//   let b = y * (1 - k) + k;
+//   r = (1 - r) * 255 + 0.5;
+//   g = (1 - g) * 255 + 0.5;
+//   b = (1 - b) * 255 + 0.5;
+//   return [r, g, b];
+// }
+
+// function mix_cmyks(...cmyks) {
+//   let c =
+//     cmyks.map((cmyk) => cmyk[0]).reduce((a, b) => a + b, 0) / cmyks.length;
+//   let m =
+//     cmyks.map((cmyk) => cmyk[1]).reduce((a, b) => a + b, 0) / cmyks.length;
+//   let y =
+//     cmyks.map((cmyk) => cmyk[2]).reduce((a, b) => a + b, 0) / cmyks.length;
+//   let k =
+//     cmyks.map((cmyk) => cmyk[3]).reduce((a, b) => a + b, 0) / cmyks.length;
+//   return [c, m, y, k];
+// }
+
+// function mix_hexes(...hexes) {
+//   let rgbs = hexes.map((hex) => hex2dec(hex));
+//   let cmyks = rgbs.map((rgb) => rgb2cmyk(...rgb));
+//   let mixture_cmyk = mix_cmyks(...cmyks);
+//   let mixture_rgb = cmyk2rgb(...mixture_cmyk);
+//   let mixture_hex = rgb2hex(...mixture_rgb);
+//   return mixture_hex;
+// }
+
+// function transformColor(colors) {
+//   const transformedColors = [];
+//   for (const color of colors) {
+//     const hex = color[1].slice(1);
+//     const r = parseInt(hex.slice(0, 2), 16),
+//       g = parseInt(hex.slice(2, 4), 16),
+//       b = parseInt(hex.slice(4, 6), 16);
+//     // invert color components
+//     const ri = (255 - r).toString(16);
+//     const gi = (255 - g).toString(16);
+//     const bi = (255 - b).toString(16);
+//     // pad each with zeros
+//     const invertedColor = "#" + padZero(ri) + padZero(gi) + padZero(bi);
+//     // finally rotate hue by 180 degrees
+//     const changedHue = changeHue(color[1], -180);
+//     // transformedColors.push([color[0], mix_hexes(invertedColor, changedHue)]);
+//     transformedColors.push([color[0], changeHue(invertedColor, -180)]);
+//     // transformedColors.push([color[0], invertedColor]);
+//     console.log("transformedColors", transformedColors);
+//   }
+//   return transformedColors;
+// }
+
+// const voltage_scale = darkMode ? transformColor(color_scale) : color_scale;
+
+// console.log("voltage", voltage_scale);
 
 const plant_types = {
   coal: "power_plant_coal",

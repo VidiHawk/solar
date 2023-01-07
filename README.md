@@ -5,6 +5,7 @@
 ### Refactor setState() to Redux
 
 - [use Redux with NextJS](https://blog.logrocket.com/use-redux-next-js/)
+- [extend MapLibre control class to customize buttons](https://stackoverflow.com/questions/63709340/how-to-add-a-custom-geolocate-me-button-in-mapbox-gl-js)
 
 ### Power plant images
 - Get power plant images with the [Place API](https://stackoverflow.com/questions/28705590/api-to-display-the-nearest-photos-to-a-long-lat-location-from-google-maps-views)
