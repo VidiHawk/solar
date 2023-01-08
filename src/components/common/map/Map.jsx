@@ -84,6 +84,7 @@ export default function Map() {
       maxZoom: maxZoom,
       zoom: zoom,
       center: center,
+      attributionControl: false,
     });
 
     map.current.dragRotate.disable();

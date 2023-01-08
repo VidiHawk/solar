@@ -10197,19 +10197,19 @@ li.slick-slide.slick-active:nth-child(8) img {
 }
 
 /*== Pricing Table Four ==*/
-.membership_container {
+.pricing_container {
   background-color: #ffffff;
   padding: 30px 0 0;
   position: relative;
 }
 
-ul.mc_parent_list .membership_header .thumb {
+ul.mc_parent_list .pricing_header .thumb {
   border-radius: 8px;
   overflow: hidden;
   position: relative;
 }
 
-ul.mc_parent_list .membership_header .thumb:before {
+ul.mc_parent_list .pricing_header .thumb:before {
   background-color: rgba(0, 0, 0, 0.6);
   bottom: 0;
   content: "";
@@ -10219,7 +10219,7 @@ ul.mc_parent_list .membership_header .thumb:before {
   top: 0;
 }
 
-ul.mc_parent_list .membership_header .thumb a {
+ul.mc_parent_list .pricing_header .thumb a {
   background-color: #ffffff;
   border-radius: 8px;
   height: 30px;
@@ -10232,11 +10232,11 @@ ul.mc_parent_list .membership_header .thumb a {
   width: 30px;
 }
 
-ul.mc_parent_list .membership_header .thumb a span {
+ul.mc_parent_list .pricing_header .thumb a span {
   font-size: 10px;
 }
 
-ul.mc_parent_list .membership_header .thumb .price {
+ul.mc_parent_list .pricing_header .thumb .price {
   bottom: 15px;
   color: #ffffff;
   font-family: "Nunito";
@@ -10249,11 +10249,11 @@ ul.mc_parent_list .membership_header .thumb .price {
   right: 0;
 }
 
-ul.mc_parent_list .membership_header .details {
+ul.mc_parent_list .pricing_header .details {
   padding-top: 12px;
 }
 
-ul.mc_parent_list .membership_header .details p {
+ul.mc_parent_list .pricing_header .details p {
   font-size: 14px;
   font-family: "Nunito";
   color: var(--color-primary);
@@ -10304,7 +10304,7 @@ ul.mc_parent_list ul.mc_child_list.four li:last-child {
   border-bottom: none;
 }
 
-ul.mc_parent_list ul.mc_child_list .membership_header h4 {
+ul.mc_parent_list ul.mc_child_list .pricing_header h4 {
   font-size: 18px;
   font-family: "Nunito";
   color: #484848;

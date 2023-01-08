@@ -4,7 +4,7 @@ import Footer from "../common/footer/Footer";
 import MobileMenu from "../common/header/MobileMenu";
 import Partners from "../common/Partners";
 import PopupSignInUp from "../common/PopupSignInUp";
-import FindProperties from "../home-8/FindProperties";
+import FindProperties from "../home/FindProperties";
 import FeaturedProperties from "../home/FeaturedProperties";
 import Header from "./Header";
 import Hero from "./Hero";

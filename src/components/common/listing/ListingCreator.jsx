@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-const Creaator = () => {
+const Creator = () => {
   return (
     <div className="media d-flex">
       {/* Ideal photo size: 90x90*/}
@@ -16,4 +16,4 @@ const Creaator = () => {
   );
 };
 
-export default Creaator;
+export default Creator;

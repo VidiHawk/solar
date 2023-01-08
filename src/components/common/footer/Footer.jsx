@@ -22,7 +22,7 @@ const Footer = () => {
           <h4>Quick Links</h4>
           <ul className="list-unstyled">
             <li>
-              <Link href="/membership">
+              <Link href="/pricing">
                 <a>Pricing</a>
               </Link>
             </li>
@@ -32,7 +32,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="/blog-list-1">
+              <Link href="/blog-home">
                 <a>Blog</a>
               </Link>
             </li>

@@ -22,7 +22,7 @@ const HeaderMenuContent = ({ float = "" }) => {
     { id: 6, name: "Home 6", routerPath: "/home-6" },
     { id: 7, name: "Home 7", routerPath: "/home-7" },
     { id: 8, name: "Home 8", routerPath: "/home-8" },
-    { id: 9, name: "Home 9", routerPath: "/home-9" },
+    { id: 9, name: "Home", routerPath: "/home" },
     { id: 10, name: "Home 10", routerPath: "/home-10" },
   ];
 
@@ -62,8 +62,8 @@ const HeaderMenuContent = ({ float = "" }) => {
       title: "Listing List",
       items: [
         {
-          name: "List V1",
-          routerPath: "/listing-list-v1",
+          name: "List",
+          routerPath: "/listing-list",
         },
       ],
     },
@@ -103,7 +103,7 @@ const HeaderMenuContent = ({ float = "" }) => {
         },
         {
           name: "Map V4",
-          routerPath: "/listing-map-v4",
+          routerPath: "/map",
         },
       ],
     },
@@ -194,14 +194,14 @@ const HeaderMenuContent = ({ float = "" }) => {
       items: [
         {
           name: "Single V4",
-          routerPath: "/listing-details-v4",
+          routerPath: "/listing-details",
         },
       ],
     },
   ];
 
   const blog = [
-    { id: 1, name: "Blog List 1", routerPath: "/blog-list-1" },
+    { id: 1, name: "Blog Home", routerPath: "/blog-home" },
     {
       id: 4,
       name: "Blog Details",
@@ -215,7 +215,7 @@ const HeaderMenuContent = ({ float = "" }) => {
 
     { id: 4, name: "LogIn", routerPath: "/login" },
 
-    { id: 6, name: "Membership", routerPath: "/membership" },
+    { id: 6, name: "Pricing", routerPath: "/pricing" },
 
     { id: 7, name: "Register", routerPath: "/register" },
   ];

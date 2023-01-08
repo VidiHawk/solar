@@ -2337,7 +2337,7 @@
 		text-align: center;
 		width: 100%;
 	}
-	ul.mc_parent_list .membership_header .details p {
+	ul.mc_parent_list .pricing_header .details p {
 		margin-bottom: 0;
 	}
 	.checkout_form .checkout_coupon form input.coupon_input {
@@ -2639,7 +2639,7 @@
 		float: none !important;
 		margin-bottom: 15px;
 	}
-	.membership_container {
+	.pricing_container {
 		padding: 30px 5px;
 	}
 	.product_single_content.style2 .mbp_pagination_comments .mbp_first.media .mbp_sub.media,

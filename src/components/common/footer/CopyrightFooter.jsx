@@ -11,7 +11,7 @@ const CopyrightFooter = () => {
       routeLink: "/terms",
     },
     { id: 5, name: "Data Privacy", routeLink: "/terms" },
-    { id: 6, name: "Listing", routeLink: "/listing-details-V4" },
+    { id: 6, name: "Single Listing", routeLink: "/listing-details" },
   ];
 
   return (

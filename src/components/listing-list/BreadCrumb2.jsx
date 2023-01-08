@@ -1,4 +1,4 @@
-import BreadCrumb from "../../common/BreadCrumb";
+import BreadCrumb from "../common/BreadCrumb";
 
 const BreadCrumb2 = () => {
   return (

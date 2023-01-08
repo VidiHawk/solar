@@ -16,15 +16,15 @@ import Image from "next/image";
 const home = [
   {
     name: "Home",
-    routerPath: "/home-9",
+    routerPath: "/home",
   },
   {
     name: "Map",
     routerPath: "/",
   },
   {
-    name: "Listing Single",
-    routerPath: "/listing-details-v4",
+    name: "Single Listing",
+    routerPath: "/listing-details",
   },
 ];
 
@@ -74,7 +74,7 @@ const property = [
 ];
 
 const blog = [
-  { id: 1, name: "Blog List", routerPath: "/blog-list-1" },
+  { id: 1, name: "Blog Home", routerPath: "/blog-home" },
   {
     id: 4,
     name: "Blog Details",
@@ -92,7 +92,7 @@ const pages = [
     name: "LogIn",
     routerPath: "/login",
   },
-  { name: "Membership", routerPath: "/membership" },
+  { name: "Pricing", routerPath: "/pricing" },
 
   {
     name: "Register",

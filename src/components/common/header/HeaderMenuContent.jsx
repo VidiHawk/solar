@@ -5,7 +5,7 @@ const HeaderMenuContent = ({ float = "" }) => {
   const route = useRouter();
 
   // const home = [
-  //   { id: 9, name: "Home", routerPath: "/home-9" },
+  //   { id: 9, name: "Home", routerPath: "/home" },
   //   { id: 1, name: "Map", routerPath: "/" },
   // ];
 
@@ -58,7 +58,7 @@ const HeaderMenuContent = ({ float = "" }) => {
   ];
 
   // const blog = [
-  //   { id: 1, name: "Blog List", routerPath: "/blog-list-1" },
+  //   { id: 1, name: "Blog Home", routerPath: "/blog-home" },
   //   {
   //     id: 4,
   //     name: "Blog Details",
@@ -69,10 +69,10 @@ const HeaderMenuContent = ({ float = "" }) => {
   // const pages = [
   //   { id: 1, name: "About Us", routerPath: "/about-us" },
   //   { id: 2, name: "Gallery", routerPath: "/gallery" },
-  //   { id: 3, name: "Listing Single", routerPath: "/listing-details-v4" },
+  //   { id: 3, name: "Single Listing", routerPath: "/listing-details" },
 
   //   { id: 4, name: "LogIn", routerPath: "/login" },
-  //   { id: 6, name: "Membership", routerPath: "/membership" },
+  //   { id: 6, name: "Pricing", routerPath: "/pricing" },
 
   //   { id: 7, name: "Register", routerPath: "/register" },
   // ];
@@ -91,12 +91,8 @@ const HeaderMenuContent = ({ float = "" }) => {
         </Link>
       </li>
       <li className="last">
-        <Link href="/listing-map-v4">
-          <a
-            className={
-              route.pathname === "/listing-map-v4" ? "ui-active" : undefined
-            }
-          >
+        <Link href="/map">
+          <a className={route.pathname === "/map" ? "ui-active" : undefined}>
             Map
           </a>
         </Link>
@@ -200,11 +196,9 @@ const HeaderMenuContent = ({ float = "" }) => {
       </li> */}
 
       <li className="last">
-        <Link href="/membership">
+        <Link href="/pricing">
           <a
-            className={
-              route.pathname === "/membership" ? "ui-active" : undefined
-            }
+            className={route.pathname === "/pricing" ? "ui-active" : undefined}
           >
             Pricing
           </a>
