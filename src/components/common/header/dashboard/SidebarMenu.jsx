@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import {
   isParentPageActive,
   isSinglePageActive,
-} from "../../../../utils/daynamicNavigation";
+} from "../../../../utils/dynamicNavigation";
 import Image from "next/image";
 
 const SidebarMenu = () => {

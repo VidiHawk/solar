@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  addVisibleLayers,
   addFeatured,
   addStatusType,
 } from "../../../features/filter/filterSlice";
@@ -74,59 +75,59 @@ const FilteringItem = () => {
     { id: uuidv4(), name: "Far from populated areas" },
   ]);
 
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
 
   const Router = useRouter();
 
   // keyword
   useEffect(() => {
-    dispath(addKeyword(getKeyword));
-  }, [dispath, addKeyword, getKeyword]);
+    dispatch(addKeyword(getKeyword));
+  }, [dispatch, addKeyword, getKeyword]);
 
   // location
   useEffect(() => {
-    dispath(addLocation(getLocation));
-  }, [dispath, addLocation, getLocation]);
+    dispatch(addLocation(getLocation));
+  }, [dispatch, addLocation, getLocation]);
 
   // status
   useEffect(() => {
-    dispath(addStatus(getStatus));
-  }, [dispath, addStatus, getStatus]);
+    dispatch(addStatus(getStatus));
+  }, [dispatch, addStatus, getStatus]);
 
   // properties type
   useEffect(() => {
-    dispath(addPropertyType(getPropertiesType));
-  }, [dispath, addPropertyType, getPropertiesType]);
+    dispatch(addPropertyType(getPropertiesType));
+  }, [dispatch, addPropertyType, getPropertiesType]);
 
   // bathroom
   useEffect(() => {
-    dispath(addBathrooms(getBathroom));
-  }, [dispath, addBathrooms, getBathroom]);
+    dispatch(addBathrooms(getBathroom));
+  }, [dispatch, addBathrooms, getBathroom]);
 
   // bedroom
   useEffect(() => {
-    dispath(addBedrooms(getBedroom));
-  }, [dispath, addBedrooms, getBedroom]);
+    dispatch(addBedrooms(getBedroom));
+  }, [dispatch, addBedrooms, getBedroom]);
 
   // garages
   useEffect(() => {
-    dispath(addGarages(getGarages));
-  }, [dispath, addGarages, getGarages]);
+    dispatch(addGarages(getGarages));
+  }, [dispatch, addGarages, getGarages]);
 
   // built years
   useEffect(() => {
-    dispath(addYearBuilt(getBuiltYear));
-  }, [dispath, addYearBuilt, getBuiltYear]);
+    dispatch(addYearBuilt(getBuiltYear));
+  }, [dispatch, addYearBuilt, getBuiltYear]);
 
   // area min
   useEffect(() => {
-    dispath(dispath(addAreaMin(getAreaMin)));
-  }, [dispath, addAreaMin, getAreaMin]);
+    dispatch(dispatch(addAreaMin(getAreaMin)));
+  }, [dispatch, addAreaMin, getAreaMin]);
 
   // area max
   useEffect(() => {
-    dispath(dispath(addAreaMax(getAreaMax)));
-  }, [dispath, addAreaMax, getAreaMax]);
+    dispatch(dispatch(addAreaMax(getAreaMax)));
+  }, [dispatch, addAreaMax, getAreaMax]);
 
   // clear filter
   const clearHandler = () => {
@@ -138,7 +139,7 @@ const FilteringItem = () => {
     setLocation("");
     setStatus("");
     setPropertiesType("");
-    dispath(addPrice({ min: 10000, max: 20000 }));
+    dispatch(addPrice({ min: 10000, max: 20000 }));
     setBathroom("");
     setBedroom("");
     setBedroom("");
@@ -146,9 +147,10 @@ const FilteringItem = () => {
     setBuiltYear("");
     setAreaMin("");
     setAreaMax("");
-    dispath(resetAmenities());
-    dispath(addStatusType(""));
-    dispath(addFeatured(""));
+    dispatch(resetAmenities());
+    dispatch(addStatusType(""));
+    dispatch(addFeatured(""));
+    dispatch(addVisibleLayers(["Power", "Labels"]));
     clearAdvanced();
     clearLayers();
   };
@@ -164,7 +166,7 @@ const FilteringItem = () => {
 
   // add layer
   const layerHandler = (id) => {
-    const data = getAdvanced.map((feature) => {
+    const data = getLayers.map((feature) => {
       if (feature.id === id) {
         if (feature.isChecked) {
           feature.isChecked = false;
@@ -221,7 +223,7 @@ const FilteringItem = () => {
                           value={layer.name}
                           checked={layer.isChecked || false}
                           onChange={(e) =>
-                            dispath(addAmenities(e.target.value))
+                            dispatch(addVisibleLayers(e.target.value))
                           }
                           onClick={() => layerHandler(layer.id)}
                         />
@@ -480,7 +482,7 @@ const FilteringItem = () => {
                             value={feature.name}
                             checked={feature.isChecked || false}
                             onChange={(e) =>
-                              dispath(addAmenities(e.target.value))
+                              dispatch(addAmenities(e.target.value))
                             }
                             onClick={() => advancedHandler(feature.id)}
                           />

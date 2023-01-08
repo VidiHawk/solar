@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { isSinglePageActive } from "../../../../utils/daynamicNavigation";
+import { isSinglePageActive } from "../../../../utils/dynamicNavigation";
 
 const MyAccount = () => {
   const route = useRouter();

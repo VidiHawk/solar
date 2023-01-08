@@ -108,12 +108,12 @@ export default function Map() {
       new maplibregl.ScaleControl({ position: "bottom-left" })
     );
     map.current.addControl(new KeyControl(), "top-right");
-    map.current.addControl(layer_switcher, "top-right");
     map.current.addControl(new maplibregl.FullscreenControl());
     new InfoPopup(
       oim_layers.map((layer) => layer["id"]),
       9
     ).add(map.current);
+    map.current.addControl(layer_switcher, "top-right");
   });
 
   // useEffect(() => {

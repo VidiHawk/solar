@@ -1,6 +1,6 @@
 import FilteringItem from "./FilteringItem";
 
-const SidebarListing2 = () => {
+const SidebarListingMap = () => {
   return (
     <div className="sidebar_listing_grid1">
       <div className="sidebar_listing_list">
@@ -8,9 +8,8 @@ const SidebarListing2 = () => {
           <FilteringItem />
         </div>
       </div>
-      {/* End .sidebar_listing_list */}
     </div>
   );
 };
 
-export default SidebarListing2;
+export default SidebarListingMap;

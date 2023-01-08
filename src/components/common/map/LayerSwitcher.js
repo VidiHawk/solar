@@ -59,8 +59,9 @@ class LayerSwitcher {
 
   setInitialVisibility(style) {
     /**
-     * Modify a map style before adding to the map to set initial visibility states.
-     * This prevents flash-of-invisible-layers.
+     * Adding the layer switcher to the map after it's been initialised will result in the
+     * hidden layers being briefly shown. To avoid this, we need to load the style into JS
+     * first , and call the `setInitialVisibility` method on the loaded style object.
      */
     for (let layer of style["layers"]) {
       for (let layer_name in this._layers) {

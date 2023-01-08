@@ -5,7 +5,7 @@ import Pagination from "../common/blog/Pagination";
 import Header from "../common/header/DefaultHeader";
 import MobileMenu from "../common/header/MobileMenu";
 import ShowFilter from "../common/listing/ShowFilter";
-import SidebarListing2 from "../common/listing/SidebarListing2";
+import SidebarListingMap from "../common/listing/SidebarListingMap";
 import PopupSignInUp from "../common/PopupSignInUp";
 import FeaturedItem from "./FeaturedItem";
 import React, { useEffect, useState, useRef, useCallback } from "react";
@@ -93,7 +93,7 @@ const index = () => {
                 {/* End .offcanvas-heade */}
 
                 <div className="offcanvas-body">
-                  <SidebarListing2 />
+                  <SidebarListingMap />
                 </div>
               </div>
               {/* End mobile sidebar listing  */}
