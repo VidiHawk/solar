@@ -36,7 +36,6 @@ Try to achieve a great user experience when interacting with markers on the map.
 Consider removing the following packages:
 - jquery (83kB) --> remove it also from the <head>
 - framer-motion (152kB)
-- slick-carousel (40kB) --> remove it also from the <head>
 
 ## Running the code
 
@@ -50,12 +49,14 @@ This branch is <b>mapbox<b>
 
 Recap of branches:
 
-- master: initial branch
+1. master: initial branch
   
-- barebone: forked from master on Dec 5th 2022. The main difference from master is the removal of unused files and directories across the app
+2. barebone: forked from master on Dec 5th 2022. The main difference from master is the removal of unused files and directories across the app
 
-- mapbox: forked from barebone on Dec 21st 2022. This is an attempt to use Mapbox GL API instead of the Google Maps API.
+3. mapbox: forked from barebone on Dec 21st 2022. This is an attempt to use Mapbox GL API instead of the Google Maps API.
 
+4. maplibre: forked from mapbox on Jan 5th 2022. This is an implementation of MapLibre GL instead of Mapbox GL.
+   
 ## Available Scripts
 
 ### From local host

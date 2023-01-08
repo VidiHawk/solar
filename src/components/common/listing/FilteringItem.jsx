@@ -53,6 +53,13 @@ const FilteringItem = () => {
   const [getAreaMin, setAreaMin] = useState(area.min);
   const [getAreaMax, setAreaMax] = useState(area.max);
 
+  // layers state
+  const [getLayers, setLayers] = useState([
+    { id: uuidv4(), name: "Power Grid" },
+    { id: uuidv4(), name: "Solar Heatmap" },
+    { id: uuidv4(), name: "Labels" },
+  ]);
+
   // advanced state
   const [getAdvanced, setAdvanced] = useState([
     { id: uuidv4(), name: "Private PPA" },
@@ -143,6 +150,32 @@ const FilteringItem = () => {
     dispath(addStatusType(""));
     dispath(addFeatured(""));
     clearAdvanced();
+    clearLayers();
+  };
+
+  // clear layers
+  const clearLayers = () => {
+    const changed = getLayers.map((item) => {
+      item.isChecked = false;
+      return item;
+    });
+    setLayers(changed);
+  };
+
+  // add layer
+  const layerHandler = (id) => {
+    const data = getAdvanced.map((feature) => {
+      if (feature.id === id) {
+        if (feature.isChecked) {
+          feature.isChecked = false;
+        } else {
+          feature.isChecked = true;
+        }
+      }
+      return feature;
+    });
+
+    setLayers(data);
   };
 
   // clear advanced
@@ -172,6 +205,41 @@ const FilteringItem = () => {
 
   return (
     <ul className="sasw_list mb0">
+      <li>
+        <div id="layers" className="panel-group">
+          <div className="panel">
+            <div className="panel-body row">
+              <div className="col-lg-12">
+                <ul className="ui_kit_checkbox selectable-list fn-400">
+                  {getLayers?.map((layer) => (
+                    <li key={layer.id}>
+                      <div className="form-check custom-checkbox">
+                        <input
+                          type="checkbox"
+                          className="form-check-input"
+                          id={layer.id}
+                          value={layer.name}
+                          checked={layer.isChecked || false}
+                          onChange={(e) =>
+                            dispath(addAmenities(e.target.value))
+                          }
+                          onClick={() => layerHandler(layer.id)}
+                        />
+                        <label className="form-check-label" htmlFor={layer.id}>
+                          {layer.name}
+                        </label>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      {/* End li */}
+
       <li className="search_area">
         <div className="form-group mb-3">
           <input

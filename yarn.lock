@@ -229,15 +229,6 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz#8be36a1f66f3265389e90b5f9c9962146758f728"
   integrity sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==
 
-"@russss/mapboxgl-layer-switcher@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@russss/mapboxgl-layer-switcher/-/mapboxgl-layer-switcher-1.0.0.tgz#251e430dadf83029511250c6d477719a6486b649"
-  integrity sha512-s4vpE9JdozBtpQDeFGDLfBFNMFH898ILAuQBSIVrdKfAn0o4msMDggTiTyDYQh6vearPdEiacu4suNvzk51ccA==
-  dependencies:
-    lodash.invert "^4.3.0"
-    lodash.isequal "^4.5.0"
-    redom "^3.24.2"
-
 "@swc/helpers@0.4.11":
   version "0.4.11"
   resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.4.11.tgz#db23a376761b3d31c26502122f349a21b592c8de"
@@ -2001,7 +1992,7 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
-redom@^3.24.2, redom@^3.27.1:
+redom@^3.27.1:
   version "3.29.1"
   resolved "https://registry.yarnpkg.com/redom/-/redom-3.29.1.tgz#38ec23136ee47a4bacbd683c4494ffc7737a4253"
   integrity sha512-hEQEcPGRj4W2UT4IIBsNw29zMNV6vtXQ8ttitQ+Uc5XpdQ7i8d5VgKfm6fPmYbbApKXa98dUoEzDgk1oqXVlMg==
@@ -2158,6 +2149,11 @@ slash@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-3.0.0.tgz#6539be870c165adbd5240220dbe361f1bc4d4634"
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
+
+slick-carousel@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.8.1.tgz#a4bfb29014887bb66ce528b90bd0cda262cc8f8d"
+  integrity sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==
 
 "source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.2:
   version "1.0.2"

@@ -55,10 +55,9 @@ const index = () => {
               </div>
             </div>
           </div>
-                 <div className="row">
+          <div className="row">
             <FindProperties />
           </div>
-          
         </div>
       </section> */}
 
