@@ -8,7 +8,7 @@ const SocialMedia = () => {
             type="text"
             className="form-control"
             id="formGroupExampleSkype"
-            placeholder="alitfn"
+            placeholder="fabian"
           />
         </div>
       </div>
@@ -21,7 +21,7 @@ const SocialMedia = () => {
             type="text"
             className="form-control"
             id="formGroupExampleWebsite"
-            placeholder="creativelayers@gmail.com"
+            placeholder="fabian@terapower.io"
           />
         </div>
       </div>

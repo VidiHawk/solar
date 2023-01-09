@@ -13,7 +13,7 @@ const MyAccount = () => {
           alt="e1.png"
         />
         <p>
-          Ali Tufan <br />
+          Fabian de Mortier <br />
           <span className="address">alitufan@gmail.com</span>
         </p>
       </div>

@@ -209,7 +209,9 @@ const SideBarFilter = () => {
           // console.log("Enabled layer name", layersEnabled[layer.name]);
           console.log("all layers: ", layersEnabled);
         } else {
-          layer.isChecked = true;
+          dispatch(addLayers("crap"));
+          // layer.isChecked = true;
+
           if (!layersEnabled.includes(layer.name)) {
             layersEnabled.push(layer.name);
             console.log("layer added: ", layer.name);

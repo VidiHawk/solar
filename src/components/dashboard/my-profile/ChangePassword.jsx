@@ -9,7 +9,7 @@ const ChangePassword = () => {
               type="text"
               className="form-control"
               id="formGroupExampleOldPass"
-              placeholder="alitfn"
+              placeholder="fabian"
             />
           </div>
         </div>

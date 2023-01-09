@@ -39,7 +39,7 @@ const property = [
       },
       {
         name: "My Power Plants",
-        routerPath: "/my-properties",
+        routerPath: "/my-generators",
       },
       {
         name: "My Message",

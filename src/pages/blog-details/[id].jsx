@@ -69,7 +69,7 @@ const BlogDetailsDynamic = () => {
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a href="#">Ali Tufan</a>
+                      <a href="#">Fabian de Mortier</a>
                     </li>
                     <li className="list-inline-item">
                       <span className="flaticon-calendar"></span>

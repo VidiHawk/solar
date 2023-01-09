@@ -18,7 +18,7 @@ const HeaderMenuContent = ({ float = "" }) => {
     {
       id: 2,
       name: "My Power Plants",
-      routerPath: "/my-properties",
+      routerPath: "/my-generators",
     },
     {
       id: 3,

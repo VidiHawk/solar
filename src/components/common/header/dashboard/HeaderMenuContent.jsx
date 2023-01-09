@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { useRouter } from "next/router";
 import MyAccount from "./MyAccount";
@@ -5,58 +6,7 @@ import MyAccount from "./MyAccount";
 const HeaderMenuContent = ({ float = "" }) => {
   const route = useRouter();
 
-  const home = [
-    {
-      id: 1,
-      name: "Home 1",
-      routerPath: "/",
-    },
-    { id: 2, name: "Home 2", routerPath: "/home-2" },
-    {
-      id: 3,
-      name: "Home 3",
-      routerPath: "/home-3",
-    },
-    { id: 4, name: "Home 4", routerPath: "/home-4" },
-    { id: 5, name: "Home 5", routerPath: "/home-5" },
-    { id: 6, name: "Home 6", routerPath: "/home-6" },
-    { id: 7, name: "Home 7", routerPath: "/home-7" },
-    { id: 8, name: "Home 8", routerPath: "/home-8" },
-    { id: 9, name: "Home", routerPath: "/home" },
-    { id: 10, name: "Home 10", routerPath: "/home-10" },
-  ];
-
   const listing = [
-    {
-      id: 1,
-      title: "Listing Grid",
-      items: [
-        {
-          name: "Grid v1",
-          routerPath: "/listing-grid-v1",
-        },
-        {
-          name: "Grid v2",
-          routerPath: "/listing-grid-v2",
-        },
-        {
-          name: "Grid v3",
-          routerPath: "/listing-grid-v3",
-        },
-        {
-          name: "Grid v4",
-          routerPath: "/listing-grid-v4",
-        },
-        {
-          name: "Grid v5",
-          routerPath: "/listing-grid-v5",
-        },
-        {
-          name: "Grid v6",
-          routerPath: "/listing-grid-v6",
-        },
-      ],
-    },
     {
       id: 2,
       title: "Listing List",
@@ -67,42 +17,13 @@ const HeaderMenuContent = ({ float = "" }) => {
         },
       ],
     },
-    {
-      id: 3,
-      title: "Listing Style",
-      items: [
-        {
-          name: "Parallax Style",
-          routerPath: "/parallax-style",
-        },
-        {
-          name: "Slider Style",
-          routerPath: "/slider-style",
-        },
-        {
-          name: "Map Header",
-          routerPath: "/map-header",
-        },
-      ],
-    },
+
     {
       id: 4,
-      title: "Listing Half",
+      title: "Listing Map",
       items: [
         {
-          name: "Map V1",
-          routerPath: "/listing-map-v1",
-        },
-        {
-          name: "Map V2",
-          routerPath: "/listing-map-v2",
-        },
-        {
-          name: "Map V3",
-          routerPath: "/listing-map-v3",
-        },
-        {
-          name: "Map V4",
+          name: "Map",
           routerPath: "/map",
         },
       ],
@@ -156,7 +77,7 @@ const HeaderMenuContent = ({ float = "" }) => {
         },
         {
           name: "My Power Plants",
-          routerPath: "/my-properties",
+          routerPath: "/my-generators",
         },
         {
           name: "My Message",
@@ -209,55 +130,29 @@ const HeaderMenuContent = ({ float = "" }) => {
     },
   ];
 
-  const pages = [
-    { id: 1, name: "About Us", routerPath: "/about-us" },
-    { id: 2, name: "Gallery", routerPath: "/gallery" },
-
-    { id: 4, name: "LogIn", routerPath: "/login" },
-
-    { id: 6, name: "Pricing", routerPath: "/pricing" },
-
-    { id: 7, name: "Register", routerPath: "/register" },
-  ];
-
   return (
     <ul
       id="respMenu"
       className="ace-responsive-menu text-end d-lg-block d-none"
       data-menu-style="horizontal"
     >
-      <li className="dropitem">
-        <a
-          href="#"
-          className={
-            home.some((page) => page.routerPath === route.pathname)
-              ? "ui-active"
-              : undefined
-          }
-        >
-          <span className="title">Home</span>
-          <span className="arrow"></span>
-        </a>
-        {/* <!-- Level Two--> */}
-
-        <ul className="sub-menu ">
-          {home.map((item) => (
-            <li key={item.id}>
-              <Link href={item.routerPath}>
-                <a
-                  className={
-                    route.pathname === item.routerPath ? "ui-active" : undefined
-                  }
-                >
-                  {item.name}
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      {" "}
+      <li className={`list-inline-item add_listing ${float}`}>
+        <Link href="/create-listing">
+          <a>
+            <span className="flaticon-plus"></span>
+            <span className="dn-lg"> Create Listing</span>
+          </a>
+        </Link>
+      </li>
+      <li className="last">
+        <Link href="/">
+          <a className={route.pathname === "/" ? "ui-active" : undefined}>
+            Home
+          </a>
+        </Link>
       </li>
       {/* End .dropitem */}
-
       <li className="dropitem">
         <a
           href="#"
@@ -311,7 +206,6 @@ const HeaderMenuContent = ({ float = "" }) => {
         </ul>
       </li>
       {/* End .dropitem */}
-
       <li className="dropitem">
         <a
           href="#"
@@ -371,37 +265,6 @@ const HeaderMenuContent = ({ float = "" }) => {
         </ul>
       </li>
       {/* End .dropitem */}
-
-      <li className="dropitem">
-        <a
-          href="#"
-          className={
-            pages.some((page) => page.routerPath === route.pathname)
-              ? "ui-active"
-              : undefined
-          }
-        >
-          <span className="title">Pages</span>
-          <span className="arrow"></span>
-        </a>
-        <ul className="sub-menu ">
-          {pages.map((item) => (
-            <li key={item.id}>
-              <Link href={item.routerPath}>
-                <a
-                  className={
-                    route.pathname === item.routerPath ? "ui-active" : undefined
-                  }
-                >
-                  {item.name}
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </li>
-      {/* End .dropitem */}
-
       <li className="dropitem">
         <a
           href="#"
@@ -438,7 +301,6 @@ const HeaderMenuContent = ({ float = "" }) => {
         </ul>
       </li>
       {/* End .dropitem */}
-
       <li className="last">
         <Link href="/contact">
           <a
@@ -449,16 +311,16 @@ const HeaderMenuContent = ({ float = "" }) => {
         </Link>
       </li>
       {/* End .dropitem */}
-
       <li className="user_setting">
         <div className="dropdown">
           <a className="btn dropdown-toggle" href="#" data-bs-toggle="dropdown">
+            {/* Ideal image size: 45x45 */}
             <img
               className="rounded-circle"
-              src="/assets/images/team/e1.png"
-              alt="e1.png"
+              src="/assets/images/team/fab.png"
+              alt="fab.png"
             />
-            <span className="dn-1199">Ali Tufan</span>
+            <span className="dn-1199">&nbsp;&nbsp; Fabian de Mortier</span>
           </a>
           <div className="dropdown-menu">
             <MyAccount />
@@ -466,15 +328,6 @@ const HeaderMenuContent = ({ float = "" }) => {
         </div>
       </li>
       {/* End ."user_setting */}
-
-      <li className={`list-inline-item add_listing ${float}`}>
-        <Link href="/create-listing">
-          <a>
-            <span className="flaticon-plus"></span>
-            <span className="dn-lg"> Create Listing</span>
-          </a>
-        </Link>
-      </li>
       {/* End .dropitem */}
     </ul>
   );

@@ -57,7 +57,7 @@ module.exports = [
   },
   {
     id: 8,
-    name: "Ali Tufan",
+    name: "Fabian de Mortier",
     designation: "Restaurant Owner",
     text: `Especially i want to give thanks to support team, this guys are
       friendly, correct, gave me quick and complete answers.`,
@@ -81,7 +81,7 @@ module.exports = [
   },
   {
     id: 11,
-    name: "Ali Tufan",
+    name: "Fabian de Mortier",
     designation: "Restaurant Owner",
     text: `Especially i want to give thanks to support team, this guys are
       friendly, correct, gave me quick and complete answers.`,

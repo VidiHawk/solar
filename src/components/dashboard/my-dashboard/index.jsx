@@ -51,8 +51,8 @@ const index = () => {
 
                 <div className="col-lg-12 mb10">
                   <div className="breadcrumb_content style2">
-                    <h2 className="breadcrumb_title">Howdy, Hasan</h2>
-                    <p>We are glad to see you again!</p>
+                    <h2 className="breadcrumb_title">Howdy, Fabian</h2>
+                    <p>Glad to see you again!</p>
                   </div>
                 </div>
               </div>
@@ -84,7 +84,9 @@ const index = () => {
               <div className="row mt50">
                 <div className="col-lg-12">
                   <div className="copyright-widget text-center">
-                    <p>© 2020 Find House. Made with love.</p>
+                    <p>
+                      © {new Date().getFullYear()} Tera Power. Made with love.
+                    </p>
                   </div>
                 </div>
               </div>

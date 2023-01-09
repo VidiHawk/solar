@@ -10,9 +10,9 @@ const SidebarMenu = () => {
   const route = useRouter();
 
   const myProperties = [
-    { id: 1, name: "General Elements", route: "/my-properties" },
-    { id: 2, name: "Advanced Elements", route: "/my-properties" },
-    { id: 3, name: "Editors", route: "/my-properties" },
+    { id: 1, name: "General Elements", route: "/my-generators" },
+    { id: 2, name: "Advanced Elements", route: "/my-generators" },
+    { id: 3, name: "Editors", route: "/my-generators" },
   ];
   const reviews = [
     { id: 1, name: "My Reviews", route: "/my-review" },
@@ -96,26 +96,20 @@ const SidebarMenu = () => {
           <ul>
             <li
               className={`treeview ${
-                isParentPageActive(myProperties, route.pathname) ? "active" : ""
+                isSinglePageActive("/my-generators", route.pathname)
+                  ? "active"
+                  : ""
               }`}
             >
-              <a data-bs-toggle="collapse" href="#my-property">
-                <i className="flaticon-home"></i> <span>My Properties</span>
-                <i className="fa fa-angle-down pull-right"></i>
-              </a>
-              <ul className="treeview-menu collapse" id="my-property">
-                {myProperties.map((item) => (
-                  <li key={item.id}>
-                    <Link href={item.route}>
-                      <a>
-                        <i className="fa fa-circle"></i> {item.name}
-                      </a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <Link href="/my-generators">
+                <a>
+                  <i className="flaticon-home"></i>
+                  <span> My Generators</span>
+                </a>
+              </Link>
             </li>
-            {/* end properties */}
+
+            {/* end generators */}
 
             <li
               className={`treeview ${
