@@ -3,27 +3,27 @@ import invert from "lodash.invert";
 import isEqual from "lodash.isequal";
 
 class LayerSwitcher {
-  constructor(layers, default_visible = []) {
+  constructor(layers, layersEnabled = []) {
     this._layers = layers;
     this._identifiers = this._initLayerIdentifiers();
-    this._default_visible = default_visible;
+    this.layersEnabled = layersEnabled;
     this._container = el("div", { class: "mapboxgl-ctrl layer-switcher-list" });
     this._container.appendChild(el("h3", "Layers"));
-    this._visible = [...default_visible];
+    this._visible = [...layersEnabled];
   }
 
   _initLayerIdentifiers() {
     let identifiers = {};
     Object.keys(this._layers)
       .sort()
-      .forEach((layer_name) => {
+      .forEach((layerName) => {
         let size = 1;
         let ident = null;
         do {
-          ident = layer_name.slice(0, size);
+          ident = layerName.slice(0, size);
           size++;
         } while (ident in identifiers);
-        identifiers[ident] = layer_name;
+        identifiers[ident] = layerName;
       });
     return identifiers;
   }
@@ -31,8 +31,8 @@ class LayerSwitcher {
   _getLayerIdentifiers() {
     let identifiers = [];
     let id_map = invert(this._identifiers);
-    this._visible.sort().forEach((layer_name) => {
-      identifiers.push(id_map[layer_name]);
+    this._visible.sort().forEach((layerName) => {
+      identifiers.push(id_map[layerName]);
     });
     return identifiers;
   }
@@ -41,10 +41,10 @@ class LayerSwitcher {
     var layers = this._map.getStyle().layers;
     for (let layer of layers) {
       let name = layer["id"];
-      for (let layer_name in this._layers) {
-        let pref = this._layers[layer_name];
+      for (let layerName in this._layers) {
+        let pref = this._layers[layerName];
         if (name.startsWith(pref)) {
-          if (this._visible.includes(layer_name)) {
+          if (this._visible.includes(layerName)) {
             this._map.setLayoutProperty(name, "visibility", "visible");
           } else {
             this._map.setLayoutProperty(name, "visibility", "none");
@@ -64,8 +64,8 @@ class LayerSwitcher {
      * first , and call the `setInitialVisibility` method on the loaded style object.
      */
     for (let layer of style["layers"]) {
-      for (let layer_name in this._layers) {
-        let pref = this._layers[layer_name];
+      for (let layerName in this._layers) {
+        let pref = this._layers[layerName];
         if (
           layer["id"].startsWith(pref) &&
           !this._visible.includes(layer["id"])
@@ -80,7 +80,7 @@ class LayerSwitcher {
   }
 
   getURLString() {
-    if (!isEqual(this._visible.sort(), this._default_visible.sort())) {
+    if (!isEqual(this._visible.sort(), this.layersEnabled.sort())) {
       return this._getLayerIdentifiers().join(",");
     }
     return null;
@@ -90,14 +90,14 @@ class LayerSwitcher {
     if (string) {
       const ids = string.split(",");
       if (ids.length == 0) {
-        this._visible = [...this._default_visible];
+        this._visible = [...this.layersEnabled];
       } else {
         this._visible = ids
           .map((id) => this._identifiers[id])
           .filter((id) => id);
       }
     } else {
-      this._visible = [...this._default_visible];
+      this._visible = [...this.layersEnabled];
     }
     if (this._map) {
       this._updateVisibility();

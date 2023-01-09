@@ -25,7 +25,6 @@ export default function Map() {
 
   useEffect(() => {
     if (map.current) {
-      map.current.resize();
       return; //stops map from intializing more than once
     }
 
@@ -60,8 +59,8 @@ export default function Map() {
       "Solar Generation": "heatmap_",
       Labels: "place_",
     };
-    const layers_enabled = ["Power", "Labels"];
-    const layer_switcher = new LayerSwitcher(layers, layers_enabled);
+    const layersEnabled = ["Power", "Labels"];
+    const layer_switcher = new LayerSwitcher(layers, layersEnabled);
     const url_hash = new URLHash(layer_switcher);
     layer_switcher.urlhash = url_hash;
 
@@ -103,16 +102,17 @@ export default function Map() {
     //     trackUserLocation: true,
     //   })
     // );
+    map.current.addControl(new maplibregl.FullscreenControl("top-right"));
+    new InfoPopup(
+      oim_layers.map((layer) => layer["id"]),
+      9
+    ).add(map.current);
 
     map.current.addControl(
       new maplibregl.ScaleControl({ position: "bottom-left" })
     );
     map.current.addControl(new KeyControl(), "top-right");
-    map.current.addControl(new maplibregl.FullscreenControl());
-    new InfoPopup(
-      oim_layers.map((layer) => layer["id"]),
-      9
-    ).add(map.current);
+
     map.current.addControl(layer_switcher, "top-right");
   });
 
