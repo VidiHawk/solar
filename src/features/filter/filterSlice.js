@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  visibleLayers: ["Power", "Labels"],
+  layers: [
+    { id: "power_", name: "Power", isChecked: true },
+    { id: "heatmap_", name: "Solar Generation", isChecked: false },
+    { id: "place_", name: "Labels", isChecked: true },
+  ],
+  // enabledLayers: ["Power", "Labels"],
   statusType: "",
   featured: "",
   isGridOrList: true,
@@ -11,9 +16,12 @@ export const filterSlice = createSlice({
   name: "filter",
   initialState,
   reducers: {
-    addVisibleLayers: (state, action) => {
-      state.visibleLayers = action.payload;
+    addLayers: (state, action) => {
+      state.layers = action.payload;
     },
+    // addEnabledLayers: (state, action) => {
+    //   state.enabledLayers = action.payload;
+    // },
     addStatusType: (state, action) => {
       state.statusType = action.payload;
     },
@@ -27,7 +35,8 @@ export const filterSlice = createSlice({
 });
 
 export const {
-  addVisibleLayers,
+  addLayers,
+  // addEnabledLayers,
   addStatusType,
   addFeatured,
   toggleGridAndList,

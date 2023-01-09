@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addVisibleLayers,
+  addLayers,
   addFeatured,
   addStatusType,
 } from "../../features/filter/filterSlice";
@@ -27,8 +27,6 @@ import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/router";
 import LayerSwitcher from "../common/map/LayerSwitcher";
 
-// ------- ADVANCED FEATURES ------- //
-
 const SideBarFilter = () => {
   const {
     keyword,
@@ -43,7 +41,17 @@ const SideBarFilter = () => {
     amenities,
   } = useSelector((state) => state.properties);
 
+  const layers = useSelector((state) => state.filter.layers);
+
+  console.log("getLayers", layers);
+
   // input state
+  const [getLayers, setLayers] = useState(layers);
+  // const getLayers = [
+  //   { id: "power_", name: "Power", isChecked: true },
+  //   { id: "heatmap_", name: "Solar Generation", isChecked: false },
+  //   { id: "place_", name: "Labels", isChecked: true },
+  // ];
   const [getKeyword, setKeyword] = useState(keyword);
   const [getLocation, setLocation] = useState(location);
   const [getStatus, setStatus] = useState(status);
@@ -54,21 +62,6 @@ const SideBarFilter = () => {
   const [getBuiltYear, setBuiltYear] = useState(yearBuilt);
   const [getAreaMin, setAreaMin] = useState(area.min);
   const [getAreaMax, setAreaMax] = useState(area.max);
-
-  // all available layers
-  const [getLayers, setLayers] = useState([
-    { id: "power_", name: "Power", isChecked: true },
-    { id: "heatmap_", name: "Solar Generation", isChecked: false },
-    { id: "place_", name: "Labels", isChecked: true },
-  ]);
-
-  const layers = {
-    Power: "power_",
-    "Solar Generation": "heatmap_",
-    Labels: "place_",
-  };
-  const layersEnabled = ["Power", "Labels"];
-  const layerSwitcher = new LayerSwitcher(layers, layersEnabled);
 
   // advanced state
   const [getAdvanced, setAdvanced] = useState([
@@ -87,6 +80,11 @@ const SideBarFilter = () => {
   const dispatch = useDispatch();
 
   const Router = useRouter();
+
+  // mapLayers
+  useEffect(() => {
+    dispatch(addLayers(getLayers));
+  }, [dispatch, addLayers, getLayers]);
 
   // keyword
   useEffect(() => {
@@ -159,38 +157,65 @@ const SideBarFilter = () => {
     dispatch(resetAmenities());
     dispatch(addStatusType(""));
     dispatch(addFeatured(""));
-    dispatch(addVisibleLayers(["Power", "Labels"]));
+    // dispatch(addLayers(["Power", "Labels"]));
     clearAdvanced();
     clearLayers();
   };
 
   // clear layers
   const clearLayers = () => {
-    const changed = getLayers.map((item) => {
-      item.isChecked = false;
+    const changed = getLayers.map((layer) => {
+      layer.isChecked = false;
       return item;
     });
     setLayers(changed);
   };
+
+  const getLayerIds = () => {
+    const layersIds = [];
+    getLayers.map((layer) => {
+      layersIds.push(layer.id);
+    });
+    return layersIds;
+  };
+
+  const getLayersEnabled = () => {
+    const layersEnabled = [];
+    getLayers.map((layer) => {
+      if (layer.isChecked) {
+        layersEnabled.push(layer.name);
+      }
+    });
+    return layersEnabled;
+  };
+
+  const layerIds = getLayerIds();
+  const layersEnabled = getLayersEnabled();
+
+  // console.log("layers", getLay);
+  const layerSwitcher = new LayerSwitcher(layerIds, layersEnabled);
 
   // add layer
   const layerHandler = (id) => {
     const data = getLayers.map((layer) => {
       if (layer.id === id) {
         if (layer.isChecked) {
+          console.log("layer removed: ", layer.name);
           layer.isChecked = false;
           const index = layersEnabled.indexOf(layer.name);
           if (index > -1) {
-            // only splice layersEnabled when item is found
-            layersEnabled.splice(index, 1); // 2nd parameter means remove one item only
+            layersEnabled.splice(index, 1);
           }
-          console.log("Enabled layer name", layersEnabled[layer.name]);
-          console.log("all layers enabled", layersEnabled);
+          // console.log("Enabled layer name", layersEnabled[layer.name]);
+          console.log("all layers: ", layersEnabled);
         } else {
           layer.isChecked = true;
           if (!layersEnabled.includes(layer.name)) {
             layersEnabled.push(layer.name);
+            console.log("layer added: ", layer.name);
           }
+
+          console.log("all layers: ", layersEnabled);
         }
       }
 
@@ -252,7 +277,7 @@ const SideBarFilter = () => {
                                 value={layer.name}
                                 checked={layer.isChecked || false}
                                 onChange={(e) =>
-                                  dispatch(addVisibleLayers(e.target.value))
+                                  dispatch(addLayers(e.target.value))
                                 }
                                 onClick={() => layerHandler(layer.id)}
                               />

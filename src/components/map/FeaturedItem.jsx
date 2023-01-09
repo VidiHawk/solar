@@ -387,7 +387,7 @@ function FeaturedItem(data) {
   }, [dispatch, addLength, content]);
 
   // console.log(JSON.stringify(properties.slice(0, 1), null, "  "));
-  console.log(data.data[0]);
+  // console.log(data.data[0]);
   return (
     <>
       <>{data.data[0] && cardFromMarkers}</>
