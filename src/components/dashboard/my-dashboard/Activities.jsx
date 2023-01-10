@@ -12,8 +12,7 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Your listing <strong>Luxury Family Home</strong> has been
-              approved!.
+              Your listing <strong>2MW Solar Farm</strong> has been approved!.
             </p>
           </li>
         </ul>
@@ -31,7 +30,7 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Kathy Brown left a review on <strong>Renovated Apartment</strong>
+              Kathy Brown left a review on <strong>5MW Wind Farm</strong>
             </p>
           </li>
         </ul>
@@ -49,8 +48,7 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Someone favorites your <strong>Gorgeous Villa Bay View</strong>{" "}
-              listing!
+              Someone favorites your <strong>2MW Solar Farm</strong> listing!
             </p>
           </li>
         </ul>
@@ -68,8 +66,7 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Your listing <strong>Luxury Family Home</strong> has been
-              approved!
+              Your listing <strong>5MW Wind Farm</strong> has been approved!
             </p>
           </li>
         </ul>
@@ -87,7 +84,8 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Kathy Brown left a review on <strong>Renovated Apartment</strong>
+              Kathy Brown left a review on{" "}
+              <strong>700kW Hydroelectric dam</strong>
             </p>
           </li>
         </ul>
@@ -105,8 +103,8 @@ const Activities = () => {
 
           <li className="list-inline-item">
             <p>
-              Someone favorites your <strong>Gorgeous Villa Bay</strong> View
-              listing!
+              Someone favorites your <strong>700kW Hydroelectric dam</strong>{" "}
+              View listing!
             </p>
           </li>
         </ul>

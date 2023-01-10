@@ -19,7 +19,7 @@ const AllStatistics = () => {
       blockStyle: "style3",
       icon: "flaticon-chat",
       timer: "12",
-      name: "Total Visitor Reviews",
+      name: "Total Reviews",
     },
     {
       id: 4,

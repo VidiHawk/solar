@@ -12,6 +12,7 @@ const ProfileInfo = () => {
     <div className="row">
       <div className="col-lg-12">
         <div className="wrap-custom-file">
+          {/* Image size at least 260x260 */}
           <input
             type="file"
             id="image1"

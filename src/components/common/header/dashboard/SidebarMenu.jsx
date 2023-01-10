@@ -109,7 +109,7 @@ const SidebarMenu = () => {
               </Link>
             </li>
 
-            {/* end generators */}
+            {/* end generatorswrap-custom-filewrap-custom-file */}
 
             <li
               className={`treeview ${
